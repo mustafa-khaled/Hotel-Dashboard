@@ -1,0 +1,17 @@
+.confirmDelete {
+  width: 40rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.confirmDelete p {
+  color: var(--color-grey-500);
+  margin-bottom: 1.2rem;
+}
+
+.confirmDelete div {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.2rem;
+}

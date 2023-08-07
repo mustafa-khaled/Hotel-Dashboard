@@ -1,0 +1,19 @@
+.dataItem {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  padding: 0.8rem 0;
+}
+
+.lapel {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-weight: 500;
+}
+
+.lapel svg {
+  width: 2rem;
+  height: 2rem;
+  color: var(--color-brand-600);
+}
