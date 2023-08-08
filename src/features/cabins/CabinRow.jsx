@@ -1,8 +1,9 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { formatCurrency } from "../../utils/helpers";
 import { deleteCabin } from "../../services/apiCabins";
-import styles from "./CabinRow.module.css";
 import { toast } from "react-hot-toast";
+import Button from "../../ui/button/Button";
+import styles from "./CabinRow.module.css";
 
 function CabinRow({ cabin }) {
   const {
@@ -36,9 +37,13 @@ function CabinRow({ cabin }) {
       <div>Fits Up To {maxCapacity} Guest</div>
       <div className={styles.price}>{formatCurrency(regularPrice)}</div>
       <div className={styles.discount}>{formatCurrency(discount)}</div>
-      <button onClick={() => mutate(cabinId)} disabled={isDeleting}>
+      <Button
+        onClick={() => mutate(cabinId)}
+        disabled={isDeleting}
+        variation="danger"
+        size="small">
         {isDeleting ? "Deleting" : "Delete"}
-      </button>
+      </Button>
     </div>
   );
 }

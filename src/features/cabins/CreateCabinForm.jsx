@@ -10,7 +10,7 @@ import FileInput from "../../ui/fileInput/FileInput";
 import Lapel from "../../ui/lapel/Lapel";
 
 function CreateCabinForm() {
-  const { register, handleSubmit, reset } = useForm();
+  const { register, handleSubmit, reset, getValues } = useForm();
 
   const queryClient = useQueryClient();
 
@@ -26,18 +26,22 @@ function CreateCabinForm() {
     },
   });
 
-  function submitHandler(data) {
+  function onSubmit(data) {
     mutate(data);
   }
 
+  function onError(errors) {
+    console.log(errors);
+  }
+
   return (
-    <Form submit={handleSubmit(submitHandler)}>
+    <Form submit={handleSubmit(onSubmit, onError)}>
       <FormRow>
         <Lapel htmlFor="name">Cabin Name</Lapel>
         <input
           id="name"
           type="text"
-          {...register("name")}
+          {...register("name", { required: "This Field is required" })}
           className="form-input"
         />
       </FormRow>
@@ -47,7 +51,10 @@ function CreateCabinForm() {
         <input
           id="maxCapacity"
           type="number"
-          {...register("maxCapacity")}
+          {...register("maxCapacity", {
+            required: "This Field is required",
+            min: { value: 1, message: "Capacity should be at least one" },
+          })}
           className="form-input"
         />
       </FormRow>
@@ -57,7 +64,10 @@ function CreateCabinForm() {
         <input
           id="regularPrice"
           type="number"
-          {...register("regularPrice")}
+          {...register("regularPrice", {
+            required: "This Field is required",
+            min: { value: 1, message: "The price should be at least one" },
+          })}
           className="form-input"
         />
       </FormRow>
@@ -68,7 +78,12 @@ function CreateCabinForm() {
           type="number"
           id="discount"
           defaultValue={0}
-          {...register("discount")}
+          {...register("discount", {
+            required: "This Field is required",
+            validate: (value) =>
+              value <= getValues().regularPrice ||
+              "Discount should be less than regular price",
+          })}
           className="form-input"
         />
       </FormRow>
@@ -77,7 +92,7 @@ function CreateCabinForm() {
         <Lapel htmlFor="description">Description For Website </Lapel>
         <textarea
           id="description"
-          {...register("description")}
+          {...register("description", { required: "This Field is required" })}
           className="form-textarea"
         />
       </FormRow>
