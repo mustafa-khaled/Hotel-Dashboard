@@ -1,0 +1,91 @@
+.booking-data-box {
+  overflow: hidden;
+  padding: 3.2rem 4rem;
+}
+
+.header {
+  background-color: var(--color-brand-500);
+  /* padding: 2.4rem 4rem; */
+  padding: 2rem 4rem;
+  color: #e0e7ff;
+  font-size: 1.8rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header svg {
+  height: 3.2rem;
+  width: 3.2rem;
+}
+
+.header div:first-child {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  font-weight: 600;
+  font-size: 1.8rem;
+}
+
+.header span {
+  font-family: "Sono";
+  font-size: 2rem;
+  margin-left: 4px;
+}
+
+.section {
+  padding: 3.2rem 4rem 1.2rem;
+}
+
+.guest {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  /* font-size: 1.8rem; */
+  margin-bottom: 1.6rem;
+  color: var(--color-grey-500);
+}
+
+.guest p:first-of-type {
+  font-weight: 500;
+  color: var(--color-grey-700);
+}
+
+.price {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.6rem 3.2rem;
+  border-radius: var(--border-radius-sm);
+  margin-top: 2.4rem;
+}
+
+.paid {
+  background-color: var(--color-green-100);
+  color: var(--color-green-700);
+}
+
+.unpaid {
+  background-color: var(--color-yellow-100);
+  color: var(--color-yellow-700);
+}
+
+.price p:last-child {
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.price svg {
+  height: 2.4rem;
+  width: 2.4rem;
+  color: currentColor !important;
+}
+
+.footer {
+  padding: 1.6rem 4rem;
+  font-size: 1.2rem;
+  color: var(--color-grey-500);
+  text-align: right;
+}

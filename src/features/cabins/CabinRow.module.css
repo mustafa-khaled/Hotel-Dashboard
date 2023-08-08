@@ -1,0 +1,39 @@
+.table-row {
+  display: grid;
+  grid-template-columns: 0.6fr 1.8fr 2.2fr 1fr 1fr 1fr;
+  column-gap: 2.4rem;
+  align-items: center;
+  padding: 1.4rem 2.4rem;
+}
+
+.table-row :not(:last-child) {
+  border-bottom: 1px solid var(--color-grey-100);
+}
+
+.row-image {
+  display: block;
+  width: 6.4rem;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  object-position: center;
+  /* transform: scale(1.66666) translateX(-2px); */
+  transform: scale(1.5) translateX(-7px);
+}
+
+.cabin {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--color-grey-600);
+  font-family: "Sono";
+}
+
+.price {
+  font-family: "Sono";
+  font-weight: 600;
+}
+
+.discount {
+  font-family: "Sono";
+  font-weight: 500;
+  color: var(--color-green-700);
+}

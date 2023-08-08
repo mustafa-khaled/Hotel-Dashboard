@@ -1,0 +1,26 @@
+.cabin {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--color-grey-600);
+  font-family: "Sono";
+}
+
+.stacked {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.stacked span:first-child {
+  font-weight: 500;
+}
+
+.stacked span:last-child {
+  color: var(--color-grey-500);
+  font-size: 1.2rem;
+}
+
+.amount {
+  font-family: "Sono";
+  font-weight: 500;
+}

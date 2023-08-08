@@ -1,11 +1,12 @@
-import { useUser } from 'features/authentication/useUser';
-import { useState } from 'react';
-import Button from 'ui/Button';
-import FileInput from 'ui/FileInput';
-import Form from 'ui/Form';
-import FormRow from 'ui/FormRow';
-import Input from 'ui/Input';
-import { useUpdateUser } from './useUpdateUser';
+import { useUser } from "features/authentication/useUser";
+import { useState } from "react";
+import { useUpdateUser } from "./useUpdateUser";
+
+import FileInput from "../../ui/fileInput";
+import Button from "../../ui/button/Button";
+import Form from "../../ui/form/Form";
+import FormRow from "../../ui/formRow/FormRow";
+import Input from "../../ui/input/Input";
 
 function UpdateUserDataForm() {
   // We don't need the loading state
@@ -45,29 +46,29 @@ function UpdateUserDataForm() {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <FormRow label='Email address'>
+      <FormRow label="Email address">
         <Input value={email} disabled />
       </FormRow>
-      <FormRow label='Full name'>
+      <FormRow label="Full name">
         <Input
-          type='text'
+          type="text"
           value={fullName}
           onChange={(e) => setFullName(e.target.value)}
           disabled={isUpdating}
-          id='fullName'
+          id="fullName"
         />
       </FormRow>
-      <FormRow label='Avatar image'>
+      <FormRow label="Avatar image">
         <FileInput
           disabled={isUpdating}
-          id='avatar'
-          accept='image/*'
+          id="avatar"
+          accept="image/*"
           onChange={(e) => setAvatar(e.target.files[0])}
           // We should also validate that it's actually an image, but never mind
         />
       </FormRow>
       <FormRow>
-        <Button onClick={handleCancel} type='reset' variation='secondary'>
+        <Button onClick={handleCancel} type="reset" variation="secondary">
           Cancel
         </Button>
         <Button disabled={isUpdating}>Update account</Button>

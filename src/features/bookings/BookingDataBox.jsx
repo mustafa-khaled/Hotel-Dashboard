@@ -1,107 +1,49 @@
-import styled from 'styled-components';
-import { format } from 'date-fns';
+import styled from "styled-components";
+import { format } from "date-fns";
+import styles from "./BookingDataBox.module.css";
 
-import { box } from 'styles/styles';
-import { formatDistanceFromNow } from 'utils/helpers';
-import { isToday } from 'date-fns/esm';
-import { formatCurrency } from 'utils/helpers';
+import { formatDistanceFromNow } from "utils/helpers";
+import { isToday } from "date-fns/esm";
+import { formatCurrency } from "utils/helpers";
 import {
   HiOutlineChatBubbleBottomCenterText,
   HiOutlineCheckCircle,
   HiOutlineCurrencyDollar,
   HiOutlineHomeModern,
-} from 'react-icons/hi2';
-import DataItem from 'ui/DataItem';
-import { Flag } from 'ui/Flag';
+} from "react-icons/hi2";
+import DataItem from "ui/DataItem";
+import { Flag } from "ui/Flag";
 
-const StyledBookingDataBox = styled.section`
-  ${box} /* padding: 3.2rem 4rem; */
-  overflow: hidden;
-`;
+const BookingDataBox = () => {
+  return <section className={styles["booking-data-box"]}></section>;
+};
 
-const Header = styled.header`
-  background-color: var(--color-brand-500);
-  /* padding: 2.4rem 4rem; */
-  padding: 2rem 4rem;
-  color: #e0e7ff;
-  font-size: 1.8rem;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+const Header = () => {
+  return <header className={styles.header}></header>;
+};
 
-  svg {
-    height: 3.2rem;
-    width: 3.2rem;
-  }
+const Section = () => {
+  return <section className={styles.section}></section>;
+};
 
-  & div:first-child {
-    display: flex;
-    align-items: center;
-    gap: 1.6rem;
-    font-weight: 600;
-    font-size: 1.8rem;
-  }
+const Guest = () => {
+  return <div className={styles.guest}></div>;
+};
 
-  & span {
-    font-family: 'Sono';
-    font-size: 2rem;
-    margin-left: 4px;
-  }
-`;
+const Price = ({ isPaid }) => {
+  return (
+    <div
+      className={`${styles.price} ${
+        isPaid ? styles.paid : styles.unpaid
+      }`}></div>
+  );
+};
 
-const Section = styled.section`
-  padding: 3.2rem 4rem 1.2rem;
-`;
+const Footer = () => {
+  return <footer className={styles.footer}></footer>;
+};
 
-const Guest = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 1.2rem;
-  /* font-size: 1.8rem; */
-  margin-bottom: 1.6rem;
-  color: var(--color-grey-500);
-
-  & p:first-of-type {
-    font-weight: 500;
-    color: var(--color-grey-700);
-  }
-`;
-
-const Price = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1.6rem 3.2rem;
-  border-radius: var(--border-radius-sm);
-  margin-top: 2.4rem;
-
-  background-color: ${(props) =>
-    props.isPaid ? 'var(--color-green-100)' : 'var(--color-yellow-100)'};
-  color: ${(props) =>
-    props.isPaid ? 'var(--color-green-700)' : 'var(--color-yellow-700)'};
-
-  & p:last-child {
-    text-transform: uppercase;
-    font-size: 1.4rem;
-    font-weight: 600;
-  }
-
-  svg {
-    height: 2.4rem;
-    width: 2.4rem;
-    color: currentColor !important;
-  }
-`;
-
-const Footer = styled.footer`
-  padding: 1.6rem 4rem;
-  font-size: 1.2rem;
-  color: var(--color-grey-500);
-  text-align: right;
-`;
-
-function BookingDataBox({ booking }) {
+function BookingDataBoxComponent({ booking }) {
   const {
     created_at,
     startDate,
@@ -119,7 +61,7 @@ function BookingDataBox({ booking }) {
   } = booking;
 
   return (
-    <StyledBookingDataBox>
+    <BookingDataBox>
       <Header>
         <div>
           <HiOutlineHomeModern />
@@ -129,11 +71,11 @@ function BookingDataBox({ booking }) {
         </div>
 
         <p>
-          {format(new Date(startDate), 'EEE, MMM dd yyyy')} (
+          {format(new Date(startDate), "EEE, MMM dd yyyy")} (
           {isToday(new Date(startDate))
-            ? 'Today'
+            ? "Today"
             : formatDistanceFromNow(startDate)}
-          ) &mdash; {format(new Date(endDate), 'EEE, MMM dd yyyy')}
+          ) &mdash; {format(new Date(endDate), "EEE, MMM dd yyyy")}
         </p>
       </Header>
 
@@ -141,7 +83,7 @@ function BookingDataBox({ booking }) {
         <Guest>
           {countryFlag && <Flag src={countryFlag} alt={`Flag of ${country}`} />}
           <p>
-            {guestName} {numGuests > 1 ? `+ ${numGuests - 1} guests` : ''}
+            {guestName} {numGuests > 1 ? `+ ${numGuests - 1} guests` : ""}
           </p>
           <span>&bull;</span>
           <p>{email}</p>
@@ -152,14 +94,13 @@ function BookingDataBox({ booking }) {
         {observations && (
           <DataItem
             icon={<HiOutlineChatBubbleBottomCenterText />}
-            label='Observations'
-          >
+            label="Observations">
             {observations}
           </DataItem>
         )}
 
-        <DataItem icon={<HiOutlineCheckCircle />} label='Breakfast included?'>
-          {hasBreakfast ? 'Yes' : 'No'}
+        <DataItem icon={<HiOutlineCheckCircle />} label="Breakfast included?">
+          {hasBreakfast ? "Yes" : "No"}
         </DataItem>
 
         <Price isPaid={isPaid}>
@@ -172,15 +113,15 @@ function BookingDataBox({ booking }) {
               )} breakfast)`}
           </DataItem>
 
-          <p>{isPaid ? 'Paid' : 'Will pay at property'}</p>
+          <p>{isPaid ? "Paid" : "Will pay at property"}</p>
         </Price>
       </Section>
 
       <Footer>
-        <p>Booked {format(new Date(created_at), 'EEE, MMM dd yyyy, p')}</p>
+        <p>Booked {format(new Date(created_at), "EEE, MMM dd yyyy, p")}</p>
       </Footer>
-    </StyledBookingDataBox>
+    </BookingDataBox>
   );
 }
 
-export default BookingDataBox;
+export default BookingDataBoxComponent;

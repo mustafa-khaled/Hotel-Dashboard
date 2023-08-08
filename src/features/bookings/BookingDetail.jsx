@@ -1,28 +1,30 @@
-import { useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
+import { useNavigate } from "react-router-dom";
+import { useBooking } from "features/bookings/useBooking";
+import { useDeleteBooking } from "./useDeleteBooking";
+import { useMoveBack } from "hooks/useMoveBack";
+import { useCheckout } from "features/check-in-out/useCheckout";
 
-import Spinner from 'ui/Spinner';
-import BookingDataBox from './BookingDataBox';
-import Row from 'ui/Row';
-import Heading from 'ui/Heading';
-import Tag from 'ui/Tag';
-import ButtonGroup from 'ui/ButtonGroup';
-import Button from 'ui/Button';
-import Modal from 'ui/Modal';
-import ConfirmDelete from 'ui/ConfirmDelete';
+import ButtonText from "../../ui/buttonText/ButtonText";
+import Empty from "../../ui/Empty";
+import Spinner from "../../ui/spinner/Spinner";
+import BookingDataBox from "./BookingDataBox";
+import Row from "../../ui/row/Row";
+import Heading from "../../ui/heading/Heading";
+import Tag from "../../ui/tag/Tag";
+import ButtonGroup from "../../ui/buttonGroup/ButtonGroup";
+import Button from "../../ui/button/Button";
+import Modal from "../../ui/modal/Modal";
+import ConfirmDelete from "../../ui/confirmDelete/ConfirmDelete";
 
-import { useBooking } from 'features/bookings/useBooking';
-import { useDeleteBooking } from './useDeleteBooking';
-import { useMoveBack } from 'hooks/useMoveBack';
-import { useCheckout } from 'features/check-in-out/useCheckout';
-import ButtonText from 'ui/ButtonText';
-import Empty from 'ui/Empty';
+const divStyles = {
+  display: "flex",
+  gap: "2.4rem",
+  alignItems: "center",
+};
 
-const HeadingGroup = styled.div`
-  display: flex;
-  gap: 2.4rem;
-  align-items: center;
-`;
+const HeadingGroup = () => {
+  return <div style={divStyles}> </div>;
+};
 
 function BookingDetail() {
   const { booking } = useBooking();
@@ -36,9 +38,9 @@ function BookingDetail() {
   // if (!booking) return <Empty resource='booking' />;
 
   const statusToTagName = {
-    unconfirmed: 'blue',
-    'checked-in': 'green',
-    'checked-out': 'silver',
+    unconfirmed: "blue",
+    "checked-in": "green",
+    "checked-out": "silver",
   };
 
   const { id: bookingId, status } = booking;
@@ -46,10 +48,10 @@ function BookingDetail() {
   // We return a fragment so that these elements fit into the page's layout
   return (
     <>
-      <Row type='horizontal'>
+      <Row type="horizontal">
         <HeadingGroup>
-          <Heading type='h1'>Booking #{bookingId}</Heading>
-          <Tag type={statusToTagName[status]}>{status.replace('-', ' ')}</Tag>
+          <Heading type="h1">Booking #{bookingId}</Heading>
+          <Tag type={statusToTagName[status]}>{status.replace("-", " ")}</Tag>
         </HeadingGroup>
         <ButtonText onClick={moveBack}>&larr; Back</ButtonText>
       </Row>
@@ -57,25 +59,25 @@ function BookingDetail() {
       <BookingDataBox booking={booking} />
 
       <ButtonGroup>
-        {status === 'unconfirmed' && (
+        {status === "unconfirmed" && (
           <Button onClick={() => navigate(`/checkin/${bookingId}`)}>
             Check in
           </Button>
         )}
 
-        {status === 'checked-in' && (
+        {status === "checked-in" && (
           <Button onClick={() => checkout(bookingId)} disabled={isCheckingOut}>
             Check out
           </Button>
         )}
 
         <Modal>
-          <Modal.Toggle opens='delete'>
-            <Button variation='danger'>Delete booking</Button>
+          <Modal.Toggle opens="delete">
+            <Button variation="danger">Delete booking</Button>
           </Modal.Toggle>
-          <Modal.Window name='delete'>
+          <Modal.Window name="delete">
             <ConfirmDelete
-              resource='booking'
+              resource="booking"
               // These options will be passed wherever the function gets called, and they determine what happens next
               onConfirm={(options) => deleteBooking(bookingId, options)}
               disabled={isDeleting}
@@ -83,7 +85,7 @@ function BookingDetail() {
           </Modal.Window>
         </Modal>
 
-        <Button variation='secondary' onClick={moveBack}>
+        <Button variation="secondary" onClick={moveBack}>
           Back
         </Button>
       </ButtonGroup>
