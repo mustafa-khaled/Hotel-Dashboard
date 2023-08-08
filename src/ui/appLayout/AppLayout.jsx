@@ -11,7 +11,7 @@ function AppLayout() {
     <div className={styles.app}>
       <Header active={active} setActive={setActive} />
       <Sidebar active={active} />
-      <main className="container">
+      <main>
         <Outlet />
       </main>
       <div

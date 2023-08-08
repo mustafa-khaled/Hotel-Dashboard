@@ -1,6 +1,6 @@
 .app > main {
   background-color: var(--color-grey-50);
-  padding: 4rem 0 6.4rem;
+  padding: 4rem 6.4rem;
 }
 
 .overLay {
