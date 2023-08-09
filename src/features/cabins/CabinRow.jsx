@@ -1,8 +1,7 @@
 import { useState } from "react";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { formatCurrency } from "../../utils/helpers";
-import { deleteCabin } from "../../services/apiCabins";
-import { toast } from "react-hot-toast";
+import { useDeleteCabin } from "./useDeleteCabin";
+
 import Button from "../../ui/button/Button";
 import styles from "./CabinRow.module.css";
 import ButtonGroup from "../../ui/buttonGroup/ButtonGroup";
@@ -10,6 +9,7 @@ import CreateCabinForm from "./CreateCabinForm";
 
 function CabinRow({ cabin }) {
   const [showForm, setShowForm] = useState(false);
+  const { isDeleting, deleteCabin } = useDeleteCabin();
 
   const {
     id: cabinId,
@@ -20,21 +20,6 @@ function CabinRow({ cabin }) {
     discount,
   } = cabin;
 
-  const queryClient = useQueryClient();
-
-  const { isLoading: isDeleting, mutate } = useMutation({
-    mutationFn: deleteCabin,
-    onSuccess: () => {
-      toast.success("Cabin Successfully Deleted");
-      queryClient.invalidateQueries({
-        queryKey: ["cabins"],
-      });
-    },
-    onError: (err) => {
-      toast.error(err.message);
-    },
-  });
-
   return (
     <>
       <div className={styles["table-row"]} role="row">
@@ -42,7 +27,11 @@ function CabinRow({ cabin }) {
         <div className={styles.cabin}>{name}</div>
         <div>Fits Up To {maxCapacity} Guest</div>
         <div className={styles.price}>{formatCurrency(regularPrice)}</div>
-        <div className={styles.discount}>{formatCurrency(discount)}</div>
+        {discount ? (
+          <div className={styles.discount}>{formatCurrency(discount)}</div>
+        ) : (
+          <spa>&mdash;</spa>
+        )}
         <ButtonGroup>
           <Button
             disabled={isDeleting}
@@ -52,7 +41,7 @@ function CabinRow({ cabin }) {
           </Button>
 
           <Button
-            onClick={() => mutate(cabinId)}
+            onClick={() => deleteCabin(cabinId)}
             disabled={isDeleting}
             variation="danger"
             size="small">
