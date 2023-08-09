@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styles from "./ButtonGroup.module.css";
 
-function ButtonGroup() {
-  return <div className={styled.buttonGroup}></div>;
+function ButtonGroup({ children }) {
+  return <div className={styles["button-group"]}>{children}</div>;
 }
 
 export default ButtonGroup;

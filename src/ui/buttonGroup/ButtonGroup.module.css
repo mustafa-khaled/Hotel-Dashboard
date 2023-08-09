@@ -1,5 +1,5 @@
-.buttonGroup {
+.button-group {
   display: flex;
   gap: 1.2rem;
-  justify-content: flex-end;
+  align-items: center;
 }
