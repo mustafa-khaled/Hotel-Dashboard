@@ -7,10 +7,9 @@ import FormRow from "../../ui/formRow/FormRow";
 import Form from "../../ui/form/Form";
 import Button from "../../ui/button/Button";
 import FileInput from "../../ui/fileInput/FileInput";
-import Lapel from "../../ui/lapel/Lapel";
 
 function CreateCabinForm() {
-  const { register, handleSubmit, reset, getValues } = useForm();
+  const { register, handleSubmit, reset, getValues, formState } = useForm();
 
   const queryClient = useQueryClient();
 
@@ -30,27 +29,25 @@ function CreateCabinForm() {
     mutate(data);
   }
 
-  function onError(errors) {
-    console.log(errors);
-  }
+  const { errors } = formState;
 
   return (
-    <Form submit={handleSubmit(onSubmit, onError)}>
-      <FormRow>
-        <Lapel htmlFor="name">Cabin Name</Lapel>
+    <Form submit={handleSubmit(onSubmit)}>
+      <FormRow label="name" error={errors?.name?.message}>
         <input
           id="name"
           type="text"
+          disabled={isCreating}
           {...register("name", { required: "This Field is required" })}
           className="form-input"
         />
       </FormRow>
 
-      <FormRow>
-        <Lapel htmlFor="maxCapacity">Maximum Capacity</Lapel>
+      <FormRow label="maxCapacity" error={errors?.maxCapacity?.message}>
         <input
           id="maxCapacity"
           type="number"
+          disabled={isCreating}
           {...register("maxCapacity", {
             required: "This Field is required",
             min: { value: 1, message: "Capacity should be at least one" },
@@ -59,11 +56,11 @@ function CreateCabinForm() {
         />
       </FormRow>
 
-      <FormRow>
-        <Lapel htmlFor="regularPrice">Regular Price</Lapel>
+      <FormRow label="regularPrice" error={errors?.regularPrice?.message}>
         <input
           id="regularPrice"
           type="number"
+          disabled={isCreating}
           {...register("regularPrice", {
             required: "This Field is required",
             min: { value: 1, message: "The price should be at least one" },
@@ -72,11 +69,11 @@ function CreateCabinForm() {
         />
       </FormRow>
 
-      <FormRow>
-        <Lapel htmlFor="discount">Discount</Lapel>
+      <FormRow label="Discount" error={errors?.discount?.message}>
         <input
           type="number"
           id="discount"
+          disabled={isCreating}
           defaultValue={0}
           {...register("discount", {
             required: "This Field is required",
@@ -88,17 +85,16 @@ function CreateCabinForm() {
         />
       </FormRow>
 
-      <FormRow>
-        <Lapel htmlFor="description">Description For Website </Lapel>
+      <FormRow label="Description" error={errors?.description?.message}>
         <textarea
           id="description"
+          disabled={isCreating}
           {...register("description", { required: "This Field is required" })}
           className="form-textarea"
         />
       </FormRow>
 
-      <FormRow>
-        <Lapel htmlFor="image">Cabin Photo </Lapel>
+      <FormRow label="Cabin Photo">
         <FileInput id="image" />
       </FormRow>
 

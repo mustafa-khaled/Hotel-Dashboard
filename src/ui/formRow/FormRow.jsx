@@ -12,7 +12,7 @@ const FormRow = ({ label, error, children, orientation }) => {
         </label>
       )}
       {children}
-      {error && <span className={error.error}>{error}</span>}
+      {error && <span className={styles.error}>{error}</span>}
     </div>
   );
 };
