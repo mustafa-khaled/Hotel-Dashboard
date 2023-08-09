@@ -6,7 +6,6 @@ import { toast } from "react-hot-toast";
 import FormRow from "../../ui/formRow/FormRow";
 import Form from "../../ui/form/Form";
 import Button from "../../ui/button/Button";
-import FileInput from "../../ui/fileInput/FileInput";
 
 function CreateCabinForm() {
   const { register, handleSubmit, reset, getValues, formState } = useForm();
@@ -26,7 +25,7 @@ function CreateCabinForm() {
   });
 
   function onSubmit(data) {
-    mutate(data);
+    mutate({ ...data, image: data.image[0] });
   }
 
   const { errors } = formState;
@@ -94,8 +93,14 @@ function CreateCabinForm() {
         />
       </FormRow>
 
-      <FormRow label="Cabin Photo">
-        <FileInput id="image" />
+      <FormRow label="image" error={errors?.image?.message}>
+        <input
+          className="file-input"
+          id="image"
+          type="file"
+          accept="image/*"
+          {...register("image", { required: "This Field is required" })}
+        />
       </FormRow>
 
       <FormRow>
