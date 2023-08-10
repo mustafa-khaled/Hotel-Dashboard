@@ -1,8 +1,8 @@
 import { Outlet } from "react-router-dom";
+import { useState } from "react";
 import Sidebar from "../sidebar/Sidebar";
 import Header from "../header/Header";
 import styles from "./AppLayout.module.css";
-import { useState } from "react";
 
 function AppLayout() {
   const [active, setActive] = useState(false);

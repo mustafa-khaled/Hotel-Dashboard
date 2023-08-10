@@ -1,13 +1,44 @@
+import { createPortal } from "react-dom";
+import { cloneElement, createContext, useContext, useState } from "react";
 import styles from "./Modal.module.css";
 
-function Modal() {
-  return <div className={styles.modal}></div>;
+const ModalContext = createContext();
+
+function Modal({ children, onClose }) {
+  const [openName, setOpenName] = useState("");
+  const close = () => setOpenName("");
+  const open = (windowName) => setOpenName(windowName);
+
+  return (
+    <ModalContext.Provider value={{ openName, close, open }}>
+      {children}
+    </ModalContext.Provider>
+  );
 }
 
-function Overlay() {
-  return <div className={styles["modal-overlay"]}></div>;
+function Open({ opens: opensWindowName, children }) {
+  const { open } = useContext(ModalContext);
+  return cloneElement(children, { onClick: () => open(opensWindowName) });
 }
 
-function ModalButton() {
-  return <button className={styles["modal-button"]}></button>;
+function Window({ children, name }) {
+  const { openName, close } = useContext(ModalContext);
+
+  if (name !== openName) return null;
+
+  return createPortal(
+    <div className={styles["modal-overlay"]}>
+      <div className={styles.modal}>
+        <button className={styles["modal-button"]} onClick={close}>
+          <i className="fa-solid fa-xmark"></i>
+        </button>
+        <div>{cloneElement(children, { onCloseModal: close })}</div>
+      </div>
+    </div>,
+    document.body
+  );
 }
+Modal.Open = Open;
+Modal.Window = Window;
+
+export default Modal;
