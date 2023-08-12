@@ -3,12 +3,11 @@ import { useDeleteCabin } from "./useDeleteCabin";
 import { useCreateCabin } from "./useCreateCabin";
 
 import Table from "../../ui/table/Table";
-import Button from "../../ui/button/Button";
 import styles from "./CabinRow.module.css";
-import ButtonGroup from "../../ui/buttonGroup/ButtonGroup";
 import CreateCabinForm from "./CreateCabinForm";
 import Modal from "../../ui/modal/Modal";
 import ConfirmDelete from "../../ui/confirmDelete/ConfirmDelete";
+import Menus from "../../ui/menus/Menus";
 
 function CabinRow({ cabin }) {
   // Delete Cabin Hook
@@ -48,32 +47,33 @@ function CabinRow({ cabin }) {
       ) : (
         <spa>&mdash;</spa>
       )}
-      <ButtonGroup>
-        <Button
-          size="small"
-          variation="secondary"
-          disabled={isCreating}
-          onClick={() => handleDuplicate()}>
-          <i className="fa-regular fa-copy"></i>
-        </Button>
-        <Modal>
-          {/* Edit */}
 
-          <Modal.Open opens="edit">
-            <Button disabled={isDeleting} size="small">
-              <i className="fa-solid fa-pen"></i>
-            </Button>
-          </Modal.Open>
+      <Modal>
+        <Menus>
+          <Menus.Toggle id={cabinId} />
+          <Menus.List id={cabinId}>
+            <Menus.Button
+              icon={<i className="fa-regular fa-copy"></i>}
+              onClick={() => handleDuplicate()}>
+              Duplicate
+            </Menus.Button>
+
+            <Modal.Open opens="edit">
+              <Menus.Button icon={<i className="fa-solid fa-pen"></i>}>
+                Edit
+              </Menus.Button>
+            </Modal.Open>
+            <Modal.Open opens="delete">
+              <Menus.Button icon={<i className="fa-solid fa-trash"></i>}>
+                Delete
+              </Menus.Button>
+            </Modal.Open>
+          </Menus.List>
+
           <Modal.Window name="edit">
             <CreateCabinForm cabinToEdit={cabin} />
           </Modal.Window>
-          {/* Delete */}
 
-          <Modal.Open opens="delete">
-            <Button variation="danger" size="small">
-              <i className="fa-solid fa-trash"></i>
-            </Button>
-          </Modal.Open>
           <Modal.Window name="delete">
             <ConfirmDelete
               resource={`Cabin ${name}`}
@@ -81,8 +81,8 @@ function CabinRow({ cabin }) {
               onConfirm={() => deleteCabin(cabinId)}
             />
           </Modal.Window>
-        </Modal>
-      </ButtonGroup>
+        </Menus>
+      </Modal>
     </Table.Row>
   );
 }

@@ -11,16 +11,21 @@
   border-radius: var(--border-radius-sm);
   transform: translateX(0.8rem);
   transition: all 0.2s;
+  -webkit-border-radius: var(--border-radius-sm);
+  -moz-border-radius: var(--border-radius-sm);
+  -ms-border-radius: var(--border-radius-sm);
+  -o-border-radius: var(--border-radius-sm);
 }
 
 .toggle:hover {
   background-color: var(--color-grey-100);
 }
 
-.toggle svg {
+.toggle i {
   width: 2.4rem;
   height: 2.4rem;
   color: var(--color-grey-700);
+  cursor: pointer;
 }
 
 .list {
@@ -29,6 +34,7 @@
   background-color: var(--color-grey-0);
   box-shadow: var(--shadow-md);
   border-radius: var(--border-radius-md);
+  width: fit-content;
 }
 
 .menus-button {
