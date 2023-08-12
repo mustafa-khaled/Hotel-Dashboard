@@ -1,3 +1,5 @@
+// Reusable Modal  Component Using Compound Component Pattern
+
 import { createPortal } from "react-dom";
 import { cloneElement, createContext, useContext, useState } from "react";
 import { useOutsideClick } from "../../hooks/useOutesideClick";

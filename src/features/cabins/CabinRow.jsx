@@ -2,6 +2,7 @@ import { formatCurrency } from "../../utils/helpers";
 import { useDeleteCabin } from "./useDeleteCabin";
 import { useCreateCabin } from "./useCreateCabin";
 
+import Table from "../../ui/table/Table";
 import Button from "../../ui/button/Button";
 import styles from "./CabinRow.module.css";
 import ButtonGroup from "../../ui/buttonGroup/ButtonGroup";
@@ -37,7 +38,7 @@ function CabinRow({ cabin }) {
   }
 
   return (
-    <div className={styles["table-row"]} role="row">
+    <Table.Row columns=" 0.6fr 1.8fr 2.2fr 1fr 1fr 1fr">
       <img className={styles["row-image"]} src={image} alt={name} />
       <div className={styles.cabin}>{name}</div>
       <div>Fits Up To {maxCapacity} Guest</div>
@@ -68,12 +69,12 @@ function CabinRow({ cabin }) {
           </Modal.Window>
           {/* Delete */}
 
-          <Modal.Open>
+          <Modal.Open opens="delete">
             <Button variation="danger" size="small">
               <i className="fa-solid fa-trash"></i>
             </Button>
           </Modal.Open>
-          <Modal.Window>
+          <Modal.Window name="delete">
             <ConfirmDelete
               resource={`Cabin ${name}`}
               disabled={isDeleting}
@@ -82,7 +83,7 @@ function CabinRow({ cabin }) {
           </Modal.Window>
         </Modal>
       </ButtonGroup>
-    </div>
+    </Table.Row>
   );
 }
 
