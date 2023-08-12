@@ -1,5 +1,6 @@
 import { createPortal } from "react-dom";
 import { cloneElement, createContext, useContext, useState } from "react";
+import { useOutsideClick } from "../../hooks/useOutesideClick";
 import styles from "./Modal.module.css";
 
 const ModalContext = createContext();
@@ -23,12 +24,14 @@ function Open({ opens: opensWindowName, children }) {
 
 function Window({ children, name }) {
   const { openName, close } = useContext(ModalContext);
+  // Custom Hook To Close Modal
+  const ref = useOutsideClick(close);
 
   if (name !== openName) return null;
 
   return createPortal(
     <div className={styles["modal-overlay"]}>
-      <div className={styles.modal}>
+      <div className={styles.modal} ref={ref}>
         <button className={styles["modal-button"]} onClick={close}>
           <i className="fa-solid fa-xmark"></i>
         </button>
@@ -38,6 +41,7 @@ function Window({ children, name }) {
     document.body
   );
 }
+
 Modal.Open = Open;
 Modal.Window = Window;
 

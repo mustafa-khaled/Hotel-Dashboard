@@ -4,13 +4,13 @@
 }
 
 .overLay {
-  background-color: #000;
-  opacity: 0.7;
   height: 0;
   width: 0;
   position: fixed;
-  left: 0;
   top: 70px;
+  left: 0;
+  background-color: var(--backdrop-color);
+  backdrop-filter: blur(4px);
 }
 
 .overLay.active {

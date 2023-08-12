@@ -6,6 +6,7 @@ import styles from "./AppLayout.module.css";
 
 function AppLayout() {
   const [active, setActive] = useState(false);
+  const closeSideBar = () => setActive(false);
 
   return (
     <div className={styles.app}>
@@ -16,7 +17,7 @@ function AppLayout() {
       </main>
       <div
         className={`${styles.overLay} ${active ? styles.active : ""}`}
-        onClick={() => setActive(!active)}></div>
+        onClick={closeSideBar}></div>
     </div>
   );
 }
