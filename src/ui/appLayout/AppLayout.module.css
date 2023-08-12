@@ -9,8 +9,8 @@
   position: fixed;
   top: 70px;
   left: 0;
-  background-color: var(--backdrop-color);
-  backdrop-filter: blur(4px);
+  background-color: #000;
+  opacity: 0.7;
 }
 
 .overLay.active {
