@@ -8,16 +8,16 @@
 }
 
 .tag-blue {
-  color: var(--color-blue-100);
-  background-color: var(--color-blue-700);
+  color: #1d4ed8;
+  background-color: #bfdbfe;
 }
 
 .tag-green {
-  color: white;
-  background-color: var(--color-green-700);
+  color: #15803d;
+  background-color: #bbf7d0;
 }
 
 .tag-silver {
-  color: black;
-  background-color: var(--color-grey-700s);
+  color: #3f3f46;
+  background-color: #e5e7eb;
 }

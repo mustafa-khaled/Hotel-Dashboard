@@ -16,7 +16,7 @@ function CabinTable() {
   if (isLoading) return <Spinner />;
   if (!cabins.length) return <Empty resourceName="Cabins" />;
 
-  // Filtering  The Value From The URL
+  // Filtering  The Value From The URL (Client Side Filtering)
   const filteredValue = searchParams.get("discount") || "all";
 
   let filteredCabins;

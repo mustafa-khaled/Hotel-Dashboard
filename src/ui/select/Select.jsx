@@ -10,7 +10,7 @@ const Select = ({ options, value, onChange, ...props }) => {
       }`}>
       {options.map((option) => (
         <option key={option.value} value={option.value}>
-          {option.lapel}
+          {option.label}
         </option>
       ))}
     </select>

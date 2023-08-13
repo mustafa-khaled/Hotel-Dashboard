@@ -9,21 +9,21 @@ function CabinTableOperations() {
       <Filter
         filterField="discount"
         options={[
-          { value: "all", lapel: "All" },
-          { value: "no-discount", lapel: "No Discount" },
-          { value: "with-discount", lapel: "With Discount" },
+          { value: "all", label: "All" },
+          { value: "no-discount", label: "No Discount" },
+          { value: "with-discount", label: "With Discount" },
         ]}
       />
       <SortBy
         options={[
-          { value: "name-asc", lapel: "Sort By Name (A-Z)" },
-          { value: "name-desc", lapel: "Sort By Name (Z-A)" },
-          { value: "regularPrice-asc", lapel: "Sort By Price (low first)" },
-          { value: "regularPrice-desc", lapel: "Sort By Price (hight first)" },
-          { value: "maxCapacity-asc", lapel: "Sort By Capacity (low first)" },
+          { value: "name-asc", label: "Sort By Name (A-Z)" },
+          { value: "name-desc", label: "Sort By Name (Z-A)" },
+          { value: "regularPrice-asc", label: "Sort By Price (low first)" },
+          { value: "regularPrice-desc", label: "Sort By Price (hight first)" },
+          { value: "maxCapacity-asc", label: "Sort By Capacity (low first)" },
           {
             value: "maxCapacity-desc",
-            lapel: "Sort By Capacity (hight first)",
+            label: "Sort By Capacity (hight first)",
           },
         ]}
       />

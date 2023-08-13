@@ -31,7 +31,7 @@ function Filter({ filterField, options }) {
           key={option.value}
           active={option.value === filter}
           disabled={option.value === filter}>
-          {option.lapel}
+          {option.label}
         </FilterButton>
       ))}
     </div>

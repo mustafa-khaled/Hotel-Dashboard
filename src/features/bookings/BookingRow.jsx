@@ -15,6 +15,12 @@ const Cabin = () => {
   return <div className={styles.cabin}></div>;
 };
 
+const statusToTagName = {
+  unconfirmed: "blue",
+  "checked-in": "green",
+  "checked-out": "silver",
+};
+
 function BookingRow({
   booking: {
     id: bookingId,
@@ -29,12 +35,6 @@ function BookingRow({
     cabins: { name: cabinName },
   },
 }) {
-  const statusToTagName = {
-    unconfirmed: "blue",
-    "checked-in": "green",
-    "checked-out": "silver",
-  };
-
   const navigate = useNavigate();
 
   return (
