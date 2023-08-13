@@ -22,3 +22,5 @@ const PaginationButton = ({ active, children }) => {
     </button>
   );
 };
+
+export default Pagination;

@@ -7,12 +7,17 @@
   border-radius: 100px;
 }
 
-.tag-primary {
-  color: var(--color-primary-700);
-  background-color: var(--color-primary-100);
+.tag-blue {
+  color: var(--color-blue-100);
+  background-color: var(--color-blue-700);
 }
 
-.tag-secondary {
-  color: var(--color-secondary-700);
-  background-color: var(--color-secondary-100);
+.tag-green {
+  color: white;
+  background-color: var(--color-green-700);
+}
+
+.tag-silver {
+  color: black;
+  background-color: var(--color-grey-700s);
 }

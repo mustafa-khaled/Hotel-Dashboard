@@ -4,6 +4,7 @@ import Spinner from "../../ui/spinner/Spinner";
 import CabinRow from "./CabinRow";
 import Table from "../../ui/table/Table";
 import Menus from "../../ui/menus/Menus";
+import Empty from "../../ui/empty/Empty";
 
 function CabinTable() {
   // get the value from the URL
@@ -11,7 +12,9 @@ function CabinTable() {
 
   // Fetch Cabins Hook
   const { isLoading, cabins } = useCabins();
+
   if (isLoading) return <Spinner />;
+  if (!cabins.length) return <Empty resourceName="Cabins" />;
 
   // Filtering  The Value From The URL
   const filteredValue = searchParams.get("discount") || "all";

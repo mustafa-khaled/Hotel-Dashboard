@@ -1,9 +1,9 @@
 import styles from "./Tag.module.css";
 
-const TagComponent = ({ type, children }) => {
+const Tag = ({ type, children }) => {
   return (
     <span className={`${styles.tag} ${styles[`tag-${type}`]}`}>{children}</span>
   );
 };
 
-export default TagComponent;
+export default Tag;
