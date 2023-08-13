@@ -1,7 +1,7 @@
 import styles from "./TableOperations.module.css";
 
-const TableOperations = () => {
-  return <div className={styles["table-operations"]}></div>;
-};
+function TableOperations({ children }) {
+  return <div className={styles["table-operations"]}>{children}</div>;
+}
 
 export default TableOperations;

@@ -45,7 +45,7 @@ function CabinRow({ cabin }) {
       {discount ? (
         <div className={styles.discount}>{formatCurrency(discount)}</div>
       ) : (
-        <spa>&mdash;</spa>
+        <span>&mdash;</span>
       )}
 
       <Modal>
