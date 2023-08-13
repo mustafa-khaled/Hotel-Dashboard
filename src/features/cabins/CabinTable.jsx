@@ -6,13 +6,14 @@ import Table from "../../ui/table/Table";
 import Menus from "../../ui/menus/Menus";
 
 function CabinTable() {
-  // Filtering  The Value From The URL
+  // get the value from the URL
   const [searchParams] = useSearchParams();
 
   // Fetch Cabins Hook
   const { isLoading, cabins } = useCabins();
   if (isLoading) return <Spinner />;
 
+  // Filtering  The Value From The URL
   const filteredValue = searchParams.get("discount") || "all";
 
   let filteredCabins;
@@ -23,6 +24,14 @@ function CabinTable() {
 
   if (filteredValue === "with-discount")
     filteredCabins = cabins.filter((cabin) => cabin.discount > 0);
+
+  // Sort  The Value From The URL
+  const sortedBy = searchParams.get("sortBy") || "startDate-asc";
+  const [field, direction] = sortedBy.split("-");
+  const modifier = direction === "asc" ? 1 : -1;
+  const sortedCabins = filteredCabins.sort(
+    (a, b) => (a[field] - b[field]) * modifier
+  );
 
   return (
     <Menus>
@@ -37,7 +46,7 @@ function CabinTable() {
         </Table.Header>
         {/* Render Props Pattern */}
         <Table.Body
-          data={filteredCabins}
+          data={sortedCabins}
           render={(cabin) => <CabinRow cabin={cabin} key={cabin.id} />}
         />
       </Table>

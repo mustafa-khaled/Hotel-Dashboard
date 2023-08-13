@@ -1,10 +1,18 @@
 import styles from "./Select.module.css";
 
-const Select = ({ type, children }) => {
+const Select = ({ options, value, onChange, ...props }) => {
   return (
     <select
-      className={`${styles.select} ${type === "white" ? styles.white : ""}`}>
-      {children}
+      value={value}
+      onChange={onChange}
+      className={`${styles.select} ${
+        props?.type === "white" ? styles.white : ""
+      }`}>
+      {options.map((option) => (
+        <option key={option.value} value={option.value}>
+          {option.lapel}
+        </option>
+      ))}
     </select>
   );
 };
