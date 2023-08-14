@@ -10,6 +10,7 @@ import Menus from "../../ui/menus/Menus";
 import Modal from "../../ui/modal/Modal";
 import ConfirmDelete from "../../ui/confirmDelete/ConfirmDelete";
 import Table from "../../ui/table/Table";
+import { useCheckout } from "../check-in-out/useCheckout";
 
 const statusToTagName = {
   unconfirmed: "blue",
@@ -32,6 +33,7 @@ function BookingRow({
   },
 }) {
   const navigate = useNavigate();
+  const { checkout, isCheckingOut } = useCheckout();
 
   return (
     <Table.Row>
@@ -65,6 +67,15 @@ function BookingRow({
             onClick={() => navigate(`/bookings/${bookingId}`)}>
             See Details
           </Menus.Button>
+
+          {status === "checked-in" && (
+            <Menus.Button
+              icon={<i className="fa-solid fa-right-from-bracket"></i>}
+              disabled={isCheckingOut}
+              onClick={() => checkout(bookingId)}>
+              Check Out
+            </Menus.Button>
+          )}
 
           {status === "unconfirmed" && (
             <Menus.Button

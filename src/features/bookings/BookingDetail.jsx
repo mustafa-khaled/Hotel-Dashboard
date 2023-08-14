@@ -15,6 +15,7 @@ import Button from "../../ui/button/Button";
 import Modal from "../../ui/modal/Modal";
 import ConfirmDelete from "../../ui/confirmDelete/ConfirmDelete";
 import BookingDataBoxComponent from "./BookingDataBox";
+import { useCheckout } from "../check-in-out/useCheckout";
 
 const statusToTagName = {
   unconfirmed: "blue",
@@ -25,6 +26,7 @@ const statusToTagName = {
 function BookingDetail() {
   const { isLoading, booking = {} } = useBooking();
   const { id: bookingId, status } = booking;
+  const { checkout, isCheckingOut } = useCheckout();
 
   const moveBack = useMoveBack();
   const navigate = useNavigate();
@@ -48,6 +50,15 @@ function BookingDetail() {
         {status === "unconfirmed" && (
           <Button onClick={() => navigate(`/checkin/${bookingId}`)}>
             Check in
+          </Button>
+        )}
+
+        {status === "checked-in" && (
+          <Button
+            icon={<i className="fa-solid fa-right-from-bracket"></i>}
+            disabled={isCheckingOut}
+            onClick={() => checkout(bookingId)}>
+            Check Out
           </Button>
         )}
 
