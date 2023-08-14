@@ -65,6 +65,14 @@ function BookingRow({
             onClick={() => navigate(`/bookings/${bookingId}`)}>
             See Details
           </Menus.Button>
+
+          {status === "unconfirmed" && (
+            <Menus.Button
+              icon={<i className="fa-solid fa-circle-arrow-down"></i>}
+              onClick={() => navigate(`/bookings/${bookingId}`)}>
+              Check In
+            </Menus.Button>
+          )}
         </Menus.List>
       </Menus>
     </Table.Row>
