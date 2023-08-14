@@ -3,10 +3,6 @@
 import { createContext, useContext } from "react";
 import styles from "./Table.module.css";
 
-const Footer = ({ children }) => {
-  return <footer className={styles.footer}>{children}</footer>;
-};
-
 const TableContext = createContext();
 
 function Table({ columns, children }) {
@@ -18,6 +14,11 @@ function Table({ columns, children }) {
     </TableContext.Provider>
   );
 }
+
+function Footer({ children }) {
+  return <footer className={styles.footer}>{children}</footer>;
+}
+
 function Header({ children }) {
   const { columns } = useContext(TableContext);
 
