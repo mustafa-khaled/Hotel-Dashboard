@@ -1,47 +1,17 @@
-import styled from "styled-components";
 import { format } from "date-fns";
 import styles from "./BookingDataBox.module.css";
 
-import { formatDistanceFromNow } from "utils/helpers";
+import { formatDistanceFromNow } from "../../utils/helpers";
 import { isToday } from "date-fns/esm";
-import { formatCurrency } from "utils/helpers";
+import { formatCurrency } from "../../utils/helpers";
 import {
   HiOutlineChatBubbleBottomCenterText,
   HiOutlineCheckCircle,
   HiOutlineCurrencyDollar,
   HiOutlineHomeModern,
 } from "react-icons/hi2";
-import DataItem from "ui/DataItem";
-import { Flag } from "ui/Flag";
-
-const BookingDataBox = () => {
-  return <section className={styles["booking-data-box"]}></section>;
-};
-
-const Header = () => {
-  return <header className={styles.header}></header>;
-};
-
-const Section = () => {
-  return <section className={styles.section}></section>;
-};
-
-const Guest = () => {
-  return <div className={styles.guest}></div>;
-};
-
-const Price = ({ isPaid }) => {
-  return (
-    <div
-      className={`${styles.price} ${
-        isPaid ? styles.paid : styles.unpaid
-      }`}></div>
-  );
-};
-
-const Footer = () => {
-  return <footer className={styles.footer}></footer>;
-};
+import DataItem from "../../ui/dataItem/DataItem";
+import Flag from "../../ui/flag/Flag";
 
 function BookingDataBoxComponent({ booking }) {
   const {
@@ -61,8 +31,8 @@ function BookingDataBoxComponent({ booking }) {
   } = booking;
 
   return (
-    <BookingDataBox>
-      <Header>
+    <section className={styles["booking-data-box"]}>
+      <header className={styles.header}>
         <div>
           <HiOutlineHomeModern />
           <p>
@@ -77,10 +47,10 @@ function BookingDataBoxComponent({ booking }) {
             : formatDistanceFromNow(startDate)}
           ) &mdash; {format(new Date(endDate), "EEE, MMM dd yyyy")}
         </p>
-      </Header>
+      </header>
 
-      <Section>
-        <Guest>
+      <section className={styles.section}>
+        <div className={styles.guest}>
           {countryFlag && <Flag src={countryFlag} alt={`Flag of ${country}`} />}
           <p>
             {guestName} {numGuests > 1 ? `+ ${numGuests - 1} guests` : ""}
@@ -89,7 +59,7 @@ function BookingDataBoxComponent({ booking }) {
           <p>{email}</p>
           <span>&bull;</span>
           <p>National ID {nationalID}</p>
-        </Guest>
+        </div>
 
         {observations && (
           <DataItem
@@ -103,7 +73,8 @@ function BookingDataBoxComponent({ booking }) {
           {hasBreakfast ? "Yes" : "No"}
         </DataItem>
 
-        <Price isPaid={isPaid}>
+        <div
+          className={`${styles.price} ${isPaid ? styles.paid : styles.unpaid}`}>
           <DataItem icon={<HiOutlineCurrencyDollar />} label={`Total price`}>
             {formatCurrency(totalPrice)}
 
@@ -114,13 +85,13 @@ function BookingDataBoxComponent({ booking }) {
           </DataItem>
 
           <p>{isPaid ? "Paid" : "Will pay at property"}</p>
-        </Price>
-      </Section>
+        </div>
+      </section>
 
-      <Footer>
+      <footer className={styles.footer}>
         <p>Booked {format(new Date(created_at), "EEE, MMM dd yyyy, p")}</p>
-      </Footer>
-    </BookingDataBox>
+      </footer>
+    </section>
   );
 }
 
