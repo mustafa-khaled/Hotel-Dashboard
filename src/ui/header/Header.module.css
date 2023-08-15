@@ -15,6 +15,10 @@
   align-items: center;
 }
 
+.header i {
+  font-size: 17px;
+}
+
 .header div {
   justify-content: space-between;
 }
@@ -24,6 +28,5 @@
 }
 
 .icon i {
-  font-size: 20px;
   z-index: 999;
 }
