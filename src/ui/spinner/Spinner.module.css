@@ -1,3 +1,11 @@
+.spinner-container {
+  height: 70dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-grey-50);
+}
+
 .spinner {
   margin: 4.8rem auto;
   width: 6.4rem;

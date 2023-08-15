@@ -14,6 +14,7 @@ import Login from "./pages/Login";
 import PageNotFound from "./pages/PageNotFound";
 import AppLayout from "./ui/appLayout/AppLayout";
 import CheckIn from "./pages/CheckIn";
+import ProtectedRoute from "./ui/protectedRoute/ProtectedRoute";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -29,7 +30,12 @@ function App() {
       <ReactQueryDevtools initialIsOpen={false} />
       <BrowserRouter>
         <Routes>
-          <Route element={<AppLayout />}>
+          <Route
+            element={
+              <ProtectedRoute>
+                <AppLayout />
+              </ProtectedRoute>
+            }>
             <Route index element={<Navigate replace to="dashboard" />} />
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="bookings" element={<Bookings />} />
