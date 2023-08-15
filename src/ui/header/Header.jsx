@@ -1,5 +1,5 @@
 import styles from "./Header.module.css";
-import SpinnerMini from "../spinnerMini/SpinnerMini";
+import Logout from "../../features/authentication/Logout";
 
 function Header({ active, setActive }) {
   return (
@@ -12,7 +12,7 @@ function Header({ active, setActive }) {
             <i className="fa-solid fa-bars"></i>
           )}
         </div>
-        <p>User</p>
+        <Logout />
       </div>
     </header>
   );

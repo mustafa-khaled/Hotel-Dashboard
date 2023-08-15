@@ -10,7 +10,7 @@
   background-color: var(--color-grey-100);
 }
 
-.buttonIcon svg {
+.buttonIcon i {
   width: 2.2rem;
   height: 2.2rem;
   color: var(--color-brand-600);

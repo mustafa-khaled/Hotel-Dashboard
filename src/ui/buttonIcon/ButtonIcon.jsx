@@ -1,7 +1,11 @@
 import styles from "./ButtonIcon.module.css";
 
-function ButtonIcon() {
-  return <button className={styles.buttonIcon}></button>;
+function ButtonIcon({ children, disabled, onClick }) {
+  return (
+    <button className={styles.buttonIcon} disabled={disabled} onClick={onClick}>
+      {children}
+    </button>
+  );
 }
 
 export default ButtonIcon;
