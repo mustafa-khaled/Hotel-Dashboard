@@ -1,16 +1,25 @@
 import { useForm } from "react-hook-form";
+import { useSignup } from "./useSignup";
 import Button from "../../ui/button/Button";
 import Form from "../../ui/form/Form";
 import FormRow from "../../ui/formRow/FormRow";
-
-// Email regex: /\S+@\S+\.\S+/
+import SpinnerMini from "../../ui/spinnerMini/SpinnerMini";
 
 function SignupForm() {
-  const { register, formState, getValues, handleSubmit } = useForm();
+  const { signup, isLoading } = useSignup();
+
+  const { register, formState, getValues, handleSubmit, reset } = useForm();
   const { errors } = formState;
 
-  function onSubmit(data) {
-    console.log(data);
+  function onSubmit({ fullName, email, password }) {
+    signup(
+      { fullName, email, password },
+      {
+        onSettled: () => {
+          reset();
+        },
+      }
+    );
   }
 
   return (
@@ -20,6 +29,7 @@ function SignupForm() {
           className="form-input"
           type="text"
           id="fullName"
+          disabled={isLoading}
           {...register("fullName", { required: "Full Name  is required" })}
         />
       </FormRow>
@@ -29,6 +39,7 @@ function SignupForm() {
           className="form-input"
           type="email"
           id="email"
+          disabled={isLoading}
           {...register("email", {
             required: "Email is required",
             pattern: {
@@ -46,6 +57,7 @@ function SignupForm() {
           className="form-input"
           type="password"
           id="password"
+          disabled={isLoading}
           {...register("password", {
             required: "Password is required",
             minLength: {
@@ -61,6 +73,7 @@ function SignupForm() {
           className="form-input"
           type="password"
           id="passwordConfirm"
+          disabled={isLoading}
           {...register("passwordConfirm", {
             required: "Repeated Password is required",
             validate: (value) =>
@@ -70,10 +83,12 @@ function SignupForm() {
       </FormRow>
 
       <FormRow>
-        <Button variation="secondary" type="reset">
+        <Button variation="secondary" type="reset" disabled={isLoading}>
           Cancel
         </Button>
-        <Button>Create new user</Button>
+        <Button variation={isLoading ? "secondary" : "primary"}>
+          {isLoading ? <SpinnerMini /> : "Create new user"}
+        </Button>
       </FormRow>
     </Form>
   );
