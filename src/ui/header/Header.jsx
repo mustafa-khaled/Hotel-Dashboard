@@ -1,4 +1,5 @@
 import styles from "./Header.module.css";
+import SpinnerMini from "../spinnerMini/SpinnerMini";
 
 function Header({ active, setActive }) {
   return (

@@ -197,6 +197,17 @@ img {
   filter: grayscale(var(--image-grayscale)) opacity(var(--image-opacity));
 }
 
+/* Login Page Styles  */
+.login-page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 48rem;
+  align-content: center;
+  justify-content: center;
+  gap: 3.2rem;
+  background-color: var(--color-grey-50);
+}
+
 /*
 FOR DARK MODE
 

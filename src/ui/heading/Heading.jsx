@@ -13,6 +13,10 @@ const headingStyles = {
     tag: "h3",
     className: `${styles.heading} ${styles.head3}`,
   },
+  h4: {
+    tag: "h4",
+    className: `${styles.heading} ${styles.head4}`,
+  },
 };
 
 function Heading({ as = "h1", children }) {

@@ -1,21 +1,30 @@
 import { useState } from "react";
+import { useLogin } from "./useLogin";
 import Button from "../../ui/button/Button";
 import Form from "../../ui/form/Form";
 import FormRow from "../../ui/formRow/FormRow";
-import Input from "../../ui/input/Input";
+import SpinnerMini from "../../ui/spinnerMini/SpinnerMini";
 
 function LoginForm() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("mustafa@mustafa.com");
+  const [password, setPassword] = useState("12345678");
+  const { login, isLoading } = useLogin();
 
-  function handleSubmit() {}
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    if (!email || !password) return;
+    login({ email, password });
+  }
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form submit={handleSubmit}>
       <FormRow label="Email address" orientation="vertical">
-        <Input
+        <input
+          className="form-input"
           type="email"
           id="email"
+          disabled={isLoading}
           // This makes this form better for password managers
           autoComplete="username"
           value={email}
@@ -23,16 +32,21 @@ function LoginForm() {
         />
       </FormRow>
       <FormRow label="Password" orientation="vertical">
-        <Input
+        <input
+          className="form-input"
           type="password"
           id="password"
+          disabled={isLoading}
           autoComplete="current-password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
       </FormRow>
-      <FormRow orientation="vertical">
-        <Button size="large">Login</Button>
+
+      <FormRow orientation="vertical" disabled={isLoading}>
+        <Button size="large" variation={isLoading ? "secondary" : "primary"}>
+          {!isLoading ? "Login" : <SpinnerMini />}
+        </Button>
       </FormRow>
     </Form>
   );
