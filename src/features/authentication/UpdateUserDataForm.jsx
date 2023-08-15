@@ -7,7 +7,6 @@ import Form from "../../ui/form/Form";
 import FormRow from "../../ui/formRow/FormRow";
 
 function UpdateUserDataForm() {
-  // We don't need the loading state
   const {
     user: {
       email,
@@ -37,7 +36,7 @@ function UpdateUserDataForm() {
   }
 
   function handleCancel(e) {
-    // We don't even need preventDefault because this button was designed to reset the form (remember, it has the HTML attribute 'reset')
+    // We don't even need preventDefault because this button was designed to reset the form
     setFullName(currentFullName);
     setAvatar(null);
   }

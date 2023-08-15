@@ -3,29 +3,28 @@ import { useUpdateUser } from "./useUpdateUser";
 import Button from "../../ui/button/Button";
 import Form from "../../ui/form/Form";
 import FormRow from "../../ui/formRow/FormRow";
-import Input from "../../ui/input/Input";
 
 function UpdatePasswordForm() {
   const { register, handleSubmit, formState, getValues, reset } = useForm();
   const { errors } = formState;
 
-  const { mutate: updateUser, isLoading: isUpdating } = useUpdateUser();
+  const { updateUser, isUpdating } = useUpdateUser();
 
   function onSubmit({ password }) {
     updateUser({ password }, { onSuccess: () => reset() });
   }
 
-  function handleReset(e) {
-    // e.preventDefault();
+  function handleReset() {
     reset();
   }
 
   return (
-    <Form onSubmit={handleSubmit(onSubmit)}>
+    <Form submit={handleSubmit(onSubmit)}>
       <FormRow
         label="Password (min 8 characters)"
         error={errors?.password?.message}>
-        <Input
+        <input
+          className="form-input"
           type="password"
           id="password"
           // this makes the form better for password managers
@@ -44,7 +43,8 @@ function UpdatePasswordForm() {
       <FormRow
         label="Confirm password"
         error={errors?.passwordConfirm?.message}>
-        <Input
+        <input
+          className="form-input"
           type="password"
           autoComplete="new-password"
           id="passwordConfirm"
