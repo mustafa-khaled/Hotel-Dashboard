@@ -1,12 +1,10 @@
-import { useUser } from "features/authentication/useUser";
+import { useUser } from "./useUser";
 import { useState } from "react";
 import { useUpdateUser } from "./useUpdateUser";
 
-import FileInput from "../../ui/fileInput";
 import Button from "../../ui/button/Button";
 import Form from "../../ui/form/Form";
 import FormRow from "../../ui/formRow/FormRow";
-import Input from "../../ui/input/Input";
 
 function UpdateUserDataForm() {
   // We don't need the loading state
@@ -20,7 +18,7 @@ function UpdateUserDataForm() {
   const [fullName, setFullName] = useState(currentFullName);
   const [avatar, setAvatar] = useState(null);
 
-  const { mutate: updateUser, isLoading: isUpdating } = useUpdateUser();
+  const { updateUser, isUpdating } = useUpdateUser();
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -45,12 +43,13 @@ function UpdateUserDataForm() {
   }
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form submit={handleSubmit}>
       <FormRow label="Email address">
-        <Input value={email} disabled />
+        <input className="form-input" value={email} disabled />
       </FormRow>
       <FormRow label="Full name">
-        <Input
+        <input
+          className="form-input"
           type="text"
           value={fullName}
           onChange={(e) => setFullName(e.target.value)}
@@ -59,7 +58,9 @@ function UpdateUserDataForm() {
         />
       </FormRow>
       <FormRow label="Avatar image">
-        <FileInput
+        <input
+          className="file-input"
+          type="file"
           disabled={isUpdating}
           id="avatar"
           accept="image/*"
