@@ -4,9 +4,11 @@
   display: flex;
   flex-direction: column;
   gap: 2.4rem;
+  background-color: var(--color-grey-0);
 }
 
 .dashboard-layout {
+  margin-top: 30px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: auto 34rem auto;
@@ -16,6 +18,7 @@
 .chart-box {
   padding: 2.4rem 3.2rem;
   grid-column: 3 / span 2;
+  background-color: var(--color-grey-0);
 }
 
 .chart-box .recharts-pie-label-text {
@@ -33,6 +36,7 @@
   grid-template-rows: auto auto;
   column-gap: 1.6rem;
   row-gap: 0.4rem;
+  background-color: var(--color-grey-0);
 }
 
 .icon {
@@ -71,4 +75,27 @@
 .sales-chart .recharts-cartesian-grid-horizontal line,
 .sales-chart .recharts-cartesian-grid-vertical line {
   stroke: var(--color-grey-300);
+}
+
+.today-item {
+  display: grid;
+  grid-template-columns: 9rem 2rem 1fr 7rem 9rem;
+  gap: 1.2rem;
+  align-items: center;
+
+  font-size: 1.4rem;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid var(--color-grey-100);
+}
+
+.today-item :first-child {
+  border-top: 1px solid var(--color-grey-100);
+}
+
+.today-item :not(:last-child) {
+  border-bottom: 1px solid var(--color-grey-100);
+}
+
+.guest {
+  font-weight: 500;
 }

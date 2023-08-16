@@ -1,4 +1,4 @@
-import { useDarkMode } from "context/DarkModeContext";
+import { useDarkMode } from "../../context/DarkModeContext";
 import {
   Cell,
   Legend,
@@ -10,94 +10,6 @@ import {
 import styles from "./dashboard.module.css";
 
 import Heading from "../../ui/heading/Heading";
-
-/*
-const startDataLight = {
-  '1 nights': {
-    duration: '1 nights',
-    value: 0,
-    color: '#ef4444',
-  },
-  '2 nights': {
-    duration: '2 nights',
-    value: 0,
-    color: '#f97316',
-  },
-  '3 nights': {
-    duration: '3 nights',
-    value: 0,
-    color: '#eab308',
-  },
-  '4-5 nights': {
-    duration: '4-5 nights',
-    value: 0,
-    color: '#84cc16',
-  },
-  '6-7 nights': {
-    duration: '6-7 nights',
-    value: 0,
-    color: '#22c55e',
-  },
-  '8-14 nights': {
-    duration: '8-14 nights',
-    value: 0,
-    color: '#14b8a6',
-  },
-  '15-21 nights': {
-    duration: '15-21 nights',
-    value: 0,
-    color: '#3b82f6',
-  },
-  '21+ nights': {
-    duration: '21+ nights',
-    value: 0,
-    color: '#a855f7',
-  },
-};
-
-const startDataDark = {
-  '1 nights': {
-    duration: '1 nights',
-    value: 0,
-    color: '#b91c1c',
-  },
-  '2 nights': {
-    duration: '2 nights',
-    value: 0,
-    color: '#c2410c',
-  },
-  '3 nights': {
-    duration: '3 nights',
-    value: 0,
-    color: '#a16207',
-  },
-  '4-5 nights': {
-    duration: '4-5 nights',
-    value: 0,
-    color: '#4d7c0f',
-  },
-  '6-7 nights': {
-    duration: '6-7 nights',
-    value: 0,
-    color: '#15803d',
-  },
-  '8-14 nights': {
-    duration: '8-14 nights',
-    value: 0,
-    color: '#0f766e',
-  },
-  '15-21 nights': {
-    duration: '15-21 nights',
-    value: 0,
-    color: '#1d4ed8',
-  },
-  '21+ nights': {
-    duration: '21+ nights',
-    value: 0,
-    color: '#7e22ce',
-  },
-};
-*/
 
 const startDataLight = [
   {
@@ -186,8 +98,6 @@ const startDataDark = [
 ];
 
 function prepareData(startData, stays) {
-  // A bit ugly code, but sometimes this is what it takes when working with real data 😅
-
   function incArrayValue(arr, field) {
     return arr.map((obj) =>
       obj.duration === field ? { ...obj, value: obj.value + 1 } : obj
@@ -283,7 +193,7 @@ function DurationChart({ confirmedStays }) {
             data={data}
             nameKey="duration"
             dataKey="value"
-            cx="40%"
+            cx="50%"
             cy="50%"
             innerRadius={85}
             outerRadius={110}
@@ -301,8 +211,6 @@ function DurationChart({ confirmedStays }) {
           </Pie>
           <Tooltip />
           <Legend
-            // verticalAlign='bottom'
-            // align='center'
             verticalAlign="middle"
             align="right"
             width="30%"

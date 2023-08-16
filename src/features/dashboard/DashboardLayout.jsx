@@ -6,6 +6,7 @@ import styles from "./dashboard.module.css";
 import Spinner from "../../ui/spinner/Spinner";
 import Stats from "./Stats";
 import SalesChart from "./SalesChart";
+import DurationChart from "./DurationChart";
 
 function DashboardLayout() {
   const { bookings, bookingsLoading, numDays } = useRecentBookings();
@@ -23,6 +24,8 @@ function DashboardLayout() {
         numDays={numDays}
         cabinCount={cabinCount}
       />
+      <div>Two</div>
+      <DurationChart confirmedStays={confirmedStays} />
       <SalesChart bookings={bookings} numDays={numDays} />
     </div>
   );
