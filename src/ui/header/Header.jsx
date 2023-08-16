@@ -1,24 +1,18 @@
+import { useNavigate } from "react-router-dom";
 import styles from "./Header.module.css";
 import Logout from "../../features/authentication/Logout";
 import ButtonIcon from "../buttonIcon/ButtonIcon";
-import { useNavigate } from "react-router-dom";
 import UserAvatar from "../../features/authentication/UserAvatar";
 import DarkModeToggle from "../darkModeToggle/DarkModeToggle";
+import ActiveSidebar from "../activeSidebar/activeSidebar";
 
-function Header({ active, setActive }) {
+function Header() {
   const navigate = useNavigate();
   return (
     <header className={styles.header}>
       <div className={`container `}>
-        <div onClick={() => setActive(!active)} className={styles.icon}>
-          <ButtonIcon>
-            {active ? (
-              <i className="fa-solid fa-xmark"></i>
-            ) : (
-              <i className="fa-solid fa-bars"></i>
-            )}
-          </ButtonIcon>
-        </div>
+        <ActiveSidebar />
+
         <div>
           <UserAvatar />
           <DarkModeToggle />

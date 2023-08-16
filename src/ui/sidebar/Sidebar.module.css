@@ -18,7 +18,3 @@
   -o-transition: var(--main-transition);
   z-index: 888;
 }
-
-.sidebar.active {
-  left: 0;
-}

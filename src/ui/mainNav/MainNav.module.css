@@ -26,16 +26,16 @@
   border-radius: var(--border-radius-sm);
 }
 
-.navLink svg {
+.navLink i {
   width: 2.4rem;
   height: 2.4rem;
   color: var(--color-grey-400);
   transition: all 0.3s;
 }
 
-.navLink:hover svg,
-.navLink:active svg,
-.navLink.active:link svg,
-.navLink.active:visited svg {
+.navLink:hover i,
+.navLink:active i,
+.navLink.active:link i,
+.navLink.active:visited i {
   color: var(--color-brand-600);
 }

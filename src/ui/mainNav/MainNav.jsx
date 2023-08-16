@@ -1,12 +1,4 @@
 import { NavLink } from "react-router-dom";
-import {
-  HiOutlineCalendarDays,
-  HiOutlineCog6Tooth,
-  HiOutlineHome,
-  HiOutlineHomeModern,
-  HiOutlineUsers,
-} from "react-icons/hi2";
-
 import styles from "./MainNav.module.css";
 
 function MainNav() {
@@ -15,31 +7,31 @@ function MainNav() {
       <ul className={styles.list}>
         <li>
           <NavLink className={styles.navLink} to="/dashboard">
-            <HiOutlineHome />
+            <i className="fa-solid fa-house"></i>
             <span>Home</span>
           </NavLink>
         </li>
         <li>
           <NavLink className={styles.navLink} to="/bookings">
-            <HiOutlineCalendarDays />
+            <i className="fa-regular fa-rectangle-list"></i>
             <span>Bookings</span>
           </NavLink>
         </li>
         <li>
           <NavLink className={styles.navLink} to="/cabins">
-            <HiOutlineHomeModern />
+            <i className="fa-solid fa-house-chimney-user"></i>
             <span>Cabins</span>
           </NavLink>
         </li>
         <li>
           <NavLink className={styles.navLink} to="/users">
-            <HiOutlineUsers />
+            <i className="fa-solid fa-users"></i>
             <span>Users</span>
           </NavLink>
         </li>
         <li>
           <NavLink className={styles.navLink} to="/settings">
-            <HiOutlineCog6Tooth />
+            <i className="fa-solid fa-gears"></i>
             <span>Settings</span>
           </NavLink>
         </li>

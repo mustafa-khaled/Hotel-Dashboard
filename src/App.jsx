@@ -16,6 +16,7 @@ import PageNotFound from "./pages/PageNotFound";
 import AppLayout from "./ui/appLayout/AppLayout";
 import CheckIn from "./pages/CheckIn";
 import ProtectedRoute from "./ui/protectedRoute/ProtectedRoute";
+import { SideBarProvider } from "./context/SideBarContext";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -35,7 +36,9 @@ function App() {
             <Route
               element={
                 <ProtectedRoute>
-                  <AppLayout />
+                  <SideBarProvider>
+                    <AppLayout />
+                  </SideBarProvider>
                 </ProtectedRoute>
               }>
               <Route index element={<Navigate replace to="dashboard" />} />

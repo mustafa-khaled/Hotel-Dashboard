@@ -1,22 +1,21 @@
 import { Outlet } from "react-router-dom";
-import { useState } from "react";
+import { useSideBar } from "../../context/SideBarContext";
 import Sidebar from "../sidebar/Sidebar";
 import Header from "../header/Header";
 import styles from "./AppLayout.module.css";
 
 function AppLayout() {
-  const [active, setActive] = useState(false);
-  const closeSideBar = () => setActive(false);
+  const { isSideBarActive, closeSideBar } = useSideBar();
 
   return (
     <div className={styles.app}>
-      <Header active={active} setActive={setActive} />
-      <Sidebar active={active} />
+      <Header />
+      <Sidebar />
       <main>
         <Outlet />
       </main>
       <div
-        className={`${styles.overLay} ${active ? styles.active : ""}`}
+        className={`${styles.overLay} ${isSideBarActive ? styles.active : ""}`}
         onClick={closeSideBar}></div>
     </div>
   );

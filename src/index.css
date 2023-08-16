@@ -247,3 +247,8 @@ img {
   gap: 3.2rem;
   background-color: var(--color-grey-50);
 }
+
+/* Active Sidebar */
+.active-sidebar {
+  left: 0;
+}
