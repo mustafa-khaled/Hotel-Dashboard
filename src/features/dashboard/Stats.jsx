@@ -1,11 +1,5 @@
-import {
-  HiOutlineBriefcase,
-  HiOutlineCalendarDays,
-  HiOutlineBanknotes,
-  HiOutlineChartBar,
-} from 'react-icons/hi2';
-import { formatCurrency } from 'utils/helpers';
-import Stat from './Stat';
+import { formatCurrency } from "../../utils/helpers";
+import Stat from "./Stat";
 
 function Stats({ bookings, confirmedStays, numDays, cabinCount }) {
   // Stat 1)
@@ -26,28 +20,28 @@ function Stats({ bookings, confirmedStays, numDays, cabinCount }) {
   return (
     <>
       <Stat
-        icon={<HiOutlineBriefcase />}
-        title='Bookings'
+        icon={<i className="fa-solid fa-briefcase"></i>}
+        title="Bookings"
         value={numBookings}
-        color='blue'
+        color="#0000ff7a"
       />
       <Stat
-        icon={<HiOutlineBanknotes />}
-        title='Sales'
+        icon={<i className="fa-regular fa-money-bill-1"></i>}
+        title="Sales"
         value={formatCurrency(sales)}
-        color='green'
+        color="#00800087"
       />
       <Stat
-        icon={<HiOutlineCalendarDays />}
-        title='Check ins'
+        icon={<i className="fa-regular fa-calendar-days"></i>}
+        title="Check ins"
         value={checkins}
-        color='indigo'
+        color="#4b008282"
       />
       <Stat
-        icon={<HiOutlineChartBar />}
-        title='Occupancy rate'
-        value={Math.round(occupation * 100) + '%'}
-        color='yellow'
+        icon={<i className="fa-solid fa-signal"></i>}
+        title="Occupancy rate"
+        value={`${Math.round(occupation * 100)}%`}
+        color="#ffff0080"
       />
     </>
   );
