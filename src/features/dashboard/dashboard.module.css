@@ -1,4 +1,5 @@
-.dashboard-box {
+.dashboard-box,
+.sales-chart {
   padding: 3.2rem;
   display: flex;
   flex-direction: column;
@@ -61,4 +62,13 @@
   line-height: 1;
   font-weight: 500;
   /* color: var(--color-grey-600); */
+}
+
+.sales-chart {
+  grid-column: 1 / -1;
+}
+
+.sales-chart .recharts-cartesian-grid-horizontal line,
+.sales-chart .recharts-cartesian-grid-vertical line {
+  stroke: var(--color-grey-300);
 }
