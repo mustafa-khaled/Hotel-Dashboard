@@ -1,0 +1,28 @@
+.dashboard-box {
+  padding: 3.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.dashboard-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto 34rem auto;
+  gap: 2.4rem;
+}
+
+.chart-box {
+  padding: 2.4rem 3.2rem;
+
+  grid-column: 3 / span 2;
+
+  & .recharts-pie-label-text {
+    font-weight: 600;
+  }
+
+  /* A bit hack, but okay */
+  & > *:first-child {
+    margin-bottom: 1.6rem;
+  }
+}

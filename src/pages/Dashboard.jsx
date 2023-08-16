@@ -1,3 +1,5 @@
+import DashboardFilter from "../features/dashboard/DashboardFilter";
+import DashboardLayout from "../features/dashboard/DashboardLayout";
 import Heading from "../ui/heading/Heading";
 import Row from "../ui/row/Row";
 
@@ -6,8 +8,9 @@ function Dashboard() {
     <div className="pages-margin">
       <Row type="horizontal">
         <Heading as="h1">Dashboard</Heading>
-        <p>TEST</p>
+        <DashboardFilter />
       </Row>
+      <DashboardLayout />
     </div>
   );
 }
