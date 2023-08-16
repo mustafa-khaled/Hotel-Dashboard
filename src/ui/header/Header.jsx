@@ -3,6 +3,7 @@ import Logout from "../../features/authentication/Logout";
 import ButtonIcon from "../buttonIcon/ButtonIcon";
 import { useNavigate } from "react-router-dom";
 import UserAvatar from "../../features/authentication/UserAvatar";
+import DarkModeToggle from "../darkModeToggle/DarkModeToggle";
 
 function Header({ active, setActive }) {
   const navigate = useNavigate();
@@ -20,6 +21,7 @@ function Header({ active, setActive }) {
         </div>
         <div>
           <UserAvatar />
+          <DarkModeToggle />
 
           <ButtonIcon onClick={() => navigate("/account")}>
             <i className="fa-regular fa-user"></i>
