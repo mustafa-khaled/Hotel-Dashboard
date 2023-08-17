@@ -3,6 +3,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { Toaster } from "react-hot-toast";
 import { DarkModeProvider } from "./context/DarkModeContext";
+import { SideBarProvider } from "./context/SideBarContext";
 
 import Dashboard from "./pages/Dashboard";
 import Bookings from "./pages/Bookings";
@@ -16,7 +17,6 @@ import PageNotFound from "./pages/PageNotFound";
 import AppLayout from "./ui/appLayout/AppLayout";
 import CheckIn from "./pages/CheckIn";
 import ProtectedRoute from "./ui/protectedRoute/ProtectedRoute";
-import { SideBarProvider } from "./context/SideBarContext";
 
 const queryClient = new QueryClient({
   defaultOptions: {
