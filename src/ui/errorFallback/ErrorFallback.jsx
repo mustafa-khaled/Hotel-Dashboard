@@ -1,9 +1,19 @@
+import Button from "../button/Button";
+import Heading from "../heading/Heading";
 import styles from "./ErrorFallback.module.css";
 
-function ErrorFallback() {
-  return <main className={styles["error-fallback"]}></main>;
+function ErrorFallback({ error, resetErrorBoundary }) {
+  return (
+    <main className={styles["error-fallback"]}>
+      <div className={styles.box}>
+        <Heading>Something Went Wrong</Heading>
+        <p>{error.message}</p>
+        <Button size="large" onClick={resetErrorBoundary}>
+          Try Again
+        </Button>
+      </div>
+    </main>
+  );
 }
 
-function Box() {
-  return <div className={styles.box}></div>;
-}
+export default ErrorFallback;
