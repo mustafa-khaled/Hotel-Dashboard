@@ -11,7 +11,7 @@ import TodayActivity from "../check-in-out/TodayActivity";
 
 function DashboardLayout() {
   const { bookings, bookingsLoading, numDays } = useRecentBookings();
-  const { loadingStays, stays, confirmedStays } = useRecentStays();
+  const { loadingStays, confirmedStays } = useRecentStays();
   const { cabins = {}, isLoading: cabinsLoading } = useCabins();
   const cabinCount = cabins.length;
 

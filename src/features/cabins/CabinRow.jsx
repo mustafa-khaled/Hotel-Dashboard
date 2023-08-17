@@ -54,7 +54,8 @@ function CabinRow({ cabin }) {
           <Menus.List id={cabinId}>
             <Menus.Button
               icon={<i className="fa-regular fa-copy"></i>}
-              onClick={() => handleDuplicate()}>
+              onClick={() => handleDuplicate()}
+              disabled={isCreating}>
               Duplicate
             </Menus.Button>
 
