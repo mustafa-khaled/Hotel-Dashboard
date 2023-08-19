@@ -1,66 +1,83 @@
 import { useForm } from "react-hook-form";
+import { useCabins } from "../cabins/useCabins";
+
 import FormRow from "../../ui/formRow/FormRow";
 import Button from "../../ui/button/Button";
 import Form from "../../ui/form/Form";
 import styles from "./CreateBookingForm.module.css";
+import Select from "../../ui/select/Select";
+import SpinnerMini from "../../ui/spinnerMini/SpinnerMini";
 
 function CreateBookingForm({ onCloseModal }) {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, setValue, watch, formState } = useForm();
+  const { isLoading, cabins = {}, error } = useCabins();
 
-  function onSubmit() {
-    console.log("Submit Form");
+  function onSubmit(data) {
+    console.log(data);
   }
+
+  const { errors } = formState;
 
   return (
     <Form submit={handleSubmit(onSubmit)}>
       <div className={styles["inputs-container"]}>
         <div>
-          <FormRow label="startDate">
+          <FormRow error={errors?.startDate?.message}>
             <input
               id="startDate"
-              type="number"
+              type="datetime-local"
               className="form-input"
-              {...register("startDate")}
+              {...register("startDate", {
+                required: "Start Date  is required",
+              })}
             />
           </FormRow>
 
-          <FormRow label="endDate">
+          <FormRow error={errors?.endDate?.message}>
             <input
               id="endDate"
-              type="number"
+              type="datetime-local"
               className="form-input"
-              {...register("endDate")}
+              {...register("endDate", { required: "End Date is required" })}
             />
           </FormRow>
 
-          <FormRow label="numNights">
+          <FormRow error={errors?.numNights?.message}>
             <input
+              placeholder="Nights Number"
               id="numNights"
               type="number"
               className="form-input"
-              {...register("endDate")}
+              {...register("numNights", {
+                required: "Nights Number is required",
+              })}
             />
           </FormRow>
 
-          <FormRow label="numGuests">
+          <FormRow error={errors?.numGuests?.message}>
             <input
+              placeholder="Guests Number"
               type="number"
               id="numGuests"
               className="form-input"
-              {...register("numGuests")}
+              {...register("numGuests", {
+                required: "Guests Number is required",
+              })}
             />
           </FormRow>
 
-          <FormRow label="cabinPrice">
+          <FormRow error={errors?.cabinPrice?.message}>
             <input
+              placeholder="Cabin Price"
               id="cabinPrice"
               type="number"
               className="form-input"
-              {...register("cabinPrice")}
+              disabled
             />
           </FormRow>
-          <FormRow label="extraPrice">
+          <FormRow error={errors?.extraPrice?.message}>
             <input
+              placeholder="Extra Price"
               id="extraPrice"
               type="number"
               className="form-input"
@@ -70,34 +87,46 @@ function CreateBookingForm({ onCloseModal }) {
         </div>
 
         <div>
-          <FormRow label="totalPrice">
+          <FormRow error={errors?.totalPrice?.message}>
             <input
+              placeholder="Total Price"
               id="totalPrice"
               type="number"
               className="form-input"
-              {...register("totalPrice")}
+              disabled
             />
           </FormRow>
-          <FormRow label="status">
+          <FormRow error={errors?.status?.message}>
             <input
+              placeholder="Status"
               id="status"
               type="text"
               className="form-input"
-              {...register("status")}
+              {...register("status", { required: "The Status is required" })}
             />
           </FormRow>
-          <FormRow label="hasBreakfast">
+          <FormRow error={errors?.hasBreakfast?.message}>
             <input
+              placeholder="Has Breakfast"
               id="hasBreakfast"
               className="form-input"
-              {...register("hasBreakfast")}
+              {...register("hasBreakfast", {
+                required: "This Field is required",
+              })}
             />
           </FormRow>
-          <FormRow label="isPaid">
-            <input id="isPaid" className="form-input" {...register("isPaid")} />
-          </FormRow>
-          <FormRow label="observation">
+          <FormRow error={errors?.isPaid?.message}>
             <input
+              id="isPaid"
+              placeholder="Is Paid"
+              className="form-input"
+              {...register("isPaid", { required: "This  Field is required" })}
+            />
+          </FormRow>
+
+          <FormRow error={errors?.observation?.message}>
+            <input
+              placeholder="Observation"
               id="observation"
               className="form-input"
               type="text"
@@ -105,17 +134,26 @@ function CreateBookingForm({ onCloseModal }) {
             />
           </FormRow>
 
-          <FormRow label="cabinId">
-            <input
-              id="cabinId"
-              type="number"
-              className="form-input"
-              {...register("cabinId")}
-            />
+          <FormRow error={errors?.cabinId?.message}>
+            {isLoading ? (
+              <SpinnerMini />
+            ) : (
+              <Select
+                options={cabins?.map((cabin) => ({
+                  value: cabin.id,
+                  label: cabin.name,
+                }))}
+                value={watch("cabinId")}
+                onChange={(e) => {
+                  setValue("cabinId", e.target.value);
+                }}
+              />
+            )}
           </FormRow>
 
-          <FormRow label="guestId">
+          <FormRow error={errors?.guestId?.message}>
             <input
+              placeholder="Guest Id"
               id="guestId"
               type="number"
               className="form-input"

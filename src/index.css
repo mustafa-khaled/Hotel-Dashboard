@@ -101,21 +101,23 @@
 }
 
 .form-input {
+  width: 230px;
   border: 1px solid var(--color-grey-300);
   background-color: var(--color-grey-0);
   border-radius: var(--border-radius-sm);
-  padding: 0.8rem 1.2rem;
+  padding: 0.8rem;
   box-shadow: var(--shadow-sm);
 }
 
 .form-textarea {
-  padding: 0.8rem 1.2rem;
+  padding: 0.8rem;
   border: 1px solid var(--color-grey-300);
   border-radius: 5px;
   background-color: var(--color-grey-0);
   box-shadow: var(--shadow-sm);
-  width: 100%;
+  width: 230px;
   height: 8rem;
+  resize: none;
 }
 
 .file-input {

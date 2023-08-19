@@ -3,3 +3,7 @@
   align-items: flex-start;
   justify-content: center;
 }
+
+.inputs-container input[type="datetime-local"] {
+  width: 230px;
+}
