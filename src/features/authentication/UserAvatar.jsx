@@ -9,7 +9,7 @@ const UserAvatar = () => {
     <div className={styles["user-avatar"]}>
       <img
         className={styles.avatar}
-        src={avatar || "/public/default-user.jpg"}
+        src={avatar || "/default-user.jpg"}
         alt="userImage"
       />
       <span>{fullName}</span>

@@ -53,6 +53,19 @@ export async function getBooking(id) {
   return data;
 }
 
+export async function createBooking(newBooking) {
+  const { data, error } = await supabase
+    .from("bookings")
+    .insert([newBooking])
+    .select();
+
+  if (error) {
+    console.error(error);
+    throw new Error("Booking could not be Created");
+  }
+  return data;
+}
+
 export async function updateBooking(id, obj) {
   const { data, error } = await supabase
     .from("bookings")

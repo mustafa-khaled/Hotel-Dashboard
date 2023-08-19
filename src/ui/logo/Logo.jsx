@@ -7,7 +7,7 @@ function Logo() {
   return (
     <div className={styles.logo}>
       <img
-        src={isDarkMode ? "./public/logo-light.png" : "./public/logo-dark.png"}
+        src={isDarkMode ? "/logo-light.png" : "/logo-dark.png"}
         alt="Logo"
         className={styles["logo-image"]}
       />
