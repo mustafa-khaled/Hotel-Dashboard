@@ -11,8 +11,10 @@ const FormRow = ({ label, error, children, orientation }) => {
           {label}
         </label>
       )}
-      {children}
-      {error && <span className={styles.error}>{error}</span>}
+      <div>
+        {children}
+        {error && <span className={styles.error}>{error}</span>}
+      </div>
     </div>
   );
 };

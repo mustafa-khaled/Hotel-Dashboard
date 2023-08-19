@@ -8,9 +8,20 @@ import styles from "./CreateBookingForm.module.css";
 import Select from "../../ui/select/Select";
 import SpinnerMini from "../../ui/spinnerMini/SpinnerMini";
 
+const trueOrFalse = [
+  {
+    id: 1,
+    value: true,
+  },
+  {
+    id: 2,
+    value: false,
+  },
+];
+
 function CreateBookingForm({ onCloseModal }) {
   const { register, handleSubmit, setValue, watch, formState } = useForm();
-  const { isLoading, cabins = {}, error } = useCabins();
+  const { isLoading, cabins = [], error } = useCabins();
 
   function onSubmit(data) {
     console.log(data);
@@ -96,31 +107,27 @@ function CreateBookingForm({ onCloseModal }) {
               disabled
             />
           </FormRow>
-          <FormRow error={errors?.status?.message}>
-            <input
-              placeholder="Status"
-              id="status"
-              type="text"
-              className="form-input"
-              {...register("status", { required: "The Status is required" })}
-            />
-          </FormRow>
+
           <FormRow error={errors?.hasBreakfast?.message}>
-            <input
-              placeholder="Has Breakfast"
-              id="hasBreakfast"
-              className="form-input"
-              {...register("hasBreakfast", {
-                required: "This Field is required",
-              })}
+            <Select
+              options={trueOrFalse?.map((value) => ({
+                value: value.id,
+                label: value.value ? "Has Breakfast" : "No Breakfast",
+              }))}
+              onChange={(e) => {
+                setValue("hasBreakfast", e.target.value);
+              }}
             />
           </FormRow>
           <FormRow error={errors?.isPaid?.message}>
-            <input
-              id="isPaid"
-              placeholder="Is Paid"
-              className="form-input"
-              {...register("isPaid", { required: "This  Field is required" })}
+            <Select
+              options={trueOrFalse?.map((value) => ({
+                value: value.id,
+                label: value.value ? "Paid" : "Did Not Paid",
+              }))}
+              onChange={(e) => {
+                setValue("isPaid", e.target.value);
+              }}
             />
           </FormRow>
 

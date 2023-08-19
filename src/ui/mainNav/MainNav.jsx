@@ -23,6 +23,13 @@ function MainNav() {
             <span>Cabins</span>
           </NavLink>
         </li>
+
+        <li>
+          <NavLink className={styles.navLink} to="/guests">
+            <i className="fa-solid fa-user-group"></i>
+            <span>Guests</span>
+          </NavLink>
+        </li>
         <li>
           <NavLink className={styles.navLink} to="/users">
             <i className="fa-solid fa-users"></i>

@@ -31,10 +31,10 @@
 }
 
 .today-item {
-  display: grid;
-  grid-template-columns: 9rem 2rem 1fr 7rem 9rem;
-  gap: 1.2rem;
+  display: flex;
   align-items: center;
+  justify-content: space-between;
+  gap: 10px;
 
   font-size: 1.4rem;
   padding: 0.8rem 0;
