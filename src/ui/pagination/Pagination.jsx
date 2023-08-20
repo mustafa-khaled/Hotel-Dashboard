@@ -27,7 +27,7 @@ function Pagination({ active, count }) {
   return (
     <div className={styles.pagination}>
       <p className={styles.p}>
-        Showing <span>{(currentPage - 1) * PAGE_SIZE + 1}</span> to
+        Showing <span> {(currentPage - 1) * PAGE_SIZE + 1} </span> to
         <span>
           {currentPage === pageCount ? count : currentPage + PAGE_SIZE}
         </span>

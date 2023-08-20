@@ -32,7 +32,7 @@ function BookingTable() {
         />
 
         <Table.Footer>
-          {/* The Count Provided Bu Supabase */}
+          {/* The Count Provided By Supabase */}
           <Pagination count={count} />
         </Table.Footer>
       </Table>
