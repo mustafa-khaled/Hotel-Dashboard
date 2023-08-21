@@ -28,3 +28,11 @@ export const formatCurrency = (value) =>
   new Intl.NumberFormat("en", { style: "currency", currency: "USD" }).format(
     value
   );
+
+export function debounce(func, wait) {
+  let timeout;
+  return function (...args) {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func.apply(this, args), wait);
+  };
+}

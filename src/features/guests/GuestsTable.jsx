@@ -22,7 +22,7 @@ function GuestsTable() {
           <div>ID</div>
           <div>Full Name </div>
           <div>Email</div>
-          <div>Nationality</div>
+          <div>Country</div>
           <div></div>
         </Table.Header>
 

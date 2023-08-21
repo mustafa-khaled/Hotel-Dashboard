@@ -6,6 +6,8 @@ import { DarkModeProvider } from "./context/DarkModeContext";
 import { SideBarProvider } from "./context/SideBarContext";
 
 import Dashboard from "./pages/Dashboard";
+import AppLayout from "./ui/appLayout/AppLayout";
+import ProtectedRoute from "./ui/protectedRoute/ProtectedRoute";
 import Bookings from "./pages/Bookings";
 import Booking from "./pages/Booking";
 import Cabins from "./pages/Cabins";
@@ -14,9 +16,7 @@ import Settings from "./pages/Settings";
 import Account from "./pages/Account";
 import Login from "./pages/Login";
 import PageNotFound from "./pages/PageNotFound";
-import AppLayout from "./ui/appLayout/AppLayout";
 import CheckIn from "./pages/CheckIn";
-import ProtectedRoute from "./ui/protectedRoute/ProtectedRoute";
 import Guests from "./pages/Guests";
 
 const queryClient = new QueryClient({

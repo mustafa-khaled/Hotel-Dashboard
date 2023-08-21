@@ -1,7 +1,7 @@
 import supabase from "./supabase";
 import { PAGE_SIZE } from "../utils/constants";
 
-export async function getGuests({ page }) {
+export async function getGuests({ page, search }) {
   const from = (page - 1) * PAGE_SIZE;
   const to = from + PAGE_SIZE - 1;
 
@@ -9,6 +9,11 @@ export async function getGuests({ page }) {
     .from("guests")
     .select("id, fullName, email, nationality", { count: "exact" })
     .range(from, to);
+
+  // Filter by fullName
+  if (search) {
+    query = query.ilike("fullName", `%${search}%`);
+  }
 
   const { data, error, count } = await query;
 

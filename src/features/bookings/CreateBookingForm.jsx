@@ -21,7 +21,7 @@ const trueOrFalse = [
 
 function CreateBookingForm({ onCloseModal }) {
   const { register, handleSubmit, setValue, watch, formState } = useForm();
-  const { isLoading, cabins = [], error } = useCabins();
+  const { isLoading, cabins = [] } = useCabins();
 
   function onSubmit(data) {
     console.log(data);

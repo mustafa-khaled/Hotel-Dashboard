@@ -101,7 +101,7 @@
 }
 
 .form-input {
-  width: 230px;
+  width: 100%;
   border: 1px solid var(--color-grey-300);
   background-color: var(--color-grey-0);
   border-radius: var(--border-radius-sm);
@@ -115,7 +115,8 @@
   border-radius: 5px;
   background-color: var(--color-grey-0);
   box-shadow: var(--shadow-sm);
-  width: 230px;
+  width: 100%;
+
   height: 8rem;
   resize: none;
 }
