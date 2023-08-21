@@ -7,12 +7,19 @@ import Button from "../../ui/button/Button";
 import SpinnerMini from "../../ui/spinnerMini/SpinnerMini";
 
 function CreateGuestForm({ onCloseModal }) {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
   const { createGuest, isCreating } = useCreateGuest();
 
   function onSubmit(data) {
-    createGuest(data);
-    console.log(data);
+    createGuest(
+      { newGuest: data },
+      {
+        onSuccess: () => {
+          reset();
+          onCloseModal?.();
+        },
+      }
+    );
   }
 
   return (
@@ -45,7 +52,7 @@ function CreateGuestForm({ onCloseModal }) {
           type="text"
           className="form-input"
           disabled={isCreating}
-          {...register("nationalId", { required: "This Field is required" })}
+          {...register("nationalID", { required: "This Field is required" })}
         />
       </FormRow>
 
@@ -59,6 +66,16 @@ function CreateGuestForm({ onCloseModal }) {
         />
       </FormRow>
 
+      <FormRow label="Country Flag">
+        <input
+          id="countryFlag"
+          type="text"
+          className="form-input"
+          disabled={isCreating}
+          {...register("countryFlag")}
+        />
+      </FormRow>
+
       <FormRow>
         <Button
           variation="secondary"
@@ -68,7 +85,7 @@ function CreateGuestForm({ onCloseModal }) {
           Cancel
         </Button>
         <Button disabled={isCreating}>
-          {isCreating ? SpinnerMini : "Create New Guest"}
+          {isCreating ? <SpinnerMini /> : "Create New Guest"}
         </Button>
       </FormRow>
     </Form>

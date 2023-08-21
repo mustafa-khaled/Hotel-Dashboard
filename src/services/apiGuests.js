@@ -25,12 +25,11 @@ export async function getGuests({ page, search }) {
 }
 
 export async function CreateGuest({ newGuest }) {
-  let query = await supabase.from("guests").insert([{ ...newGuest }]);
-
-  const { data, error } = await query;
+  const { data, error } = await supabase
+    .from("guests")
+    .insert([{ ...newGuest }]);
 
   if (error) {
-    console.error(error);
     throw new Error("New Guest could not be created");
   }
 
