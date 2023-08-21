@@ -1,3 +1,4 @@
+import AddGuest from "../features/guests/AddGuest";
 import GuestsOperations from "../features/guests/GuestsOperations";
 import GuestsTable from "../features/guests/GuestsTable";
 import Heading from "../ui/heading/Heading";
@@ -12,6 +13,7 @@ function Guests() {
       </Row>
       <Row>
         <GuestsTable />
+        <AddGuest />
       </Row>
     </div>
   );

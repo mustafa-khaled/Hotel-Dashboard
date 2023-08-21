@@ -23,3 +23,16 @@ export async function getGuests({ page, search }) {
 
   return { data, count };
 }
+
+export async function CreateGuest({ newGuest }) {
+  let query = await supabase.from("guests").insert([{ ...newGuest }]);
+
+  const { data, error } = await query;
+
+  if (error) {
+    console.error(error);
+    throw new Error("New Guest could not be created");
+  }
+
+  return data;
+}
