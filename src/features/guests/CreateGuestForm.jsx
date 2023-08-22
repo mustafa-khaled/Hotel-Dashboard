@@ -5,21 +5,38 @@ import Form from "../../ui/form/Form";
 import FormRow from "../../ui/formRow/FormRow";
 import Button from "../../ui/button/Button";
 import SpinnerMini from "../../ui/spinnerMini/SpinnerMini";
+import { useUpdateGuest } from "./useUpdateGuest";
 
-function CreateGuestForm({ onCloseModal }) {
-  const { register, handleSubmit, reset, formState } = useForm();
+function CreateGuestForm({ guestToEdit = {}, onCloseModal }) {
+  // Create New Guest Hook
   const { createGuest, isCreating } = useCreateGuest();
+  // Edit Guest Hook
+  const { updateGuest, isUpdating } = useUpdateGuest();
+
+  const isWorking = isCreating || isUpdating;
+  const { id: editId, ...editValues } = guestToEdit;
+  const isEditSession = Boolean(editId);
+
+  const { register, handleSubmit, reset, formState } = useForm({
+    defaultValues: isEditSession ? editValues : {},
+  });
 
   function onSubmit(data) {
-    createGuest(
-      { newGuest: data },
-      {
+    if (isEditSession) {
+      updateGuest(data, {
         onSuccess: () => {
           reset();
           onCloseModal?.();
         },
-      }
-    );
+      });
+    } else {
+      createGuest(data, {
+        onSuccess: () => {
+          reset();
+          onCloseModal?.();
+        },
+      });
+    }
   }
 
   const { errors } = formState;
@@ -33,7 +50,7 @@ function CreateGuestForm({ onCloseModal }) {
           id="FullName"
           type="text"
           className="form-input"
-          disabled={isCreating}
+          disabled={isWorking}
           {...register("fullName", { required: "This Field is required" })}
         />
       </FormRow>
@@ -43,7 +60,7 @@ function CreateGuestForm({ onCloseModal }) {
           id="email"
           type="text"
           className="form-input"
-          disabled={isCreating}
+          disabled={isWorking}
           {...register("email", {
             required: "This Field is required",
             pattern: {
@@ -59,7 +76,7 @@ function CreateGuestForm({ onCloseModal }) {
           id="nationalId"
           type="text"
           className="form-input"
-          disabled={isCreating}
+          disabled={isWorking}
           {...register("nationalID", { required: "This Field is required" })}
         />
       </FormRow>
@@ -69,7 +86,7 @@ function CreateGuestForm({ onCloseModal }) {
           id="nationality"
           type="text"
           className="form-input"
-          disabled={isCreating}
+          disabled={isWorking}
           {...register("nationality", { required: "This Field is required" })}
         />
       </FormRow>
@@ -79,7 +96,7 @@ function CreateGuestForm({ onCloseModal }) {
           id="countryFlag"
           type="text"
           className="form-input"
-          disabled={isCreating}
+          disabled={isWorking}
           {...register("countryFlag")}
         />
       </FormRow>
@@ -87,15 +104,19 @@ function CreateGuestForm({ onCloseModal }) {
       <FormRow>
         <Button
           variation="secondary"
-          disabled={isCreating}
+          disabled={isWorking}
           type="reset"
           onClick={() => onCloseModal?.()}>
           Cancel
         </Button>
         <Button
-          disabled={isCreating}
-          variation={isCreating ? "secondary" : "primary"}>
-          {isCreating ? <SpinnerMini /> : "Create New Guest"}
+          disabled={isWorking}
+          variation={isWorking ? "secondary" : "primary"}>
+          {isWorking ? (
+            <SpinnerMini />
+          ) : (
+            `${isEditSession ? "Edit Guest" : "Create New Guest"}`
+          )}
         </Button>
       </FormRow>
     </Form>
