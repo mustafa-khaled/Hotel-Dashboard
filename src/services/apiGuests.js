@@ -25,14 +25,19 @@ export async function getGuests({ page, search }) {
 }
 
 export async function CreateEditGuest(newGuest, id) {
-  // 1. Create/edit cabin
+  // 1. Create/edit Guest
   let query = supabase.from("guests");
 
   // A) CREATE
-  if (!id) query = query.insert([{ ...newGuest }]);
+  if (!id) {
+    query = query.insert([{ ...newGuest }]);
+  }
 
   // B) EDIT
-  if (id) query = query.update({ ...newGuest }).eq("id", id);
+  if (id) {
+    console.log(id);
+    query = query.update({ ...newGuest }).eq("id", id);
+  }
 
   const { data, error } = await query.select().single();
 
@@ -48,7 +53,7 @@ export async function deleteGuest(id) {
 
   if (error) {
     console.log(error);
-    throw new Error("Cabin Could Not Be Deleted");
+    throw new Error("Guest Could Not Be Deleted");
   }
 
   return data;

@@ -5,7 +5,7 @@ import Table from "../../ui/table/Table";
 import CreateGuestForm from "./CreateGuestForm.jsx";
 import { useDeleteGuest } from "./useDeleteGuest";
 
-function GuestsRow({ guests = {} }) {
+function GuestsRow({ guests }) {
   const { deleteGuest, isDeleting } = useDeleteGuest();
 
   const { id, fullName, email, nationality } = guests;

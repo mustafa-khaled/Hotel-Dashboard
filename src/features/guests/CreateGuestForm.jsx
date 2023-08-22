@@ -1,11 +1,11 @@
 import { useForm } from "react-hook-form";
 import { useCreateGuest } from "./useCreateGuest";
+import { useUpdateGuest } from "./useUpdateGuest";
 
 import Form from "../../ui/form/Form";
 import FormRow from "../../ui/formRow/FormRow";
 import Button from "../../ui/button/Button";
 import SpinnerMini from "../../ui/spinnerMini/SpinnerMini";
-import { useUpdateGuest } from "./useUpdateGuest";
 
 function CreateGuestForm({ guestToEdit = {}, onCloseModal }) {
   // Create New Guest Hook
@@ -23,12 +23,15 @@ function CreateGuestForm({ guestToEdit = {}, onCloseModal }) {
 
   function onSubmit(data) {
     if (isEditSession) {
-      updateGuest(data, {
-        onSuccess: () => {
-          reset();
-          onCloseModal?.();
-        },
-      });
+      updateGuest(
+        { newGuestData: data, id: editId },
+        {
+          onSuccess: () => {
+            reset();
+            onCloseModal?.();
+          },
+        }
+      );
     } else {
       createGuest(data, {
         onSuccess: () => {
