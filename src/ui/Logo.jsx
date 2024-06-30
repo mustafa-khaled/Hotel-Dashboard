@@ -1,15 +1,14 @@
-import { useDarkMode } from "../../context/DarkModeContext";
-import styles from "./Logo.module.css";
+import { useDarkMode } from "../context/DarkModeContext";
 
 function Logo() {
   const { isDarkMode } = useDarkMode();
 
   return (
-    <div className={styles.logo}>
+    <div>
       <img
         src={isDarkMode ? "/logo-light.png" : "/logo-dark.png"}
         alt="Logo"
-        className={styles["logo-image"]}
+        className="mx-auto w-[200px]"
       />
     </div>
   );

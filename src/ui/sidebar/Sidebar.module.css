@@ -8,13 +8,25 @@
   gap: 3.2rem;
   position: fixed;
   top: 70px;
-  left: -400px;
+  left: -100%;
   height: calc(100dvh - 70px);
-  width: 400px;
+  /* width: 400px; */
   transition: var(--main-transition);
   -webkit-transition: var(--main-transition);
   -moz-transition: var(--main-transition);
   -ms-transition: var(--main-transition);
   -o-transition: var(--main-transition);
   z-index: 888;
+}
+
+@media (min-width: 230px) {
+  .sidebar {
+    width: 100%;
+  }
+}
+
+@media (min-width: 600px) {
+  .sidebar {
+    width: 400px;
+  }
 }

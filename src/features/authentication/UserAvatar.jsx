@@ -1,18 +1,17 @@
-import styles from "./UserAvatar.module.css";
 import { useUser } from "../../features/authentication/useUser";
 
 const UserAvatar = () => {
   const { user } = useUser();
-  const { fullName, avatar } = user.user_metadata;
+  const { fullName, avatar } = user?.user_metadata;
 
   return (
-    <div className={styles["user-avatar"]}>
+    <div className={"flex items-center gap-[10px]"}>
       <img
-        className={styles.avatar}
+        className={"h-[45px] w-[45px] rounded-full"}
         src={avatar || "/default-user.jpg"}
         alt="userImage"
       />
-      <span>{fullName}</span>
+      <span className="font-semibold">{fullName}</span>
     </div>
   );
 };

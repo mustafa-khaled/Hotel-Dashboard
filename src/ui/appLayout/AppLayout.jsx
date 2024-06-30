@@ -8,15 +8,25 @@ function AppLayout() {
   const { isSideBarActive, closeSideBar } = useSideBar();
 
   return (
-    <div className={styles.app}>
-      <Header />
-      <Sidebar />
-      <main>
-        <Outlet />
-      </main>
-      <div
-        className={`${styles.overLay} ${isSideBarActive ? styles.active : ""}`}
-        onClick={closeSideBar}></div>
+    // <div className={styles.app}>
+    //   <Header />
+    //   <Sidebar />
+    //   <main>
+    //     <Outlet />
+    //   </main>
+    //   <div
+    //     className={`${styles.overLay} ${isSideBarActive ? styles.active : ""}`}
+    //     onClick={closeSideBar}></div>
+    // </div>
+
+    <div>
+      <div>
+        <Sidebar />
+        <main>
+          <Header />
+          <Outlet />
+        </main>
+      </div>
     </div>
   );
 }

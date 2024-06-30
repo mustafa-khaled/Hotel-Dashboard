@@ -1,9 +1,9 @@
+import { useDeleteGuest } from "./useDeleteGuest";
 import ConfirmDelete from "../../ui/confirmDelete/ConfirmDelete";
 import Menus from "../../ui/menus/Menus";
 import Modal from "../../ui/modal/Modal";
 import Table from "../../ui/table/Table";
 import CreateGuestForm from "./CreateGuestForm.jsx";
-import { useDeleteGuest } from "./useDeleteGuest";
 
 function GuestsRow({ guests }) {
   const { deleteGuest, isDeleting } = useDeleteGuest();

@@ -1,6 +1,6 @@
 import LoginForm from "../features/authentication/LoginForm";
 import Heading from "../ui/heading/Heading";
-import Logo from "../ui/logo/Logo";
+import Logo from "../ui/Logo";
 
 function Login() {
   return (
