@@ -11,7 +11,7 @@ import Empty from "../../ui/empty/Empty";
 import Spinner from "../../ui/spinner/Spinner";
 import Row from "../../ui/row/Row";
 import Heading from "../../ui/heading/Heading";
-import Tag from "../../ui/tag/Tag";
+import Tag from "../../ui/Tag";
 import ButtonGroup from "../../ui/buttonGroup/ButtonGroup";
 import Button from "../../ui/button/Button";
 import Modal from "../../ui/modal/Modal";
@@ -59,7 +59,8 @@ function BookingDetail() {
           <Button
             icon={<i className="fa-solid fa-right-from-bracket"></i>}
             disabled={isCheckingOut}
-            onClick={() => checkout(bookingId)}>
+            onClick={() => checkout(bookingId)}
+          >
             Check Out
           </Button>
         )}

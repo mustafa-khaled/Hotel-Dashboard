@@ -37,12 +37,12 @@ const links = [
 function MainNav() {
   return (
     <nav className="links-list ltr:border-l rtl:border-r">
-      <ul className="flex flex-col gap-[20px]">
+      <ul className="flex flex-col gap-[10px]">
         {links?.map((link) => {
           return (
             <li key={link.to}>
               <NavLink
-                className="bg-colorGrey flex items-center gap-[10px] rounded-md p-[8px] text-lg"
+                className="flex items-center gap-[10px] rounded-md bg-colorGrey p-[8px] text-lg"
                 to={link.to}
               >
                 {link.icon}

@@ -7,7 +7,7 @@ const UserAvatar = () => {
   return (
     <div className={"flex items-center gap-[10px]"}>
       <img
-        className={"h-[45px] w-[45px] rounded-full"}
+        className={"h-[35px] w-[35px] rounded-full"}
         src={avatar || "/default-user.jpg"}
         alt="userImage"
       />

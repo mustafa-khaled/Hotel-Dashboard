@@ -1,12 +1,12 @@
 import { useSearchParams } from "react-router-dom";
-import styles from "./Filter.module.css";
 
 function FilterButton({ active, children, onClick, disabled }) {
   return (
     <button
-      className={`${styles["filter-button"]} ${active ? styles.active : ""}`}
+      className={`p-[5px] lg:p-[6px] ${active ? "bg-colorBrand" : "bg-colorGrey"} rounded-sm text-sm lg:text-base ${disabled && "cursor-not-allowed"}`}
       onClick={onClick}
-      disabled={disabled}>
+      disabled={disabled}
+    >
       {children}
     </button>
   );
@@ -27,13 +27,14 @@ function Filter({ filterField, options }) {
   }
 
   return (
-    <div className={styles.filter}>
+    <div className="flex gap-[10px] rounded-sm bg-colorGrey2 p-[7px] lg:p-[10px]">
       {options.map((option) => (
         <FilterButton
           onClick={() => handleClick(option.value)}
           key={option.value}
           active={option.value === filter}
-          disabled={option.value === filter}>
+          disabled={option.value === filter}
+        >
           {option.label}
         </FilterButton>
       ))}

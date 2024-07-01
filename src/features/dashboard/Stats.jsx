@@ -1,4 +1,7 @@
 import { formatCurrency } from "../../utils/helpers";
+import { IoBriefcase } from "react-icons/io5";
+import { FaMoneyBillWave, FaCalendarAlt, FaSignal } from "react-icons/fa";
+
 import Stat from "./Stat";
 
 function Stats({ bookings, confirmedStays, numDays, cabinCount }) {
@@ -18,32 +21,32 @@ function Stats({ bookings, confirmedStays, numDays, cabinCount }) {
     (numDays * cabinCount);
 
   return (
-    <>
+    <div className="grid grid-cols-[repeat(auto-fill,minmax(270px,1fr))] gap-[10px]">
       <Stat
-        icon={<i className="fa-solid fa-briefcase"></i>}
+        icon={<IoBriefcase className="text-xl" />}
         title="Bookings"
         value={numBookings}
         color="#0000ff7a"
       />
       <Stat
-        icon={<i className="fa-regular fa-money-bill-1"></i>}
+        icon={<FaMoneyBillWave className="text-xl" />}
         title="Sales"
         value={formatCurrency(sales)}
         color="#00800087"
       />
       <Stat
-        icon={<i className="fa-regular fa-calendar-days"></i>}
+        icon={<FaCalendarAlt className="text-xl" />}
         title="Check ins"
         value={checkins}
         color="#4b008282"
       />
       <Stat
-        icon={<i className="fa-solid fa-signal"></i>}
+        icon={<FaSignal className="text-xl" />}
         title="Occupancy rate"
         value={`${Math.round(occupation * 100)}%`}
         color="#ffff0080"
       />
-    </>
+    </div>
   );
 }
 

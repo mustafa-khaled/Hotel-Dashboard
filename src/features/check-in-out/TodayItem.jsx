@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
-import styles from "./CheckinBooking.module.css";
-import Tag from "../../ui/tag/Tag";
+import Tag from "../../ui/Tag";
 import Flag from "../../ui/flag/Flag";
 import Button from "../../ui/button/Button";
 import CheckoutButton from "./CheckoutButton";
@@ -9,12 +8,12 @@ function TodayItem({ activity }) {
   const { id, status, guests, numNights } = activity;
 
   return (
-    <div className={styles["today-item"]}>
+    <div className="my-[15px] flex items-start justify-between gap-[10px] border-b border-[#1f2937] p-[5px]">
       {status === "unconfirmed" && <Tag type="green">arriving</Tag>}
       {status === "checked-in" && <Tag type="blue">Departing</Tag>}
       <Flag src={guests.countryFlag} alt={`Flag Of ${guests.countryFlag}`} />
-      <div className={styles.guest}>{guests.fullName}</div>
-      <div>{numNights}</div>
+      <p className="text-sm">{guests.fullName}</p>
+      <p className="text-sm">{numNights}</p>
       {status === "unconfirmed" && (
         <Link to={`/checkIn/${id}`}>
           <Button size="small">Check In</Button>

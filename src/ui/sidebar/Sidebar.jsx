@@ -1,13 +1,24 @@
-import Logo from "../logo/Logo";
-import MainNav from "../mainNav/MainNav";
-import styles from "./Sidebar.module.css";
+import { useOutsideClick } from "../../hooks/useOutesideClick";
+import Logo from "../Logo";
+import MainNav from "./MainNav";
 
-function Sidebar() {
+function Sidebar({ showSidebar, closeSidebar }) {
+  const ref = useOutsideClick(closeSidebar);
+
   return (
-    <aside id="side" className={`${styles.sidebar} `}>
-      <Logo />
-      <MainNav />
-    </aside>
+    <>
+      <aside
+        ref={ref}
+        className={`fixed ${showSidebar ? "left-0" : "left-[-400px]"} top-0 z-50 flex h-[100vh] w-[300px] flex-col justify-center border-textColor bg-colorGrey2 px-[20px] transition-all md:static`}
+      >
+        <Logo />
+        <MainNav />
+      </aside>
+
+      <div
+        className={`md:hodden fixed left-0 top-0 w-full ${showSidebar ? "h-screen" : "h-0"} bg-[#00000080]`}
+      />
+    </>
   );
 }
 

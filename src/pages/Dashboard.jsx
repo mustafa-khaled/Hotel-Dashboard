@@ -1,15 +1,17 @@
 import DashboardFilter from "../features/dashboard/DashboardFilter";
+import Heading from "../ui/Heading";
+import Row from "../ui/Row";
+
 import DashboardLayout from "../features/dashboard/DashboardLayout";
-import Heading from "../ui/heading/Heading";
-import Row from "../ui/row/Row";
 
 function Dashboard() {
   return (
-    <div className="pages-margin">
-      <Row type="horizontal">
+    <div className="flex flex-col gap-[15px]">
+      <Row>
         <Heading as="h1">Dashboard</Heading>
         <DashboardFilter />
       </Row>
+
       <DashboardLayout />
     </div>
   );

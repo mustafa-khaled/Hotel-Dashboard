@@ -49,11 +49,29 @@
 
 @layer components {
   .input {
-    @apply border-colorGrey bg-colorGrey text-textColor focus:border-colorBrand w-full rounded-md border-[2px] p-[7px] outline-none transition-all placeholder:text-sm;
+    @apply w-full rounded-md border-[2px] border-colorGrey bg-colorGrey p-[7px] text-textColor outline-none transition-all placeholder:text-sm focus:border-colorBrand;
   }
 }
 
 .links-list ul li > a.active {
   background-color: var(--color-brand-700);
   color: #e5e7eb;
+}
+
+/* scrollbar Syles */
+*::-webkit-scrollbar {
+  width: 5px;
+  width: 5px;
+}
+*::-webkit-scrollbar-track {
+  background-color: var(--color-grey-0);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--color-brand-600);
+}
+
+/* Vertical scrollbar */
+*::-webkit-scrollbar:vertical {
+  width: 10px;
 }

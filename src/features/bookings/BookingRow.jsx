@@ -7,7 +7,7 @@ import { useDeleteBooking } from "./useDeleteBooking";
 
 import styles from "./BookingRow.module.css";
 
-import Tag from "../../ui/tag/Tag";
+import Tag from "../../ui/Tag";
 import Menus from "../../ui/menus/Menus";
 import Modal from "../../ui/modal/Modal";
 import ConfirmDelete from "../../ui/confirmDelete/ConfirmDelete";
@@ -67,7 +67,8 @@ function BookingRow({
           <Menus.List id={bookingId}>
             <Menus.Button
               icon={<i className="fa-regular fa-eye"></i>}
-              onClick={() => navigate(`/bookings/${bookingId}`)}>
+              onClick={() => navigate(`/bookings/${bookingId}`)}
+            >
               See Details
             </Menus.Button>
 
@@ -75,7 +76,8 @@ function BookingRow({
               <Menus.Button
                 icon={<i className="fa-solid fa-right-from-bracket"></i>}
                 disabled={isCheckingOut}
-                onClick={() => checkout(bookingId)}>
+                onClick={() => checkout(bookingId)}
+              >
                 Check Out
               </Menus.Button>
             )}
@@ -83,7 +85,8 @@ function BookingRow({
             {status === "unconfirmed" && (
               <Menus.Button
                 icon={<i className="fa-solid fa-circle-arrow-down"></i>}
-                onClick={() => navigate(`/bookings/${bookingId}`)}>
+                onClick={() => navigate(`/bookings/${bookingId}`)}
+              >
                 Check In
               </Menus.Button>
             )}

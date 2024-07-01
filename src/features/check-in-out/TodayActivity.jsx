@@ -1,9 +1,6 @@
 import { useTodayActivity } from "./useTodayActivity";
 
-import styles from "./CheckinBooking.module.css";
-
-import Heading from "../../ui/heading/Heading";
-import Row from "../../ui/row/Row";
+import Heading from "../../ui/Heading";
 import Spinner from "../../ui/spinner/Spinner";
 import TodayList from "./TodayList";
 
@@ -11,10 +8,8 @@ function TodayActivity() {
   const { isLoading, activities } = useTodayActivity();
 
   return (
-    <div className={styles.today}>
-      <Row type="horizontal">
-        <Heading type="h2">Today</Heading>
-      </Row>
+    <div className="w-full bg-colorGrey2 p-[15px] lg:w-[50%]">
+      <Heading>Today</Heading>
       {isLoading ? <Spinner /> : <TodayList activities={activities} />}
     </div>
   );

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
-import Header from "./Header";
-import Sidebar from "./Sidebar";
+import Header from "./header/Header";
+import Sidebar from "./sidebar/Sidebar";
 
 function AppLayout() {
   const [showSidebar, setShowSidebar] = useState(false);
@@ -10,15 +10,14 @@ function AppLayout() {
   const closeSidebar = () => setShowSidebar(false);
 
   return (
-    <div className="text-textColor flex">
-      <div className="w-[300px]">
+    <div className="flex text-textColor">
+      <div className="md:w-[300px]">
         <Sidebar showSidebar={showSidebar} closeSidebar={closeSidebar} />
       </div>
-      <div className="w-full">
+      <div className="w-full md:w-[calc(100%-300px)]">
         <Header toggleSidebar={toggleSidebar} />
-        <main className="bg-colorGrey h-[calc(100vh-70px)] overflow-y-auto p-[10px] md:p-[15px]">
-          Main Content
-          {/* <Outlet /> */}
+        <main className="h-[calc(100vh-70px)] overflow-y-auto bg-colorGrey p-[10px] md:p-[15px]">
+          <Outlet />
         </main>
       </div>
     </div>

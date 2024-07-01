@@ -9,7 +9,7 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import Heading from "../../ui/heading/Heading";
+import Heading from "../../ui/Heading";
 import styles from "./dashboard.module.css";
 
 function SalesChart({ bookings, numDays }) {
@@ -48,11 +48,13 @@ function SalesChart({ bookings, numDays }) {
       };
 
   return (
-    <div className={styles["sales-chart"]}>
-      <Heading type="h2">
-        Sales from {format(allDates.at(0), "MMM dd yyyy")} &mdash;{" "}
-        {format(allDates.at(-1), "MMM dd yyyy")}
-      </Heading>
+    <div className="bg-colorGrey2 p-[15px]">
+      <div className="mb-[15px]">
+        <Heading type="h2">
+          Sales from {format(allDates.at(0), "MMM dd yyyy")} &mdash;{" "}
+          {format(allDates.at(-1), "MMM dd yyyy")}
+        </Heading>
+      </div>
 
       <ResponsiveContainer width="100%" height={300}>
         <AreaChart data={data}>

@@ -18,7 +18,8 @@ function TodayItem({ stay }) {
           variation="primary"
           size="small"
           as={Link}
-          to={`/checkin/${id}`}>
+          to={`/checkin/${id}`}
+        >
           Check in
         </Button>
       ),

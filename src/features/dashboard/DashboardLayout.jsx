@@ -2,7 +2,6 @@ import { useRecentBookings } from "./useRecentBookings";
 import { useRecentStays } from "./useRecentStays";
 import { useCabins } from "../cabins/useCabins";
 
-import styles from "./dashboard.module.css";
 import Spinner from "../../ui/spinner/Spinner";
 import Stats from "./Stats";
 import SalesChart from "./SalesChart";
@@ -18,15 +17,17 @@ function DashboardLayout() {
   if (bookingsLoading || loadingStays || cabinsLoading) return <Spinner />;
 
   return (
-    <div className={styles["dashboard-layout"]}>
+    <div className="flex flex-col gap-[15px]">
       <Stats
         bookings={bookings}
         confirmedStays={confirmedStays}
         numDays={numDays}
         cabinCount={cabinCount}
       />
-      <TodayActivity />
-      <DurationChart confirmedStays={confirmedStays} />
+      <div className="flex flex-col gap-[15px] lg:flex-row">
+        <TodayActivity />
+        <DurationChart confirmedStays={confirmedStays} />
+      </div>
       <SalesChart bookings={bookings} numDays={numDays} />
     </div>
   );

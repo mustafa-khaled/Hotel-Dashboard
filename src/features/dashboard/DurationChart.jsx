@@ -7,9 +7,8 @@ import {
   ResponsiveContainer,
   Tooltip,
 } from "recharts";
-import styles from "./dashboard.module.css";
 
-import Heading from "../../ui/heading/Heading";
+import Heading from "../../ui/Heading";
 
 const startDataLight = [
   {
@@ -100,7 +99,7 @@ const startDataDark = [
 function prepareData(startData, stays) {
   function incArrayValue(arr, field) {
     return arr.map((obj) =>
-      obj.duration === field ? { ...obj, value: obj.value + 1 } : obj
+      obj.duration === field ? { ...obj, value: obj.value + 1 } : obj,
     );
   }
 
@@ -120,63 +119,6 @@ function prepareData(startData, stays) {
     .filter((obj) => obj.value > 0);
 
   return data;
-
-  /*
-  const tempData = stays.reduce((obj, cur) => {
-    const num = cur.numNights;
-    console.log(num, obj);
-    // For 1, 2, or 3 nights, we have single category
-    if (num <= 3) {
-      obj[`${num} nights`] = {
-        ...obj[`${num} nights`],
-        value: obj[`${num} nights`].value + 1,
-      };
-      return obj;
-    }
-    if (num === 4 || num === 5) {
-      console.log(obj['4-5 nights']);
-      console.log(obj['4-5 nights'].value + 1);
-
-      obj['4-5 nights'] = {
-        ...obj['4-5 nights'],
-        value: obj['4-5 nights'].value + 1,
-      };
-      return obj;
-    }
-    if (num === 6 || num === 7) {
-      obj['6-7 nights'] = {
-        ...obj['6-7 nights'],
-        value: obj['6-7 nights'].value + 1,
-      };
-      return obj;
-    }
-    if (num >= 8 && num <= 14) {
-      obj['8-14 nights'] = {
-        ...obj['8-14 nights'],
-        value: obj['8-14 nights'].value + 1,
-      };
-      return obj;
-    }
-    if (num >= 15 && num <= 21) {
-      obj['15-21 nights'] = {
-        ...obj['15-21 nights'],
-        value: obj['15-21 nights'].value + 1,
-      };
-      return obj;
-    }
-    if (num >= 21) {
-      obj['21+ nights'] = {
-        ...obj['21+ nights'],
-        value: obj['21+ nights'].value + 1,
-      };
-      return obj;
-    }
-
-    return obj;
-  }, startData);
-
-  return Object.values(tempData).filter((obj) => obj.value > 0);
-  */
 }
 
 function DurationChart({ confirmedStays }) {
@@ -185,8 +127,10 @@ function DurationChart({ confirmedStays }) {
   const data = prepareData(startData, confirmedStays);
 
   return (
-    <div className={styles["chart-box"]}>
-      <Heading type="h2">Stay duration summary</Heading>
+    <div className="w-full bg-colorGrey2 p-[15px] lg:w-[50%]">
+      <div className="mb-[15px]">
+        <Heading>Today</Heading>
+      </div>
       <ResponsiveContainer width="100%" height={240}>
         <PieChart>
           <Pie
@@ -200,7 +144,8 @@ function DurationChart({ confirmedStays }) {
             fill="#4f46e5"
             paddingAngle={3}
             startAngle={180}
-            endAngle={-180}>
+            endAngle={-180}
+          >
             {data.map((entry, i) => (
               <Cell
                 key={entry.duration}
