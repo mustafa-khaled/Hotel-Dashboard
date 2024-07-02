@@ -1,20 +1,18 @@
-import Heading from "../ui/heading/Heading";
-import Row from "../ui/row/Row";
+import Heading from "../ui/Heading";
+import Row from "../ui/Row";
 import BookingTable from "../features/bookings/BookingTable";
 import BookingTableOperations from "../features/bookings/BookingTableOperations";
 import AddBooking from "../features/bookings/AddBooking";
 
 function Bookings() {
   return (
-    <div className="pages-margin">
-      <Row type="horizontal">
-        <Heading as="h1">All bookings</Heading>
-        <BookingTableOperations />
-      </Row>
+    <div className="flex flex-col gap-[15px]">
       <Row>
-        <BookingTable />
+        <Heading>All bookings</Heading>
         <AddBooking />
       </Row>
+      <BookingTableOperations />
+      {/* <BookingTable /> */}
     </div>
   );
 }

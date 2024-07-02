@@ -1,6 +1,6 @@
 import styles from "./ConfirmDelete.module.css";
-import Button from "../button/Button";
-import Heading from "../heading/Heading";
+import Button from "../Button";
+import Heading from "../Heading";
 
 function ConfirmDelete({ resource, onConfirm, disabled, onCloseModal }) {
   return (

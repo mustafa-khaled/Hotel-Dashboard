@@ -1,4 +1,4 @@
-import Button from "../../ui/button/Button";
+import Button from "../../ui/Button";
 import Modal from "../../ui/modal/Modal";
 import CreateGuestForm from "./CreateGuestForm";
 

@@ -8,7 +8,7 @@ const Button = ({ size, variation, children, onClick, type, disabled }) => {
       sizeClasses = "sm:text-sm text-xs py-1 px-2 uppercase font-semibold";
       break;
     case "medium":
-      sizeClasses = "text-[1.4rem] py-3 px-4 font-medium";
+      sizeClasses = "text-lg py-2 px-3 font-medium";
       break;
     case "large":
       sizeClasses = "text-[1.6rem] py-3 px-6 font-medium";

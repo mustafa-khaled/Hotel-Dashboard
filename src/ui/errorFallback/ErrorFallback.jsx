@@ -1,4 +1,4 @@
-import Button from "../button/Button";
+import Button from "../Button";
 import Heading from "../heading/Heading";
 import styles from "./ErrorFallback.module.css";
 

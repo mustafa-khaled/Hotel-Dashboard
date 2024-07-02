@@ -10,7 +10,6 @@ import {
   YAxis,
 } from "recharts";
 import Heading from "../../ui/Heading";
-import styles from "./dashboard.module.css";
 
 function SalesChart({ bookings, numDays }) {
   // In the chart we need to set colors, but we can't do it based on CSS variables, because we have no access to them here. So let's set them manually

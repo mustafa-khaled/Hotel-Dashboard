@@ -1,5 +1,4 @@
 import { useState, useCallback } from "react";
-import TableOperations from "../../ui/tableOperations/TableOperations";
 import { useSearchParams } from "react-router-dom";
 import { debounce } from "../../utils/helpers";
 
@@ -16,7 +15,7 @@ function GuestsOperations() {
         setSearchParams(searchParams);
       }
     }, 300),
-    []
+    [],
   );
 
   function handleChange(e) {
@@ -26,14 +25,14 @@ function GuestsOperations() {
   }
 
   return (
-    <TableOperations>
+    <div className="flex flex-col items-end justify-end gap-[10px] lg:flex-row lg:items-center">
       <input
         className="form-input"
         placeholder="Search By Name"
         value={searchValue}
         onChange={handleChange}
       />
-    </TableOperations>
+    </div>
   );
 }
 

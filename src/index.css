@@ -48,8 +48,8 @@
 }
 
 @layer components {
-  .input {
-    @apply w-full rounded-md border-[2px] border-colorGrey bg-colorGrey p-[7px] text-textColor outline-none transition-all placeholder:text-sm focus:border-colorBrand;
+  .form-input {
+    @apply w-full rounded-md border-[2px] border-colorGrey2 bg-colorGrey p-[7px] text-textColor outline-none transition-all placeholder:text-sm focus:border-colorBrand;
   }
 }
 

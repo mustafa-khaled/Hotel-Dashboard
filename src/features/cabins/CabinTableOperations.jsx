@@ -1,10 +1,9 @@
 import Filter from "../../ui/Filter";
-import SortBy from "../../ui/sortBy/SortBy";
-import TableOperations from "../../ui/tableOperations/TableOperations";
+import SortBy from "../../ui/SortBy";
 
 function CabinTableOperations() {
   return (
-    <TableOperations>
+    <div className="flex flex-col items-end justify-end gap-[10px] lg:flex-row lg:items-center">
       <Filter
         filterField="discount"
         options={[
@@ -26,7 +25,7 @@ function CabinTableOperations() {
           },
         ]}
       />
-    </TableOperations>
+    </div>
   );
 }
 

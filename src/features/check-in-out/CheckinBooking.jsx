@@ -8,9 +8,9 @@ import styles from "./CheckinBooking.module.css";
 
 import Spinner from "../../ui/spinner/Spinner";
 import Row from "../../ui/row/Row";
-import Heading from "../../ui/heading/Heading";
+import Heading from "../../ui/Heading";
 import ButtonGroup from "../../ui/buttonGroup/ButtonGroup";
-import Button from "../../ui/button/Button";
+import Button from "../../ui/Button";
 import ButtonText from "../../ui/buttonText/ButtonText";
 import Checkbox from "../../ui/checkbox/Checkbox";
 import BookingDataBox from "../bookings/BookingDataBox";
@@ -75,7 +75,8 @@ function CheckinBooking() {
             onChange={() => {
               setaddBreakFast((breakFast) => !breakFast);
               setConfirmPaid(false);
-            }}>
+            }}
+          >
             Want to add breakfast for {formatCurrency(optionalBreakfastPrice)}?
           </Checkbox>
         </div>
@@ -86,14 +87,15 @@ function CheckinBooking() {
           id="confirm"
           checked={confirmPaid}
           disabled={confirmPaid || isCheckingIn}
-          onChange={() => setConfirmPaid((confirm) => !confirm)}>
+          onChange={() => setConfirmPaid((confirm) => !confirm)}
+        >
           I confirm that {guests.fullName} has paid the total amount of{" "}
           {!addBreakFast
             ? formatCurrency(totalPrice)
             : `${formatCurrency(
-                totalPrice + optionalBreakfastPrice
+                totalPrice + optionalBreakfastPrice,
               )} (${formatCurrency(totalPrice)}) + (${formatCurrency(
-                optionalBreakfastPrice
+                optionalBreakfastPrice,
               )})`}
         </Checkbox>
       </div>

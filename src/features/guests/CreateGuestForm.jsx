@@ -4,7 +4,7 @@ import { useUpdateGuest } from "./useUpdateGuest";
 
 import Form from "../../ui/form/Form";
 import FormRow from "../../ui/formRow/FormRow";
-import Button from "../../ui/button/Button";
+import Button from "../../ui/Button";
 import SpinnerMini from "../../ui/spinnerMini/SpinnerMini";
 
 function CreateGuestForm({ guestToEdit = {}, onCloseModal }) {
@@ -30,7 +30,7 @@ function CreateGuestForm({ guestToEdit = {}, onCloseModal }) {
             reset();
             onCloseModal?.();
           },
-        }
+        },
       );
     } else {
       createGuest(data, {
@@ -47,7 +47,8 @@ function CreateGuestForm({ guestToEdit = {}, onCloseModal }) {
   return (
     <Form
       submit={handleSubmit(onSubmit)}
-      type={onCloseModal ? "modal" : "regular"}>
+      type={onCloseModal ? "modal" : "regular"}
+    >
       <FormRow label="Full Name" error={errors?.fullName?.message}>
         <input
           id="FullName"
@@ -109,12 +110,14 @@ function CreateGuestForm({ guestToEdit = {}, onCloseModal }) {
           variation="secondary"
           disabled={isWorking}
           type="reset"
-          onClick={() => onCloseModal?.()}>
+          onClick={() => onCloseModal?.()}
+        >
           Cancel
         </Button>
         <Button
           disabled={isWorking}
-          variation={isWorking ? "secondary" : "primary"}>
+          variation={isWorking ? "secondary" : "primary"}
+        >
           {isWorking ? (
             <SpinnerMini />
           ) : (

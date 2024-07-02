@@ -1,13 +1,12 @@
 import { useForm } from "react-hook-form";
 import { useSignup } from "./useSignup";
-import Button from "../../ui/button/Button";
+import Button from "../../ui/Button";
 import Form from "../../ui/form/Form";
 import FormRow from "../../ui/formRow/FormRow";
 import SpinnerMini from "../../ui/spinnerMini/SpinnerMini";
 
 function SignupForm() {
   const { signup, isLoading } = useSignup();
-
   const { register, formState, getValues, handleSubmit, reset } = useForm();
   const { errors } = formState;
 
@@ -18,20 +17,23 @@ function SignupForm() {
         onSettled: () => {
           reset();
         },
-      }
+      },
     );
   }
 
   return (
     <Form submit={handleSubmit(onSubmit)}>
       <FormRow label="Full name" error={errors?.fullName?.message}>
-        <input
-          className="form-input"
-          type="text"
-          id="fullName"
-          disabled={isLoading}
-          {...register("fullName", { required: "Full Name  is required" })}
-        />
+        <div>
+          <input
+            placeholder="full name"
+            className="form-input"
+            type="text"
+            id="fullName"
+            disabled={isLoading}
+            {...register("fullName", { required: "Full Name  is required" })}
+          />
+        </div>
       </FormRow>
 
       <FormRow label="Email address" error={errors?.email?.message}>
@@ -52,7 +54,8 @@ function SignupForm() {
 
       <FormRow
         label="New Password (min 8 characters)"
-        error={errors?.password?.message}>
+        error={errors?.password?.message}
+      >
         <input
           className="form-input"
           type="password"
@@ -87,7 +90,8 @@ function SignupForm() {
           variation="secondary"
           type="reset"
           disabled={isLoading}
-          onClick={reset}>
+          onClick={reset}
+        >
           Cancel
         </Button>
         <Button variation={isLoading ? "secondary" : "primary"}>

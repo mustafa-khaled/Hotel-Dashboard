@@ -10,7 +10,7 @@ function TodayList({ activities }) {
           })}
         </ul>
       ) : (
-        <p className="text-center text-2xl font-[500] md:text-xl">
+        <p className="flex h-full items-center justify-center text-center text-2xl font-[500] md:text-xl">
           No activity today...
         </p>
       )}

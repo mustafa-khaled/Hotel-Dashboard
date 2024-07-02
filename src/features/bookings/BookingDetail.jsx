@@ -4,16 +4,14 @@ import { useBooking } from "./useBooking";
 import { useCheckout } from "../check-in-out/useCheckout";
 import { useDeleteBooking } from "./useDeleteBooking";
 
-import styles from "./BookingDetail.module.css";
-
 import ButtonText from "../../ui/buttonText/ButtonText";
 import Empty from "../../ui/empty/Empty";
 import Spinner from "../../ui/spinner/Spinner";
 import Row from "../../ui/row/Row";
-import Heading from "../../ui/heading/Heading";
+import Heading from "../../ui/Heading";
 import Tag from "../../ui/Tag";
 import ButtonGroup from "../../ui/buttonGroup/ButtonGroup";
-import Button from "../../ui/button/Button";
+import Button from "../../ui/Button";
 import Modal from "../../ui/modal/Modal";
 import ConfirmDelete from "../../ui/confirmDelete/ConfirmDelete";
 import BookingDataBoxComponent from "./BookingDataBox";
@@ -38,8 +36,8 @@ function BookingDetail() {
 
   return (
     <>
-      <Row type="horizontal">
-        <div className={styles["booking-detail"]}>
+      <Row>
+        <div>
           <Heading type="h1">Booking #{bookingId}</Heading>
           <Tag type={statusToTagName[status]}>{status.replace("-", " ")}</Tag>
         </div>

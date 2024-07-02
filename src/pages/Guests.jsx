@@ -1,20 +1,18 @@
 import AddGuest from "../features/guests/AddGuest";
 import GuestsOperations from "../features/guests/GuestsOperations";
 import GuestsTable from "../features/guests/GuestsTable";
-import Heading from "../ui/heading/Heading";
-import Row from "../ui/row/Row";
+import Heading from "../ui/Heading";
+import Row from "../ui/Row";
 
 function Guests() {
   return (
-    <div className="pages-margin">
-      <Row type="horizontal">
-        <Heading as="h1">All Guests</Heading>
-        <GuestsOperations />
-      </Row>
+    <div className="flex flex-col gap-[15px]">
       <Row>
-        <GuestsTable />
+        <Heading>All Guests</Heading>
         <AddGuest />
       </Row>
+      <GuestsOperations />
+      {/* <GuestsTable /> */}
     </div>
   );
 }

@@ -1,10 +1,9 @@
-import SortBy from "../../ui/sortBy/SortBy";
+import SortBy from "../../ui/SortBy";
 import Filter from "../../ui/Filter";
-import TableOperations from "../../ui/tableOperations/TableOperations";
 
 function BookingTableOperations() {
   return (
-    <TableOperations>
+    <div className="flex flex-col items-end justify-end gap-[10px] lg:flex-row lg:items-center">
       <Filter
         filterField="status"
         options={[
@@ -26,7 +25,7 @@ function BookingTableOperations() {
           { value: "totalPrice-asc", label: "Sort by amount (low first)" },
         ]}
       />
-    </TableOperations>
+    </div>
   );
 }
 

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Tag from "../../ui/Tag";
 import Flag from "../../ui/flag/Flag";
-import Button from "../../ui/button/Button";
+import Button from "../../ui/Button";
 import CheckoutButton from "./CheckoutButton";
 
 function TodayItem({ activity }) {

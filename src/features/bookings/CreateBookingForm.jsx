@@ -2,10 +2,10 @@ import { useForm } from "react-hook-form";
 import { useCabins } from "../cabins/useCabins";
 
 import FormRow from "../../ui/formRow/FormRow";
-import Button from "../../ui/button/Button";
+import Button from "../../ui/Button";
 import Form from "../../ui/form/Form";
 import styles from "./CreateBookingForm.module.css";
-import Select from "../../ui/select/Select";
+import Select from "../../ui/Select";
 import SpinnerMini from "../../ui/spinnerMini/SpinnerMini";
 
 const trueOrFalse = [
@@ -174,7 +174,8 @@ function CreateBookingForm({ onCloseModal }) {
         <Button
           variation="secondary"
           type="reset"
-          onClick={() => onCloseModal()}>
+          onClick={() => onCloseModal()}
+        >
           Cancel
         </Button>
         <Button>Create New Booking</Button>

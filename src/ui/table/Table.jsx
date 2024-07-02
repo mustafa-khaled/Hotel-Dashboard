@@ -26,7 +26,8 @@ function Header({ children }) {
     <header
       columns={columns}
       className={styles["table-header"]}
-      style={{ gridTemplateColumns: columns }}>
+      style={{ gridTemplateColumns: columns }}
+    >
       {children}
     </header>
   );
@@ -39,7 +40,8 @@ function Row({ children }) {
     <div
       columns={columns}
       className={styles["table-row"]}
-      style={{ gridTemplateColumns: columns }}>
+      style={{ gridTemplateColumns: columns }}
+    >
       {children}
     </div>
   );

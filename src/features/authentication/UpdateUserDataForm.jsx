@@ -2,7 +2,7 @@ import { useUser } from "./useUser";
 import { useState } from "react";
 import { useUpdateUser } from "./useUpdateUser";
 
-import Button from "../../ui/button/Button";
+import Button from "../../ui/Button";
 import Form from "../../ui/form/Form";
 import FormRow from "../../ui/formRow/FormRow";
 
@@ -31,7 +31,7 @@ function UpdateUserDataForm() {
           // Resetting form using .reset() that's available on all HTML form elements, otherwise the old filename will stay displayed in the UI
           e.target.reset();
         },
-      }
+      },
     );
   }
 
