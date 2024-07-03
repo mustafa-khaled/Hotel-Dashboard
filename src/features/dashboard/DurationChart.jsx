@@ -7,6 +7,7 @@ import {
   ResponsiveContainer,
   Tooltip,
 } from "recharts";
+import { useTranslation } from "react-i18next";
 
 import Heading from "../../ui/Heading";
 
@@ -122,6 +123,7 @@ function prepareData(startData, stays) {
 }
 
 function DurationChart({ confirmedStays }) {
+  const [t] = useTranslation();
   const { isDarkMode } = useDarkMode();
   const startData = isDarkMode ? startDataDark : startDataLight;
   const data = prepareData(startData, confirmedStays);
@@ -129,7 +131,7 @@ function DurationChart({ confirmedStays }) {
   return (
     <div className="w-full bg-colorGrey2 p-[15px] lg:w-[50%]">
       <div className="mb-[15px]">
-        <Heading>Today</Heading>
+        <Heading>{t("dashboard.today")}</Heading>
       </div>
       <ResponsiveContainer width="100%" height={240}>
         <PieChart>

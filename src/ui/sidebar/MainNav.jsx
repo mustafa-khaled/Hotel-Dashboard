@@ -1,42 +1,48 @@
+import { useTranslation } from "react-i18next";
 import { NavLink } from "react-router-dom";
+import { MdDashboard } from "react-icons/md";
+import { FaRectangleList, FaGears, FaUsersGear } from "react-icons/fa6";
+import { FaLaptopHouse, FaUsers } from "react-icons/fa";
 
 const links = [
   {
-    title: "Home",
-    icon: <i className="fa-solid fa-house"></i>,
+    title: "sidebar.dashboard",
+    icon: <MdDashboard />,
     to: "/dashboard",
   },
   {
-    title: "Bookings",
-    icon: <i className="fa-regular fa-rectangle-list"></i>,
+    title: "sidebar.bookings",
+    icon: <FaRectangleList />,
     to: "/bookings",
   },
   {
-    title: "Cabins",
-    icon: <i className="fa-solid fa-house-chimney-user"></i>,
+    title: "sidebar.rooms",
+    icon: <FaLaptopHouse />,
     to: "/cabins",
   },
   {
-    title: "Guests",
-    icon: <i className="fa-solid fa-user-group"></i>,
+    title: "sidebar.guests",
+    icon: <FaUsers />,
     to: "/guests",
   },
 
   {
-    title: "Users",
-    icon: <i className="fa-solid fa-users"></i>,
+    title: "sidebar.users",
+    icon: <FaUsersGear />,
     to: "/users",
   },
   {
-    title: "Settings",
-    icon: <i className="fa-solid fa-gears"></i>,
+    title: "sidebar.settings",
+    icon: <FaGears />,
     to: "/settings",
   },
 ];
 
 function MainNav() {
+  const [t] = useTranslation();
+
   return (
-    <nav className="links-list ltr:border-l rtl:border-r">
+    <nav className="links-list">
       <ul className="flex flex-col gap-[10px]">
         {links?.map((link) => {
           return (
@@ -46,7 +52,7 @@ function MainNav() {
                 to={link.to}
               >
                 {link.icon}
-                <span>{link.title}</span>
+                <span>{t(link.title)}</span>
               </NavLink>
             </li>
           );

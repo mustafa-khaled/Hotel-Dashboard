@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 
 function TranslationButton() {
-  const [t, i18n] = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const languageNow = i18n.language;
 
@@ -24,24 +24,18 @@ function TranslationButton() {
     }
   };
 
+  const handleChange = (event) => {
+    changeLanguageAndDirection(event.target.value);
+  };
+
   return (
-    <select className="border-none bg-colorGrey2 p-[5px] outline-none">
-      <option
-        onClick={() => {
-          changeLanguageAndDirection("en");
-          i18n.changeLanguage("en");
-        }}
-      >
-        {t("general.english")}
-      </option>
-      <option
-        onClick={() => {
-          changeLanguageAndDirection("ar");
-          i18n.changeLanguage("ar");
-        }}
-      >
-        {t("general.arabic")}
-      </option>
+    <select
+      className="rounded-sm border-none bg-colorGrey2 p-[5px] text-textColor outline-none"
+      onChange={handleChange}
+      value={languageNow}
+    >
+      <option value="en">{t("general.english")}</option>
+      <option value="ar">{t("general.arabic")}</option>
     </select>
   );
 }

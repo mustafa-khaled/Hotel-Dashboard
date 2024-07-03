@@ -2,5 +2,28 @@
   "general": {
     "arabic": "Arabic",
     "english": "English"
+  },
+  "sidebar": {
+    "dashboard": "Dashboard",
+    "bookings": "Bookings",
+    "rooms": "Rooms",
+    "guests": "Guests",
+    "users": "Users",
+    "settings": "Settings"
+  },
+  "dashboard": {
+    "today": "Today",
+    "noActivity": "No activities today",
+    "salesFrom": "Sales from",
+    "filter": {
+      "sevenDays": "Last 7 days",
+      "ThirtyDays": "Last 30 days",
+      "NinetyDays": "Last 90 days"
+    },
+    "stats": {
+      "sales": "Sales",
+      "checkIns": "Check ins",
+      "occupancyRate": "Occupancy rate"
+    }
   }
 }

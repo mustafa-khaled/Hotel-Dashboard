@@ -1,6 +1,9 @@
+import { useTranslation } from "react-i18next";
 import TodayItem from "./TodayItem";
 
 function TodayList({ activities }) {
+  const [t] = useTranslation();
+
   return (
     <>
       {activities?.length > 0 ? (
@@ -11,7 +14,7 @@ function TodayList({ activities }) {
         </ul>
       ) : (
         <p className="flex h-full items-center justify-center text-center text-2xl font-[500] md:text-xl">
-          No activity today...
+          {t("dashboard.noActivity")}
         </p>
       )}
     </>

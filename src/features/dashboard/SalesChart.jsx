@@ -9,11 +9,13 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
+import { useTranslation } from "react-i18next";
 import Heading from "../../ui/Heading";
 
 function SalesChart({ bookings, numDays }) {
   // In the chart we need to set colors, but we can't do it based on CSS variables, because we have no access to them here. So let's set them manually
   const { isDarkMode } = useDarkMode();
+  const [t] = useTranslation();
 
   const allDates = eachDayOfInterval({
     start: subDays(new Date(), numDays - 1),
@@ -50,8 +52,8 @@ function SalesChart({ bookings, numDays }) {
     <div className="bg-colorGrey2 p-[15px]">
       <div className="mb-[15px]">
         <Heading type="h2">
-          Sales from {format(allDates.at(0), "MMM dd yyyy")} &mdash;{" "}
-          {format(allDates.at(-1), "MMM dd yyyy")}
+          {t("dashboard.salesFrom")} {format(allDates.at(0), "MMM dd yyyy")}{" "}
+          &mdash; {format(allDates.at(-1), "MMM dd yyyy")}
         </Heading>
       </div>
 

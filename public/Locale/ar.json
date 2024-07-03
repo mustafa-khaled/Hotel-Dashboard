@@ -2,5 +2,29 @@
   "general": {
     "arabic": "العربيه",
     "english": "الانجليزيه"
+  },
+  "sidebar": {
+    "dashboard": "لوحه التحكم",
+    "bookings": "الحجوزات",
+    "rooms": "الغرف",
+    "guests": "الضيوف",
+    "users": "المستخدمون",
+    "settings": "الاعدادات"
+  },
+  "dashboard": {
+    "today": "اليوم",
+    "noActivity": "لا يوجد نشاطات اليوم",
+    "salesFrom": "المبيعات من",
+
+    "filter": {
+      "sevenDays": "اخر 7 ايام",
+      "ThirtyDays": "اخر 30 يوم",
+      "NinetyDays": "اخر 90 يوم"
+    },
+    "stats": {
+      "sales": "المبيعات",
+      "checkIns": "تسجيلات الوصول",
+      "occupancyRate": "معدل الإشغال"
+    }
   }
 }

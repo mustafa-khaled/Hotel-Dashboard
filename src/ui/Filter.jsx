@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { useSearchParams } from "react-router-dom";
 
 function FilterButton({ active, children, onClick, disabled }) {
@@ -13,6 +14,8 @@ function FilterButton({ active, children, onClick, disabled }) {
 }
 
 function Filter({ filterField, options }) {
+  const [t] = useTranslation();
+
   // Updating The URL Using "SearchParams" Provided By React Router
   const [searchParams, setSearchParams] = useSearchParams();
   // Get The  Value To use To Set A unique styles to the button
@@ -35,7 +38,7 @@ function Filter({ filterField, options }) {
           active={option.value === filter}
           disabled={option.value === filter}
         >
-          {option.label}
+          {t(option.label)}
         </FilterButton>
       ))}
     </div>

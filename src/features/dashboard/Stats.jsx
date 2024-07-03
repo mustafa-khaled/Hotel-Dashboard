@@ -24,25 +24,25 @@ function Stats({ bookings, confirmedStays, numDays, cabinCount }) {
     <div className="grid grid-cols-[repeat(auto-fill,minmax(270px,1fr))] gap-[10px]">
       <Stat
         icon={<IoBriefcase className="text-xl" />}
-        title="Bookings"
+        title="sidebar.bookings"
         value={numBookings}
         color="#0000ff7a"
       />
       <Stat
         icon={<FaMoneyBillWave className="text-xl" />}
-        title="Sales"
+        title="dashboard.stats.sales"
         value={formatCurrency(sales)}
         color="#00800087"
       />
       <Stat
         icon={<FaCalendarAlt className="text-xl" />}
-        title="Check ins"
+        title="dashboard.stats.checkIns"
         value={checkins}
         color="#4b008282"
       />
       <Stat
         icon={<FaSignal className="text-xl" />}
-        title="Occupancy rate"
+        title="dashboard.stats.occupancyRate"
         value={`${Math.round(occupation * 100)}%`}
         color="#ffff0080"
       />
