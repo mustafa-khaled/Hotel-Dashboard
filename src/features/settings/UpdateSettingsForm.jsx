@@ -25,7 +25,7 @@ function UpdateSettingsForm() {
 
   if (isLoading) return <Spinner />;
   return (
-    <Form>
+    <form className="rounded-md bg-colorGrey2 p-[10px] md:p-[20px]">
       <FormRow label="Minimum nights/booking">
         <input
           type="number"
@@ -66,7 +66,7 @@ function UpdateSettingsForm() {
           onBlur={(e) => handleUpdate(e, "breakfastPrice")}
         />
       </FormRow>
-    </Form>
+    </form>
   );
 }
 

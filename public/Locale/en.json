@@ -11,6 +11,7 @@
     "users": "Users",
     "settings": "Settings"
   },
+
   "dashboard": {
     "today": "Today",
     "noActivity": "No activities today",
@@ -25,5 +26,47 @@
       "checkIns": "Check ins",
       "occupancyRate": "Occupancy rate"
     }
+  },
+
+  "bookings": {
+    "allBookings": "All bookings",
+    "addBooking": "Add new booking",
+    "filter": {
+      "all": "All",
+      "checkedOut": "Checked out",
+      "checkedIn": "Checked in",
+      "unconfirmed": "Unconfirmed",
+      "SortByRecentDate": "Sort by date (recent first)",
+      "SortByEarlierDate": "Sort by date (earlier first)",
+      "SortByHighAmount": "Sort by amount (high first)",
+      "SortByLowAmount": "Sort by amount (low first)"
+    }
+  },
+  "rooms": {
+    "allRooms": "All rooms",
+    "addRoom": "Add new room",
+    "filter": {
+      "all": "All",
+      "noDiscount": "No Discount",
+      "withDiscount": "With Discount",
+      "sortByNameA-Z": "Sort By Name (A-Z)",
+      "sortByNameZ-A": "Sort By Name (Z-A)",
+      "sortByLowPrice": "Sort By Price (low first)",
+      "sortByHightPrice": "Sort By Price (hight first)",
+      "sortByLowCapacity": "Sort By Capacity (low first)",
+      "sortByHightCapacity": "Sort By Capacity (hight first)"
+    }
+  },
+
+  "guests": {
+    "allGuests": "All guests",
+    "addNewGuests": "Add new guests",
+    "searchByName": "Search by guest name"
+  },
+  "users": {
+    "createUser": "Create a new user"
+  },
+  "settings": {
+    "pageTitle": "Update hotel settings"
   }
 }

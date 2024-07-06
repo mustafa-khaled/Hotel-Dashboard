@@ -66,7 +66,7 @@
 
 @layer components {
   .form-input {
-    @apply w-full rounded-md border-[2px] border-colorGrey2 bg-colorGrey p-[7px] text-textColor outline-none transition-all placeholder:text-sm focus:border-colorBrand;
+    @apply w-full rounded-md border-[2px] border-colorGrey2 bg-colorGrey p-[10px] text-textColor outline-none transition-all placeholder:text-sm focus:border-colorBrand;
   }
 }
 

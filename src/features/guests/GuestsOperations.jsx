@@ -1,8 +1,11 @@
 import { useState, useCallback } from "react";
 import { useSearchParams } from "react-router-dom";
 import { debounce } from "../../utils/helpers";
+import { useTranslation } from "react-i18next";
 
 function GuestsOperations() {
+  const [t] = useTranslation();
+
   const [searchParams, setSearchParams] = useSearchParams();
   const search = searchParams.get("search") || "";
   const [searchValue, setSearchValue] = useState(search);
@@ -28,7 +31,7 @@ function GuestsOperations() {
     <div className="flex flex-col items-end justify-end gap-[10px] lg:flex-row lg:items-center">
       <input
         className="form-input"
-        placeholder="Search By Name"
+        placeholder={t("guests.searchByName")}
         value={searchValue}
         onChange={handleChange}
       />

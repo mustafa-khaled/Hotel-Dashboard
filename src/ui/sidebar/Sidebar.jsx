@@ -12,7 +12,7 @@ function Sidebar({ showSidebar, closeSidebar }) {
         className={`fixed ${showSidebar ? "left-0" : "left-[-400px]"} top-0 z-50 flex h-[100vh] w-[300px] flex-col justify-center border-textColor bg-colorGrey2 px-[20px] transition-all md:static`}
       >
         <Logo />
-        <MainNav />
+        <MainNav closeSidebar={closeSidebar} />
       </aside>
 
       <div

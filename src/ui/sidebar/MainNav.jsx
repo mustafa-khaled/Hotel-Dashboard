@@ -38,7 +38,7 @@ const links = [
   },
 ];
 
-function MainNav() {
+function MainNav({ closeSidebar }) {
   const [t] = useTranslation();
 
   return (
@@ -46,7 +46,7 @@ function MainNav() {
       <ul className="flex flex-col gap-[10px]">
         {links?.map((link) => {
           return (
-            <li key={link.to}>
+            <li key={link.to} onClick={closeSidebar}>
               <NavLink
                 className="flex items-center gap-[10px] rounded-md bg-colorGrey p-[8px] text-lg"
                 to={link.to}

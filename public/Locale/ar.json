@@ -26,5 +26,46 @@
       "checkIns": "تسجيلات الوصول",
       "occupancyRate": "معدل الإشغال"
     }
+  },
+  "bookings": {
+    "allBookings": "جميع الحجوزات",
+    "addBooking": "اضافه حجز جديد",
+    "filter": {
+      "all": "الكل",
+      "checkedOut": "تسجيلات الخروج",
+      "checkedIn": "تسجيلات الوصول",
+      "unconfirmed": "غير مؤكد",
+      "SortByRecentDate": "فرز حسب التاريخ (الأخير أولاً)",
+      "SortByEarlierDate": "فرز حسب التاريخ (الأقدم أولاً)",
+      "SortByHighAmount": "فرز حسب الكمية (الأعلى أولاً)",
+      "SortByLowAmount": "فرز حسب الكمية (الاقل أولاً)"
+    }
+  },
+
+  "rooms": {
+    "allRooms": "كل الغرف",
+    "addRoom": "اضافه غرفه جديده",
+    "filter": {
+      "all": "الكل",
+      "noDiscount": "لا يوجد خصم",
+      "withDiscount": "مع الخصم",
+      "sortByNameA-Z": "الترتيب حسب الاسم (أ - ي)",
+      "sortByNameZ-A": "فرز حسب الاسم (ي - أ)",
+      "sortByLowPrice": "فرز حسب السعر (الأقل أولا)",
+      "sortByHightPrice": "فرز حسب السعر (الاغلي أولا)",
+      "sortByLowCapacity": "فرز حسب السعة (المنخفض أولاً)",
+      "sortByHightCapacity": "فرز حسب السعة (الارتفاع أولاً)"
+    }
+  },
+  "guests": {
+    "allGuests": "كل الضيوف",
+    "addNewGuests": "اضافه ضيف جديد",
+    "searchByName": "البحث ياسم الضيف"
+  },
+  "users": {
+    "createUser": "إنشاء مستخدم جديد"
+  },
+  "settings": {
+    "pageTitle": "تحديث إعدادات الفندق"
   }
 }

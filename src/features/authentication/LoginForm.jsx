@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { useLogin } from "./useLogin";
+
 import Button from "../../ui/Button";
-import Form from "../../ui/form/Form";
-import FormRow from "../../ui/formRow/FormRow";
 import SpinnerMini from "../../ui/spinnerMini/SpinnerMini";
 
 function LoginForm() {
@@ -26,8 +25,11 @@ function LoginForm() {
   }
 
   return (
-    <Form submit={handleSubmit}>
-      <FormRow label="Email address" orientation="vertical">
+    <form
+      onSubmit={handleSubmit}
+      className="flex flex-col gap-[10px] rounded-md bg-colorGrey2 p-[20px]"
+    >
+      <div>
         <input
           className="form-input"
           type="email"
@@ -38,8 +40,8 @@ function LoginForm() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-      </FormRow>
-      <FormRow label="Password" orientation="vertical">
+      </div>
+      <div>
         <input
           className="form-input"
           type="password"
@@ -49,14 +51,16 @@ function LoginForm() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-      </FormRow>
+      </div>
 
-      <FormRow orientation="vertical" disabled={isLoading}>
-        <Button size="large" variation={isLoading ? "secondary" : "primary"}>
-          {!isLoading ? "Login" : <SpinnerMini />}
-        </Button>
-      </FormRow>
-    </Form>
+      <Button
+        size="medium"
+        variation={isLoading ? "secondary" : "primary"}
+        disabled={isLoading}
+      >
+        {!isLoading ? "Login" : <SpinnerMini />}
+      </Button>
+    </form>
   );
 }
 
