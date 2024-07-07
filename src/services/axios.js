@@ -1,12 +1,7 @@
-import IAxios from "axios";
+import axios from "axios";
 
 const baseURL = import.meta.env.VITE_BASE_URL;
 
-export const axios = IAxios.create({
-  timeout: 10000,
+export default axios.create({
   baseURL: baseURL,
-});
-
-axios.interceptors.request.use((config) => {
-  return config;
 });

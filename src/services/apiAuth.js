@@ -1,3 +1,4 @@
+import axios from "./axios";
 import supabase from "./supabase";
 import { supabaseUrl } from "./supabase";
 
@@ -17,15 +18,17 @@ export async function signup({ fullName, email, password }) {
   return data;
 }
 
-export async function login({ email, password }) {
-  const { data, error } = await supabase.auth.signInWithPassword({
-    email,
-    password,
-  });
-
-  if (error) throw new Error(error.message);
-
-  return data;
+export async function login(email, password) {
+  try {
+    const response = await axios.post("auth/v1/login", {
+      email,
+      password,
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Login error:", error);
+    throw error;
+  }
 }
 
 export async function getCurrentUser() {

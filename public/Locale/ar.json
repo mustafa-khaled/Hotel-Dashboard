@@ -1,7 +1,11 @@
 {
   "general": {
     "arabic": "العربيه",
-    "english": "الانجليزيه"
+    "english": "الانجليزيه",
+    "email": "البريد الالكتروني",
+    "password": "كلمه المرور",
+    "passwordPlaceholder": "كلمه المرور الخاصه بك",
+    "emailPlaceholder": "البريد الالكتروني الخاص بك"
   },
   "sidebar": {
     "dashboard": "لوحه التحكم",
@@ -67,5 +71,9 @@
   },
   "settings": {
     "pageTitle": "تحديث إعدادات الفندق"
+  },
+  "login": {
+    "title": "تسجيل الدخول إلى حسابك",
+    "login": "تسجيل الدخول"
   }
 }

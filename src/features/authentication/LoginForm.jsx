@@ -1,36 +1,49 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useLogin } from "./useLogin";
+import { useForm } from "react-hook-form";
 
 import Button from "../../ui/Button";
 import SpinnerMini from "../../ui/spinnerMini/SpinnerMini";
 
+const initialState = {
+  email: "",
+  password: "",
+};
+
 function LoginForm() {
-  const [email, setEmail] = useState("user@user.com");
-  const [password, setPassword] = useState("12345678");
+  const [t] = useTranslation();
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const { login, isLoading } = useLogin();
 
-  function handleSubmit(e) {
-    e.preventDefault();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm({
+    defaultValues: initialState,
+  });
 
-    if (!email || !password) return;
-    login(
-      { email, password },
-      {
-        onSettled: () => {
-          setEmail("");
-          setPassword("");
-        },
-      },
-    );
+  function onSubmit(data) {
+    console.log(email, password);
+
+    login(email, password);
   }
 
   return (
     <form
-      onSubmit={handleSubmit}
+      onSubmit={handleSubmit(onSubmit)}
       className="flex flex-col gap-[10px] rounded-md bg-colorGrey2 p-[20px]"
     >
       <div>
+        <label className="mx-[2px] mb-[5px] block text-start">
+          {t("general.email")}:
+        </label>
         <input
+          placeholder={t("general.emailPlaceholder")}
           className="form-input"
           type="email"
           id="email"
@@ -42,7 +55,11 @@ function LoginForm() {
         />
       </div>
       <div>
+        <label className="mx-[2px] mb-[5px] block text-start">
+          {t("general.password")}:
+        </label>
         <input
+          placeholder={t("general.passwordPlaceholder")}
           className="form-input"
           type="password"
           id="password"
@@ -58,7 +75,7 @@ function LoginForm() {
         variation={isLoading ? "secondary" : "primary"}
         disabled={isLoading}
       >
-        {!isLoading ? "Login" : <SpinnerMini />}
+        {!isLoading ? t("login.login") : <SpinnerMini />}
       </Button>
     </form>
   );

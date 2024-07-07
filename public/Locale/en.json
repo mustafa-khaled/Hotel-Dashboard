@@ -1,7 +1,11 @@
 {
   "general": {
     "arabic": "Arabic",
-    "english": "English"
+    "english": "English",
+    "email": "Email",
+    "password": "Password",
+    "passwordPlaceholder": "Your Password",
+    "emailPlaceholder": "Your email"
   },
   "sidebar": {
     "dashboard": "Dashboard",
@@ -68,5 +72,9 @@
   },
   "settings": {
     "pageTitle": "Update hotel settings"
+  },
+  "login": {
+    "title": "Login to your account",
+    "login": "Login"
   }
 }
