@@ -75,6 +75,10 @@
   },
   "login": {
     "title": "Login to your account",
-    "login": "Login"
+    "login": "Login",
+    "passwordInValid": "Password not valid",
+    "emailInValid": "Email not valid",
+    "loginFailed": "Failed to login",
+    "successLogin": "You logged in successfully"
   }
 }

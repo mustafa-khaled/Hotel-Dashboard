@@ -18,7 +18,7 @@ export async function signup({ fullName, email, password }) {
   return data;
 }
 
-export async function login(email, password) {
+export async function login({ email, password }) {
   try {
     const response = await axios.post("auth/v1/login", {
       email,
@@ -32,6 +32,8 @@ export async function login(email, password) {
 }
 
 export async function getCurrentUser() {
+  const currentUserToken = localStorage.getItem("USER_TOKEN");
+
   const { data: session } = await supabase.auth.getSession();
   if (!session.session) return null;
 

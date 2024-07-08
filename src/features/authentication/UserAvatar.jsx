@@ -1,8 +1,11 @@
 import { useUser } from "../../features/authentication/useUser";
 
 const UserAvatar = () => {
-  const { user } = useUser();
-  const { fullName, avatar } = user?.user_metadata;
+  // const { user } = useUser();
+  // const { fullName, avatar } = user?.user_metadata;
+
+  const fullName = "Mustafa";
+  const avatar = "/public/logo-dark.png";
 
   return (
     <div className={"flex items-center gap-[10px]"}>

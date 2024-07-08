@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useLogin } from "./useLogin";
 import { useForm } from "react-hook-form";
+import { toast } from "react-hot-toast";
 
 import Button from "../../ui/Button";
 import SpinnerMini from "../../ui/spinnerMini/SpinnerMini";
@@ -28,9 +29,23 @@ function LoginForm() {
   });
 
   function onSubmit(data) {
-    console.log(email, password);
-
-    login(email, password);
+    login(
+      { email, password },
+      {
+        onSuccess: () => {
+          toast.success(t("login.successLogin"));
+        },
+        onError: (error) => {
+          if (error?.response?.data?.msg === "password not valid") {
+            toast.error(t("login.passwordInValid"));
+          } else if (error?.response?.data?.msg === "email not valid") {
+            toast.error(t("login.emailInValid"));
+          } else {
+            toast.error(t("login.loginFailed"));
+          }
+        },
+      },
+    );
   }
 
   return (
