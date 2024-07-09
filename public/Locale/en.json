@@ -5,7 +5,17 @@
     "email": "Email",
     "password": "Password",
     "passwordPlaceholder": "Your Password",
-    "emailPlaceholder": "Your email"
+    "emailPlaceholder": "Your email",
+    "yes": "Yes",
+    "cancel": "Cancel",
+    "logoutMessage": "Are you sure you want to log out?",
+    "onlySpaces": "It Mustn't contains only spaces",
+    "emailPattern": "Enter a valid email.",
+    "minLength": "Enter at least 3 letters",
+    "maxLength": "You have exceeds max length (50)",
+    "emailIsRequired": "Email is required",
+    "passwordIsRequired": "Password is required",
+    "passwordLength": "Enter at least 8 letters"
   },
   "sidebar": {
     "dashboard": "Dashboard",

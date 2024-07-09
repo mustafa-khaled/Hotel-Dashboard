@@ -5,7 +5,17 @@
     "email": "البريد الالكتروني",
     "password": "كلمه المرور",
     "passwordPlaceholder": "كلمه المرور الخاصه بك",
-    "emailPlaceholder": "البريد الالكتروني الخاص بك"
+    "emailPlaceholder": "البريد الالكتروني الخاص بك",
+    "yes": "نعم",
+    "cancel": "الغاء",
+    "logoutMessage": "هل أنت متأكد أنك تريد تسجيل الخروج؟",
+    "onlySpaces": "لا يجب أن يحتوي على مسافات فقط",
+    "emailPattern": "أدخل بريد إلكتروني صالح.",
+    "minLength": "أدخل 3 أحرف على الأقل",
+    "maxLength": "لقد تجاوزت الحد الأقصي للطول (50)",
+    "emailIsRequired": "البريد الالكتروني مطلوب",
+    "passwordIsRequired": "كلمة المرور مطلوبة",
+    "passwordLength": "أدخل 8 حروف علي الاقل"
   },
   "sidebar": {
     "dashboard": "لوحه التحكم",

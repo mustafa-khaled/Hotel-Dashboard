@@ -26,7 +26,7 @@ export const getToday = function (options = {}) {
 
 export const formatCurrency = (value) =>
   new Intl.NumberFormat("en", { style: "currency", currency: "USD" }).format(
-    value
+    value,
   );
 
 export function debounce(func, wait) {
@@ -36,3 +36,7 @@ export function debounce(func, wait) {
     timeout = setTimeout(() => func.apply(this, args), wait);
   };
 }
+
+export const isOnlySpaces = (value) => {
+  return !value?.trim();
+};

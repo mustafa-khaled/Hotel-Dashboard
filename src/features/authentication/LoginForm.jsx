@@ -1,9 +1,15 @@
-import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useLogin } from "./useLogin";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
+import { isOnlySpaces } from "../../utils/helpers";
+import {
+  EMAIL_REGEX,
+  MAX_INPUT_LENGTH,
+  MIN_INPUT_LENGTH,
+} from "../../utils/constants";
 
+import Input from "../../ui/Input";
 import Button from "../../ui/Button";
 import SpinnerMini from "../../ui/spinnerMini/SpinnerMini";
 
@@ -14,8 +20,7 @@ const initialState = {
 
 function LoginForm() {
   const [t] = useTranslation();
-  const [email, setEmail] = useState("mostafa3@mail.com");
-  const [password, setPassword] = useState("12345678");
+
   const { login, isLoading } = useLogin();
 
   const {
@@ -28,11 +33,14 @@ function LoginForm() {
   });
 
   function onSubmit(data) {
+    const { email, password } = data;
+
     login(
       { email, password },
       {
         onSuccess: () => {
           toast.success(t("login.successLogin"));
+          reset();
         },
         onError: (error) => {
           if (error?.response?.data?.msg === "password not valid") {
@@ -52,43 +60,46 @@ function LoginForm() {
       onSubmit={handleSubmit(onSubmit)}
       className="flex flex-col gap-[10px] rounded-md bg-colorGrey2 p-[20px]"
     >
-      <div>
-        <label className="mx-[2px] mb-[5px] block text-start">
-          {t("general.email")}:
-        </label>
-        <input
-          placeholder={t("general.emailPlaceholder")}
-          className="form-input"
-          type="email"
-          id="email"
-          disabled={isLoading}
-          // This makes this form better for password managers
-          autoComplete="username"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-      </div>
-      <div>
-        <label className="mx-[2px] mb-[5px] block text-start">
-          {t("general.password")}:
-        </label>
-        <input
-          placeholder={t("general.passwordPlaceholder")}
-          className="form-input"
-          type="password"
-          id="password"
-          disabled={isLoading}
-          autoComplete="current-password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-      </div>
-
-      <Button
-        size="medium"
-        variation={isLoading ? "secondary" : "primary"}
+      <Input
+        placeholder={t("general.email")}
         disabled={isLoading}
-      >
+        error={errors?.email?.message}
+        {...register("email", {
+          required: t("general.emailIsRequired"),
+          validate: {
+            noOnlySpaces: (value) =>
+              !isOnlySpaces(value) || t("general.onlySpaces"),
+          },
+          pattern: {
+            value: EMAIL_REGEX,
+            message: t("general.emailPattern"),
+          },
+          minLength: {
+            value: MIN_INPUT_LENGTH,
+            message: t("general.minLength"),
+          },
+          maxLength: {
+            value: MAX_INPUT_LENGTH,
+            message: t("general.maxLength"),
+          },
+        })}
+      />
+
+      <Input
+        placeholder={t("general.passwordPlaceholder")}
+        type="password"
+        disabled={isLoading}
+        error={errors?.password?.message}
+        {...register("password", {
+          required: t("general.passwordIsRequired"),
+          minLength: {
+            value: 8,
+            message: t("general.passwordLength"),
+          },
+        })}
+      />
+
+      <Button type="submit" disabled={isLoading}>
         {!isLoading ? t("login.login") : <SpinnerMini />}
       </Button>
     </form>
