@@ -56,7 +56,7 @@
 
 .links-list ul li > a.active {
   background-color: var(--color-brand-700);
-  color: #e5e7eb;
+  color: var(--color-grey-900);
 }
 
 /* scrollbar Syles */

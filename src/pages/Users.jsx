@@ -7,7 +7,9 @@ function NewUsers() {
 
   return (
     <div className="flex flex-col gap-[15px]">
-      <Heading>{t("users.createUser")}</Heading>
+      <div className="flex items-center justify-between gap-[10px] rounded-md bg-colorGrey2 p-[15px]">
+        <Heading>{t("users.createUser")}</Heading>
+      </div>
       <SignupForm />
     </div>
   );

@@ -9,7 +9,7 @@ function Sidebar({ showSidebar, closeSidebar }) {
     <>
       <aside
         ref={ref}
-        className={`fixed ${showSidebar ? "left-0" : "left-[-400px]"} top-0 z-50 flex h-[100vh] w-[300px] flex-col justify-center border-textColor bg-colorGrey2 px-[20px] transition-all md:static`}
+        className={`fixed ${showSidebar ? "ltr:left-0 rtl:right-0" : "ltr:left-[-400px] rtl:right-[-400px]"} top-0 z-50 flex h-[100vh] w-[300px] flex-col justify-start gap-[30px] border-textColor bg-colorGrey2 px-[20px] transition-all md:static`}
       >
         <Logo />
         <MainNav closeSidebar={closeSidebar} />

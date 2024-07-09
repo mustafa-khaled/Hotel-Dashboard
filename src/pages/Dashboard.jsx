@@ -9,10 +9,12 @@ function Dashboard() {
 
   return (
     <div className="flex flex-col gap-[15px]">
-      <Row>
-        <Heading>{t("sidebar.dashboard")}</Heading>
-        <DashboardFilter />
-      </Row>
+      <div className="rounded-md bg-colorGrey2 p-[15px]">
+        <Row>
+          <Heading>{t("sidebar.dashboard")}</Heading>
+          <DashboardFilter />
+        </Row>
+      </div>
 
       <DashboardLayout />
     </div>

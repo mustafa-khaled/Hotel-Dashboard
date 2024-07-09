@@ -3,7 +3,7 @@ const Select = ({ options, value, onChange, ...props }) => {
     <select
       value={value}
       onChange={onChange}
-      className="border-none bg-colorGrey2 p-[15px] outline-none"
+      className="rounded-md border-none bg-colorGrey2 p-[15px] outline-none"
     >
       {options.map((option) => (
         <option key={option.value} value={option.value} className="p-[10px]">

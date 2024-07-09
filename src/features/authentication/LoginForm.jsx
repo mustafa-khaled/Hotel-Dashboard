@@ -14,9 +14,8 @@ const initialState = {
 
 function LoginForm() {
   const [t] = useTranslation();
-
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("mostafa3@mail.com");
+  const [password, setPassword] = useState("12345678");
   const { login, isLoading } = useLogin();
 
   const {

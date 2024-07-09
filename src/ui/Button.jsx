@@ -1,53 +1,23 @@
-const Button = ({ size, variation, children, onClick, type, disabled }) => {
-  let sizeClasses = "";
-  let variationClasses = "";
-
-  // Define size classes
-  switch (size) {
-    case "small":
-      sizeClasses = "sm:text-sm text-xs py-1 px-2 uppercase font-semibold";
-      break;
-    case "medium":
-      sizeClasses = "text-lg py-2 px-3 font-medium";
-      break;
-    case "large":
-      sizeClasses = "text-[1.6rem] py-3 px-6 font-medium";
-      break;
-    default:
-      sizeClasses = "text-[1.4rem] py-3 px-4 font-medium";
-  }
-
-  // Define variation classes
-  switch (variation) {
-    case "primary":
-      variationClasses = "text-brand-50 bg-colorBrand hover:bg-brand-700";
-      break;
-    case "secondary":
-      variationClasses =
-        "text-grey-600 bg-grey-0 border border-grey-200 hover:bg-grey-50";
-      break;
-    case "danger":
-      variationClasses = "text-red-100 bg-red-700 hover:bg-red-800";
-      break;
-    default:
-      variationClasses = "text-brand-50 bg-colorBrand hover:bg-brand-700";
-  }
-
+export default function Button({
+  children,
+  type = "button",
+  onClick,
+  variation = "colorBrand",
+  Font = "text-base font-bold h-[45px]",
+  disabled,
+}) {
   return (
     <button
-      disabled={disabled}
-      type={type}
-      className={`cursor-pointer rounded-md border-none text-center shadow-sm ${sizeClasses} ${variationClasses}`}
       onClick={onClick}
+      type={type}
+      disabled={disabled}
+      className={`w-full rounded-md border ${Font} text-bgColor transition-all ${
+        variation === "secondary" && !disabled
+          ? `border-darkB text-darkB bg-colorGrey2 hover:border-colorBrand ${!disabled && "hover:text-bgColor hover:bg-colorBrand"}`
+          : `bg-colorBrand ${!disabled && "hover:bg-opacity-[0.8]"}`
+      } ${disabled && "cursor-not-allowed border-slate-400 bg-slate-400"}`}
     >
       {children}
     </button>
   );
-};
-
-Button.defaultProps = {
-  variation: "primary",
-  size: "medium",
-};
-
-export default Button;
+}

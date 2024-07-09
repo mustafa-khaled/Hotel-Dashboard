@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import { MdDashboard } from "react-icons/md";
 import { FaRectangleList, FaGears, FaUsersGear } from "react-icons/fa6";
 import { FaLaptopHouse, FaUsers } from "react-icons/fa";
+import LogoutOutBtn from "./LogoutOutBtn";
 
 const links = [
   {
@@ -48,7 +49,7 @@ function MainNav({ closeSidebar }) {
           return (
             <li key={link.to} onClick={closeSidebar}>
               <NavLink
-                className="flex items-center gap-[10px] rounded-md bg-colorGrey p-[8px] text-lg"
+                className="flex items-center gap-[15px] rounded-md bg-colorGrey p-[13px] text-lg"
                 to={link.to}
               >
                 {link.icon}
@@ -57,6 +58,7 @@ function MainNav({ closeSidebar }) {
             </li>
           );
         })}
+        <LogoutOutBtn />
       </ul>
     </nav>
   );

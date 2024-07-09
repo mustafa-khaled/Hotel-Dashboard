@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import Logout from "../../features/authentication/Logout";
 import UserAvatar from "../../features/authentication/UserAvatar";
 import DarkModeToggle from "../darkModeToggle/DarkModeToggle";
 import ToggleSidebar from "./ToggleSidebar";
@@ -23,7 +22,6 @@ function Header({ toggleSidebar }) {
         >
           <i className="fa-regular fa-user"></i>
         </div>
-        <Logout />
       </div>
     </header>
   );

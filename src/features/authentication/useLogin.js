@@ -10,8 +10,10 @@ export function useLogin() {
     mutationFn: ({ email, password }) => loginApi({ email, password }),
 
     onSuccess: (user) => {
-      localStorage.setItem("USER_TOKEN", user?.token);
-      queryClient.setQueryData(["user"], user.user);
+      const { user: userData, role } = user;
+
+      localStorage.setItem("USER_TOKEN", userData?.token);
+      queryClient.setQueryData(["user"], { ...user, role });
       navigate("/dashboard", { replace: true });
     },
   });

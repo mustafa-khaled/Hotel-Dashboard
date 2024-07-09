@@ -7,14 +7,9 @@ import Form from "../../ui/form/Form";
 import FormRow from "../../ui/formRow/FormRow";
 
 function UpdateUserDataForm() {
-  const {
-    user: {
-      email,
-      user_metadata: { fullName: currentFullName },
-    },
-  } = useUser();
+  const { userName } = useUser();
 
-  const [fullName, setFullName] = useState(currentFullName);
+  const [fullName, setFullName] = useState(userName);
   const [avatar, setAvatar] = useState(null);
 
   const { updateUser, isUpdating } = useUpdateUser();
@@ -37,14 +32,14 @@ function UpdateUserDataForm() {
 
   function handleCancel(e) {
     // We don't even need preventDefault because this button was designed to reset the form
-    setFullName(currentFullName);
+    setFullName(userName);
     setAvatar(null);
   }
 
   return (
     <Form submit={handleSubmit}>
       <FormRow label="Email address">
-        <input className="form-input" value={email} disabled />
+        <input className="form-input" value={"email"} disabled />
       </FormRow>
       <FormRow label="Full name">
         <input

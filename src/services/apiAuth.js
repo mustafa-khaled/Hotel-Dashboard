@@ -32,15 +32,18 @@ export async function login({ email, password }) {
 }
 
 export async function getCurrentUser() {
-  const currentUserToken = localStorage.getItem("USER_TOKEN");
+  try {
+    const token = localStorage.getItem("USER_TOKEN");
 
-  const { data: session } = await supabase.auth.getSession();
-  if (!session.session) return null;
+    const response = await axios.post("USER/v1/verfiyUser", {
+      token,
+    });
 
-  const { data, error } = await supabase.auth.getUser();
-
-  if (error) throw new Error(error.message);
-  return data?.user;
+    return response.data;
+  } catch (error) {
+    console.error("Get current user error:", error);
+    throw error;
+  }
 }
 
 export async function logout() {

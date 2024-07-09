@@ -13,7 +13,8 @@
     "rooms": "الغرف",
     "guests": "الضيوف",
     "users": "المستخدمون",
-    "settings": "الاعدادات"
+    "settings": "الاعدادات",
+    "logout": "تسجيل خروج"
   },
   "dashboard": {
     "today": "اليوم",

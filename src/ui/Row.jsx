@@ -1,6 +1,6 @@
 function Row({ children }) {
   return (
-    <div className="flex items-center justify-between gap-[10px]">
+    <div className="flex flex-col justify-between gap-[10px] sm:flex-row sm:items-center">
       {children}
     </div>
   );

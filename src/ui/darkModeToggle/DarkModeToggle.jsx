@@ -1,4 +1,6 @@
 import { useDarkMode } from "../../context/DarkModeContext";
+import { LuSun } from "react-icons/lu";
+import { FaRegMoon } from "react-icons/fa";
 
 function DarkModeToggle() {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
@@ -6,13 +8,9 @@ function DarkModeToggle() {
   return (
     <div
       onClick={toggleDarkMode}
-      className="bg-colorGrey hover:text-colorBrand flex h-[30px] w-[30px] cursor-pointer items-center justify-center rounded-full"
+      className="flex h-[30px] w-[30px] cursor-pointer items-center justify-center rounded-full bg-colorGrey hover:text-colorBrand"
     >
-      {isDarkMode ? (
-        <i className="fa-regular fa-sun"></i>
-      ) : (
-        <i className="fa-regular fa-moon"></i>
-      )}
+      {isDarkMode ? <LuSun /> : <FaRegMoon />}
     </div>
   );
 }

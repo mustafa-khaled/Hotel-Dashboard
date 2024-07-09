@@ -30,7 +30,7 @@ function Filter({ filterField, options }) {
   }
 
   return (
-    <div className="flex gap-[10px] rounded-sm bg-colorGrey2 p-[7px] lg:p-[10px]">
+    <div className="flex gap-[10px] self-end rounded-sm bg-colorGrey2">
       {options.map((option) => (
         <FilterButton
           onClick={() => handleClick(option.value)}

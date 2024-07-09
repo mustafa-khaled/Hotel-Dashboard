@@ -7,15 +7,17 @@ function BookingTableOperations() {
 
   return (
     <div className="flex flex-col items-end justify-end gap-[10px] lg:flex-row lg:items-center">
-      <Filter
-        filterField="status"
-        options={[
-          { value: "all", label: t("bookings.filter.all") },
-          { value: "checked-out", label: t("bookings.filter.checkedOut") },
-          { value: "checked-in", label: t("bookings.filter.checkedIn") },
-          { value: "unconfirmed", label: t("bookings.filter.unconfirmed") },
-        ]}
-      />
+      <div className="rounded-md bg-colorGrey2 p-[8px]">
+        <Filter
+          filterField="status"
+          options={[
+            { value: "all", label: t("bookings.filter.all") },
+            { value: "checked-out", label: t("bookings.filter.checkedOut") },
+            { value: "checked-in", label: t("bookings.filter.checkedIn") },
+            { value: "unconfirmed", label: t("bookings.filter.unconfirmed") },
+          ]}
+        />
+      </div>
 
       <SortBy
         options={[

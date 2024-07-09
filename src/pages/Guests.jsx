@@ -3,17 +3,16 @@ import AddGuest from "../features/guests/AddGuest";
 import GuestsOperations from "../features/guests/GuestsOperations";
 import GuestsTable from "../features/guests/GuestsTable";
 import Heading from "../ui/Heading";
-import Row from "../ui/Row";
 
 function Guests() {
   const [t] = useTranslation();
 
   return (
     <div className="flex flex-col gap-[15px]">
-      <Row>
+      <div className="flex items-center justify-between gap-[10px] rounded-md bg-colorGrey2 p-[15px]">
         <Heading>{t("guests.allGuests")}</Heading>
         <AddGuest />
-      </Row>
+      </div>
       <GuestsOperations />
       {/* <GuestsTable /> */}
     </div>

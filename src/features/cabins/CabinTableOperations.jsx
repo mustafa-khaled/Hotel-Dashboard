@@ -7,14 +7,16 @@ function CabinTableOperations() {
 
   return (
     <div className="flex flex-col items-end justify-end gap-[10px] lg:flex-row lg:items-center">
-      <Filter
-        filterField="discount"
-        options={[
-          { value: "all", label: t("rooms.filter.all") },
-          { value: "no-discount", label: t("rooms.filter.noDiscount") },
-          { value: "with-discount", label: t("rooms.filter.withDiscount") },
-        ]}
-      />
+      <div className="rounded-md bg-colorGrey2 p-[8px]">
+        <Filter
+          filterField="discount"
+          options={[
+            { value: "all", label: t("rooms.filter.all") },
+            { value: "no-discount", label: t("rooms.filter.noDiscount") },
+            { value: "with-discount", label: t("rooms.filter.withDiscount") },
+          ]}
+        />
+      </div>
       <SortBy
         options={[
           { value: "name-asc", label: t("rooms.filter.sortByNameA-Z") },

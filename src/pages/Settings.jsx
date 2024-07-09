@@ -7,7 +7,9 @@ function Settings() {
 
   return (
     <div className="flex flex-col gap-[15px]">
-      <Heading>{t("settings.pageTitle")}</Heading>
+      <div className="flex items-center justify-between gap-[10px] rounded-md bg-colorGrey2 p-[15px]">
+        <Heading>{t("settings.pageTitle")}</Heading>
+      </div>
       <UpdateSettingsForm />
     </div>
   );

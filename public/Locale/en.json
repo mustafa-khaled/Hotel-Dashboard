@@ -13,7 +13,8 @@
     "rooms": "Rooms",
     "guests": "Guests",
     "users": "Users",
-    "settings": "Settings"
+    "settings": "Settings",
+    "logout": "Logout"
   },
 
   "dashboard": {
