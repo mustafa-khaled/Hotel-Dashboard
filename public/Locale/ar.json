@@ -15,7 +15,11 @@
     "maxLength": "لقد تجاوزت الحد الأقصي للطول (50)",
     "emailIsRequired": "البريد الالكتروني مطلوب",
     "passwordIsRequired": "كلمة المرور مطلوبة",
-    "passwordLength": "أدخل 8 حروف علي الاقل"
+    "passwordLength": "أدخل 8 حروف علي الاقل",
+    "name": "الاسم",
+    "description": "الوصف",
+    "image": "الصوره",
+    "actions": "أجراءات"
   },
   "sidebar": {
     "dashboard": "لوحه التحكم",
@@ -70,7 +74,10 @@
       "sortByHightPrice": "فرز حسب السعر (الاغلي أولا)",
       "sortByLowCapacity": "فرز حسب السعة (المنخفض أولاً)",
       "sortByHightCapacity": "فرز حسب السعة (الارتفاع أولاً)"
-    }
+    },
+    "capacity": "السعه",
+    "price": "السعر",
+    "discount": "الخصم"
   },
   "guests": {
     "allGuests": "كل الضيوف",

@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import Filter from "../../ui/Filter";
 import SortBy from "../../ui/SortBy";
 
-function CabinTableOperations() {
+function RoomTableOperations() {
   const [t] = useTranslation();
 
   return (
@@ -43,4 +43,4 @@ function CabinTableOperations() {
   );
 }
 
-export default CabinTableOperations;
+export default RoomTableOperations;

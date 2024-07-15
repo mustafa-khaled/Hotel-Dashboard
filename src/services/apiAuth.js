@@ -1,6 +1,5 @@
 import axios from "./axios";
-import supabase from "./supabase";
-import { supabaseUrl } from "./supabase";
+import supabase, { supabaseUrl } from "./supabase";
 
 export async function signup({ fullName, email, password }) {
   const { data, error } = await supabase.auth.signUp({
@@ -44,11 +43,6 @@ export async function getCurrentUser() {
     console.error("Get current user error:", error);
     throw error;
   }
-}
-
-export async function logout() {
-  const { error } = await supabase.auth.signOut();
-  if (error) throw new Error(error.message);
 }
 
 export async function updateCurrentUser({ fullName, password, avatar }) {

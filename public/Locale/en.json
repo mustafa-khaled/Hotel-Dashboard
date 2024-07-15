@@ -15,7 +15,11 @@
     "maxLength": "You have exceeds max length (50)",
     "emailIsRequired": "Email is required",
     "passwordIsRequired": "Password is required",
-    "passwordLength": "Enter at least 8 letters"
+    "passwordLength": "Enter at least 8 letters",
+    "name": "Name",
+    "description": "Description",
+    "image": "Image",
+    "actions": "Actions"
   },
   "sidebar": {
     "dashboard": "Dashboard",
@@ -70,7 +74,10 @@
       "sortByHightPrice": "Sort By Price (hight first)",
       "sortByLowCapacity": "Sort By Capacity (low first)",
       "sortByHightCapacity": "Sort By Capacity (hight first)"
-    }
+    },
+    "capacity": "Capacity",
+    "price": "Price",
+    "discount": "discount"
   },
 
   "guests": {

@@ -3,7 +3,7 @@ import Button from "../../ui/Button";
 import Modal from "../../ui/modal/Modal";
 import CreateCabinForm from "./CreateCabinForm";
 
-function AddCabin() {
+function AddRoom() {
   const [t] = useTranslation();
 
   return (
@@ -21,4 +21,4 @@ function AddCabin() {
   );
 }
 
-export default AddCabin;
+export default AddRoom;

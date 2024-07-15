@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { useCabins } from "../cabins/useCabins";
+import { useRooms } from "../rooms/useRooms";
 
 import FormRow from "../../ui/formRow/FormRow";
 import Button from "../../ui/Button";
@@ -21,7 +21,7 @@ const trueOrFalse = [
 
 function CreateBookingForm({ onCloseModal }) {
   const { register, handleSubmit, setValue, watch, formState } = useForm();
-  const { isLoading, cabins = [] } = useCabins();
+  const { isLoading, cabins = [] } = useRooms();
 
   function onSubmit(data) {
     console.log(data);

@@ -19,7 +19,7 @@ const links = [
   {
     title: "sidebar.rooms",
     icon: <FaLaptopHouse />,
-    to: "/cabins",
+    to: "/rooms",
   },
   {
     title: "sidebar.guests",

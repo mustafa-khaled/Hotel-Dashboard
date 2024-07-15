@@ -1,14 +1,14 @@
 import supabase, { supabaseUrl } from "./supabase";
+import axios from "./axios";
 
-export async function getCabins() {
-  const { data, error } = await supabase.from("cabins").select("*");
+export async function getRooms(page = 1) {
+  try {
+    const response = await axios.get(`room/v1/AllRooms?page=${page}`);
 
-  if (error) {
-    console.log(error);
-    throw new Error("There was an error get Cabins Data");
+    return response.data;
+  } catch (error) {
+    throw new Error("Failed to get rooms!");
   }
-
-  return data;
 }
 
 export async function createEditCabin(newCabin, id) {
@@ -16,7 +16,7 @@ export async function createEditCabin(newCabin, id) {
 
   const imageName = `${Math.random()}-${newCabin.image.name}`.replaceAll(
     "/",
-    ""
+    "",
   );
   const imagePath = hasImagePath
     ? newCabin.image
@@ -50,7 +50,7 @@ export async function createEditCabin(newCabin, id) {
     await supabase.from("cabins").delete().eq("id", data.id);
     console.error(storageError);
     throw new Error(
-      "Cabin image could not be uploaded and the cabin was not created"
+      "Cabin image could not be uploaded and the cabin was not created",
     );
   }
 

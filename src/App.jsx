@@ -9,7 +9,6 @@ import AppLayout from "./ui/AppLayout";
 import ProtectedRoute from "./ui/ProtectedRoute";
 import Bookings from "./pages/Bookings";
 import Booking from "./pages/Booking";
-import Cabins from "./pages/Cabins";
 import Users from "./pages/Users";
 import Settings from "./pages/Settings";
 import Account from "./pages/Account";
@@ -17,6 +16,7 @@ import Login from "./pages/Login";
 import PageNotFound from "./pages/PageNotFound";
 import CheckIn from "./pages/CheckIn";
 import Guests from "./pages/Guests";
+import Rooms from "./pages/Rooms";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -46,7 +46,7 @@ function App() {
               <Route path="bookings/:bookingId" element={<Booking />} />
               <Route path="checkIn/:bookingId" element={<CheckIn />} />
 
-              <Route path="cabins" element={<Cabins />} />
+              <Route path="rooms" element={<Rooms />} />
               <Route path="guests" element={<Guests />} />
 
               <Route path="users" element={<Users />} />
