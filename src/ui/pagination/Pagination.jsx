@@ -1,15 +1,16 @@
 import { useSearchParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { PAGE_SIZE } from "../../utils/constants";
-import styles from "./Pagination.module.css";
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 
-function Pagination({ active, count }) {
+function Pagination({ count, pageCount }) {
+  const [t] = useTranslation();
+
   const [searchParams, setSearchParams] = useSearchParams();
 
   const currentPage = !searchParams.get("page")
     ? 1
     : Number(searchParams.get("page"));
-
-  const pageCount = Math.ceil(count / PAGE_SIZE);
 
   function nextPage() {
     const next = currentPage === pageCount ? currentPage : currentPage + 1;
@@ -24,36 +25,40 @@ function Pagination({ active, count }) {
   }
 
   if (pageCount <= 1) return null;
+
   return (
-    <div className={styles.pagination}>
-      <p className={styles.p}>
-        Showing <span> {(currentPage - 1) * PAGE_SIZE + 1} </span> to
+    <div
+      className={
+        "flex items-center justify-between rounded-md border-[2px] border-colorGrey2 bg-colorGrey p-[10px]"
+      }
+    >
+      <p className="flex gap-[4px]">
+        {t("general.showing")}{" "}
+        <span> {(currentPage - 1) * PAGE_SIZE + 1} </span> {t("general.to")}
         <span>
           {currentPage === pageCount ? count : currentPage + PAGE_SIZE}
         </span>
-        of <span>{count}</span>
-        Results
+        {t("general.of")} <span>{count}</span>
+        {t("general.results")}
       </p>
 
-      <div className={styles.buttons}>
+      <div className={"flex items-center justify-between gap-[20px]"}>
         <button
+          className={`flex items-center justify-between gap-[5px] ${currentPage === 1 && "cursor-not-allowed"}`}
           onClick={previousPage}
           disabled={currentPage === 1}
-          className={`${styles["pagination-button"]} ${
-            active ? styles.active : ""
-          }`}>
-          <i className="fa-solid fa-chevron-left"></i>
-          <span>Previous</span>
+        >
+          <MdKeyboardArrowLeft className="text-2xl rtl:scale-[-1]" />
+          <span>{t("general.previous")}</span>
         </button>
 
         <button
+          className={`flex items-center justify-between gap-[5px] ${currentPage === pageCount && "cursor-not-allowed"}`}
           onClick={nextPage}
           disabled={currentPage === pageCount}
-          className={`${styles["pagination-button"]} ${
-            active ? styles.active : ""
-          }`}>
-          <span>Next</span>
-          <i className="fa-solid fa-chevron-right"></i>
+        >
+          <span>{t("general.next")}</span>
+          <MdKeyboardArrowRight className="text-2xl rtl:scale-[-1]" />
         </button>
       </div>
     </div>

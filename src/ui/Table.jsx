@@ -1,14 +1,16 @@
 const Table = ({ children }) => {
   return (
-    <table className="w-full rounded-md border-[2px] border-colorGrey2 p-[10px] text-left text-sm rtl:text-right">
-      {children}
-    </table>
+    <div className="overflow-x-auto">
+      <table className="w-full border-[2px] border-colorGrey2 p-[10px] text-left text-sm rtl:text-right">
+        {children}
+      </table>
+    </div>
   );
 };
 
 const Header = ({ children }) => {
   return (
-    <thead className="rounded-md bg-colorGrey text-xs uppercase">
+    <thead className="bg-colorGrey text-xs uppercase">
       <tr>{children}</tr>
     </thead>
   );

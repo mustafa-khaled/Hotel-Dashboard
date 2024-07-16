@@ -19,7 +19,13 @@
     "name": "Name",
     "description": "Description",
     "image": "Image",
-    "actions": "Actions"
+    "actions": "Actions",
+    "showing": "Showing",
+    "to": "To",
+    "of": "Of",
+    "results": "Results",
+    "previous": "Previous",
+    "next": "Next"
   },
   "sidebar": {
     "dashboard": "Dashboard",

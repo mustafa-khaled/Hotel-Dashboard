@@ -19,7 +19,13 @@
     "name": "الاسم",
     "description": "الوصف",
     "image": "الصوره",
-    "actions": "أجراءات"
+    "actions": "أجراءات",
+    "showing": "عرض",
+    "to": "الي",
+    "of": "لـ",
+    "results": "نتائج",
+    "previous": "السابق",
+    "next": "التالي"
   },
   "sidebar": {
     "dashboard": "لوحه التحكم",

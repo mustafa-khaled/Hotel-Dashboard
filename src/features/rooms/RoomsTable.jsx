@@ -6,6 +6,7 @@ import Empty from "../../ui/empty/Empty";
 import Spinner from "../../ui/spinner/Spinner";
 import Table from "../../ui/Table";
 import RoomRow from "./RoomRow";
+import Pagination from "../../ui/pagination/Pagination";
 
 function RoomsTable() {
   const [t] = useTranslation();
@@ -14,7 +15,7 @@ function RoomsTable() {
   const [searchParams] = useSearchParams();
 
   // Fetch Cabins Hook
-  const { isLoading, rooms } = useRooms();
+  const { isLoading, rooms, totalPages } = useRooms();
 
   if (isLoading) return <Spinner />;
   if (!rooms.length) return <Empty resourceName="Rooms" />;
@@ -41,20 +42,24 @@ function RoomsTable() {
   );
 
   return (
-    <Table>
-      <Table.Header>
-        <Table.Cell isHeader>{t("general.image")}</Table.Cell>
-        <Table.Cell isHeader>{t("general.name")}</Table.Cell>
-        <Table.Cell isHeader>{t("rooms.capacity")}</Table.Cell>
-        <Table.Cell isHeader>{t("rooms.price")}</Table.Cell>
-        <Table.Cell isHeader>{t("rooms.discount")}</Table.Cell>
-        <Table.Cell isHeader>{t("general.actions")}</Table.Cell>
-      </Table.Header>
-      <Table.Body
-        data={sortedRooms}
-        render={(room) => <RoomRow room={room} key={room?._id} />}
-      />
-    </Table>
+    <>
+      <Table>
+        <Table.Header>
+          <Table.Cell isHeader>{t("general.image")}</Table.Cell>
+          <Table.Cell isHeader>{t("general.name")}</Table.Cell>
+          <Table.Cell isHeader>{t("rooms.capacity")}</Table.Cell>
+          <Table.Cell isHeader>{t("rooms.price")}</Table.Cell>
+          <Table.Cell isHeader>{t("rooms.discount")}</Table.Cell>
+          <Table.Cell isHeader>{t("general.actions")}</Table.Cell>
+        </Table.Header>
+        <Table.Body
+          data={sortedRooms}
+          render={(room) => <RoomRow room={room} key={room?._id} />}
+        />
+      </Table>
+
+      <Pagination count={5} pageCount={totalPages} />
+    </>
   );
 }
 

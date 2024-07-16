@@ -10,7 +10,9 @@ function AddRoom() {
     <div>
       <Modal>
         <Modal.Open opens="cabinForm">
-          <Button>{t("rooms.addRoom")}</Button>
+          <div className="w-[150px]">
+            <Button>{t("rooms.addRoom")}</Button>
+          </div>
         </Modal.Open>
 
         <Modal.Window name="cabinForm">

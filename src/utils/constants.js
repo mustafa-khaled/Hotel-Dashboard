@@ -1,4 +1,4 @@
-export const PAGE_SIZE = 10;
+export const PAGE_SIZE = 5;
 
 export const MIN_INPUT_LENGTH = 3;
 export const MAX_INPUT_LENGTH = 50;
