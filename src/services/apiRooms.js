@@ -11,6 +11,26 @@ export async function getRooms(page = 1) {
   }
 }
 
+export async function createRoom(room) {
+  try {
+    // const image = await uploadImage(room.image);
+    const response = await axios.post("room/v1/addRoom", {
+      name: room.name,
+      maxCapacity: room.maxCapacity,
+      RegularPrice: room.regularPrice,
+      discount: room.discount,
+      discription: room.description,
+      image:
+        "https://www.cvent.com/sites/default/files/image/2021-10/hotel%20room%20with%20beachfront%20view.jpg",
+    });
+
+    return response.data;
+  } catch (error) {
+    console.error("Create room error:", error);
+    throw error;
+  }
+}
+
 export async function createEditCabin(newCabin, id) {
   const hasImagePath = newCabin.image?.startsWith?.(supabaseUrl);
 

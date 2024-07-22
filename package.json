@@ -13,6 +13,7 @@
     "@tanstack/react-query": "^4.32.6",
     "@tanstack/react-query-devtools": "^4.32.6",
     "axios": "^1.7.2",
+    "cloudinary": "^2.3.0",
     "date-fns": "^2.30.0",
     "i18next-browser-languagedetector": "^8.0.0",
     "react": "^18.2.0",

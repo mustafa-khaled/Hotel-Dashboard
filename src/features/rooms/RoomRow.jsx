@@ -1,5 +1,8 @@
 import Table from "../../ui/Table";
 import AddEditRoom from "./AddEditRoom";
+import { CiEdit } from "react-icons/ci";
+import { AiOutlineDelete } from "react-icons/ai";
+import { BiShow } from "react-icons/bi";
 
 function RoomRow({ room }) {
   return (
@@ -16,11 +19,19 @@ function RoomRow({ room }) {
       <Table.Cell>{room.RegularPrice}</Table.Cell>
       <Table.Cell>{room.discount}</Table.Cell>
       <Table.Cell>
-        <AddEditRoom roomToEdit={room}>
-          <button>Edit</button>
-        </AddEditRoom>
+        <div className="flex items-center gap-[10px]">
+          <AddEditRoom roomToEdit={room}>
+            <CiEdit className="action-style" />
+          </AddEditRoom>
 
-        <button>Delete</button>
+          <button className="action-style">
+            <AiOutlineDelete />
+          </button>
+
+          <button className="action-style">
+            <BiShow />
+          </button>
+        </div>
       </Table.Cell>
     </Table.Row>
   );

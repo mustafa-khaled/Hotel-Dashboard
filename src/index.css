@@ -52,6 +52,10 @@
   .form-input {
     @apply w-full rounded-md border-[2px] border-colorGrey2 bg-colorGrey p-[10px] text-textColor outline-none transition-all placeholder:text-sm focus:border-colorBrand;
   }
+
+  .action-style {
+    @apply flex h-[30px] w-[30px] items-center justify-center rounded-md bg-colorGrey p-[5px] text-xl;
+  }
 }
 
 .links-list ul li > a.active {

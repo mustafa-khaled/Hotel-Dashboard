@@ -58,7 +58,7 @@ function RoomsTable() {
         />
       </Table>
 
-      <Pagination count={5} pageCount={totalPages} />
+      <Pagination count={7} pageCount={totalPages} />
     </>
   );
 }

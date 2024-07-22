@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { useCreateCabin } from "./useCreateCabin";
+import { useCreateRoom } from "./useCreateRoom";
 import { useUpdateCabin } from "./useUpdateCabin";
 import { useTranslation } from "react-i18next";
 import { isOnlySpaces } from "../../utils/helpers";
@@ -16,7 +16,7 @@ function CreateRoomForm({ roomToEdit = {}, onCloseModal }) {
   const [t] = useTranslation();
 
   // Create New Cabin Hook
-  const { isCreating, createCabin } = useCreateCabin();
+  const { isCreating, createCabin } = useCreateRoom();
 
   // Edit Cabin Hook
   const { isUpdating, updateCabin } = useUpdateCabin();
@@ -101,10 +101,6 @@ function CreateRoomForm({ roomToEdit = {}, onCloseModal }) {
             message: t("general.numbersOnly"),
           },
 
-          minLength: {
-            value: MIN_INPUT_LENGTH,
-            message: t("general.minLength"),
-          },
           maxLength: {
             value: MAX_INPUT_LENGTH,
             message: t("general.maxLength"),
