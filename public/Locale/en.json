@@ -16,6 +16,7 @@
     "emailIsRequired": "Email is required",
     "passwordIsRequired": "Password is required",
     "passwordLength": "Enter at least 8 letters",
+    "nameRequired": "Name is Required",
     "name": "Name",
     "description": "Description",
     "image": "Image",
@@ -25,7 +26,17 @@
     "of": "Of",
     "results": "Results",
     "previous": "Previous",
-    "next": "Next"
+    "next": "Next",
+    "maxCapacity": "Max capacity",
+    "maxCapacityRequired": "Max capacity is required",
+    "numbersOnly": "Numbers only",
+    "regularPriceyRequired": "Regular price is required",
+    "regularPrice": "Regular price",
+    "discount": "Discount",
+    "discountRequired": "Discount is required",
+    "discountMustBeLower": "Discount should be less than regular price",
+    "descriptionRequired": "Description is required",
+    "imageRequired": "Image is required"
   },
   "sidebar": {
     "dashboard": "Dashboard",

@@ -1,4 +1,5 @@
 import Table from "../../ui/Table";
+import AddEditRoom from "./AddEditRoom";
 
 function RoomRow({ room }) {
   return (
@@ -15,7 +16,10 @@ function RoomRow({ room }) {
       <Table.Cell>{room.RegularPrice}</Table.Cell>
       <Table.Cell>{room.discount}</Table.Cell>
       <Table.Cell>
-        <button>Edit</button>
+        <AddEditRoom roomToEdit={room}>
+          <button>Edit</button>
+        </AddEditRoom>
+
         <button>Delete</button>
       </Table.Cell>
     </Table.Row>

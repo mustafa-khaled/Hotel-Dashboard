@@ -27,10 +27,10 @@ function RoomsTable() {
   if (filteredValue === "all") filteredCabins = rooms;
 
   if (filteredValue === "no-discount")
-    filteredCabins = rooms.filter((cabin) => cabin.discount === 0);
+    filteredCabins = rooms.filter((cabin) => Number(cabin.discount) === 0);
 
   if (filteredValue === "with-discount")
-    filteredCabins = rooms.filter((cabin) => cabin.discount > 0);
+    filteredCabins = rooms.filter((cabin) => Number(cabin.discount) > 0);
 
   // Sort  The Value From The URL
   const sortedBy = searchParams.get("sortBy") || "startDate-asc";
