@@ -5,7 +5,6 @@ import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 
 function Pagination({ count, pageCount }) {
   const [t] = useTranslation();
-
   const [searchParams, setSearchParams] = useSearchParams();
 
   const currentPage = !searchParams.get("page")
@@ -36,7 +35,7 @@ function Pagination({ count, pageCount }) {
         {t("general.showing")}{" "}
         <span> {(currentPage - 1) * PAGE_SIZE + 1} </span> {t("general.to")}
         <span>
-          {currentPage === pageCount ? count : currentPage + PAGE_SIZE}
+          {currentPage === pageCount ? count : currentPage * PAGE_SIZE}
         </span>
         {t("general.of")} <span>{count}</span>
         {t("general.results")}
@@ -44,7 +43,7 @@ function Pagination({ count, pageCount }) {
 
       <div className={"flex items-center justify-between gap-[20px]"}>
         <button
-          className={`flex items-center justify-between gap-[5px] ${currentPage === 1 && "cursor-not-allowed"}`}
+          className={`flex items-center justify-between gap-[5px] ${currentPage === 1 ? "cursor-not-allowed" : ""}`}
           onClick={previousPage}
           disabled={currentPage === 1}
         >
@@ -53,7 +52,7 @@ function Pagination({ count, pageCount }) {
         </button>
 
         <button
-          className={`flex items-center justify-between gap-[5px] ${currentPage === pageCount && "cursor-not-allowed"}`}
+          className={`flex items-center justify-between gap-[5px] ${currentPage === pageCount ? "cursor-not-allowed" : ""}`}
           onClick={nextPage}
           disabled={currentPage === pageCount}
         >

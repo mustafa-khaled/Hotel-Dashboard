@@ -22,6 +22,7 @@ export function useRooms() {
     rooms: roomsData?.rooms,
     totalPages: roomsData?.totalPages,
     currentPage: roomsData?.currentPage,
+    count: roomsData?.NumberOfAllRooms,
     error,
   };
 }

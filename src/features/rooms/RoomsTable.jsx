@@ -15,7 +15,7 @@ function RoomsTable() {
   const [searchParams] = useSearchParams();
 
   // Fetch Cabins Hook
-  const { isLoading, rooms, totalPages } = useRooms();
+  const { isLoading, rooms, totalPages, count } = useRooms();
 
   if (isLoading) return <Spinner />;
   if (!rooms.length) return <Empty resourceName="Rooms" />;
@@ -58,7 +58,7 @@ function RoomsTable() {
         />
       </Table>
 
-      <Pagination count={7} pageCount={totalPages} />
+      <Pagination count={count} pageCount={totalPages} />
     </>
   );
 }
